@@ -1,0 +1,77 @@
+//
+//  ProductDetailView.swift
+//  PlantCodeiOS15
+//
+//  Created by Aeliana Shen on 6/14/23.
+//
+
+import SwiftUI
+
+struct ProductDetailView: View {
+    var plant: Plant
+    var body: some View {
+        ZStack {
+            Canvas { context, size in
+                context.draw(Image(systemName: "circle.fill"), in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            }
+            .frame(width: 500, height: 500, alignment: .center)
+            .foregroundStyle(.linearGradient(
+                colors: [.white, ProjColor.SnowDrift],
+                startPoint: .topTrailing,
+                endPoint: .bottomLeading))
+            .position( x: 200, y: 120)
+            
+            VStack {
+                Image(plant.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxHeight: 350, alignment: .top)
+                
+                VStack {
+                    ScrollView {
+                        Text(plant.name)
+                            .font(.largeTitle)
+                            .bold()
+                            .padding()
+                        
+                        Text(plant.category)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.gray)
+                            
+                        
+                        Text(plant.description)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.gray)
+                            .padding()
+                    }
+                    .frame(height: 280)
+                    
+                }
+                .frame(maxWidth: .infinity,
+                       maxHeight: 300, alignment: .top)
+               
+                
+            }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding()
+            
+            VStack {
+                HStack {
+                    SecondBtn(text: "AR simulate")
+                    SecondBtn(text: "Add to cart")
+                }
+            }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding()
+            
+        }
+    }
+}
+
+struct ProductDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductDetailView(plant: plantList[1])
+    }
+}

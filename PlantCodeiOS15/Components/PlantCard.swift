@@ -16,7 +16,7 @@ struct PlantCard: View {
         ZStack(alignment: .bottom){
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading){
-                    Text(plant.name)
+                    Text(plant.commonName)
                         .bold()
                     
                     Text("$\(plant.price)")

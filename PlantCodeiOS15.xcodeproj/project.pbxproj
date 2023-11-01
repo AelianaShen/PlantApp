@@ -32,6 +32,7 @@
 		B21D81D12A33F17400BDBE93 /* PrimaryBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D81D02A33F17400BDBE93 /* PrimaryBtn.swift */; };
 		B21D81D42A342BC500BDBE93 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D81D32A342BC500BDBE93 /* QuestionModel.swift */; };
 		B21D81DA2A35A06C00BDBE93 /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D81D92A35A06C00BDBE93 /* QuestionManager.swift */; };
+		B2C152D82AE236FB00042264 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C152D72AE236FB00042264 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		B21D81D02A33F17400BDBE93 /* PrimaryBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBtn.swift; sourceTree = "<group>"; };
 		B21D81D32A342BC500BDBE93 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		B21D81D92A35A06C00BDBE93 /* QuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
+		B2C152D72AE236FB00042264 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				B21D81D32A342BC500BDBE93 /* QuestionModel.swift */,
 				B205435B2A3A56BD00F1D86C /* PlantModel.swift */,
+				B2C152D72AE236FB00042264 /* ProductModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				B205435A2A3A4AF300F1D86C /* PlantCard.swift in Sources */,
 				B21D81C12A2E7C5E00BDBE93 /* AccountView.swift in Sources */,
 				B21D81D42A342BC500BDBE93 /* QuestionModel.swift in Sources */,
+				B2C152D82AE236FB00042264 /* ProductModel.swift in Sources */,
 				B205436A2A3FCC9400F1D86C /* ProductRow.swift in Sources */,
 				B21D81B92A219B9C00BDBE93 /* OnboardingView.swift in Sources */,
 				B21D81BF2A2E7B3000BDBE93 /* PreferSetView.swift in Sources */,
@@ -326,6 +330,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -379,6 +384,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

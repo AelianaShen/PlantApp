@@ -20,7 +20,7 @@ struct ProductRow: View {
                 .cornerRadius(10)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(plant.name)
+                Text(plant.commonName)
                     .bold()
                 
                 Text("$\(plant.price)")

@@ -29,12 +29,12 @@ struct ProductDetailView: View {
                 
                 VStack {
                     ScrollView {
-                        Text(plant.name)
+                        Text(plant.commonName)
                             .font(.largeTitle)
                             .bold()
                             .padding()
                         
-                        Text(plant.category)
+                        Text(plant.scientificName)
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)

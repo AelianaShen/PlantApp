@@ -17,7 +17,7 @@
 		B20543662A3FC37A00F1D86C /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20543652A3FC37A00F1D86C /* CartView.swift */; };
 		B20543682A3FC47C00F1D86C /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20543672A3FC47C00F1D86C /* CartManager.swift */; };
 		B205436A2A3FCC9400F1D86C /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20543692A3FCC9400F1D86C /* ProductRow.swift */; };
-		B21D81AC2A2130B900BDBE93 /* PlantCodeiOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D81AB2A2130B900BDBE93 /* PlantCodeiOS15App.swift */; };
+		B21D81AC2A2130B900BDBE93 /* PlantCodeiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D81AB2A2130B900BDBE93 /* PlantCodeiOSApp.swift */; };
 		B21D81B02A2130BA00BDBE93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21D81AF2A2130BA00BDBE93 /* Assets.xcassets */; };
 		B21D81B32A2130BA00BDBE93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21D81B22A2130BA00BDBE93 /* Preview Assets.xcassets */; };
 		B21D81B92A219B9C00BDBE93 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D81AD2A2130B900BDBE93 /* OnboardingView.swift */; };
@@ -47,7 +47,7 @@
 		B20543672A3FC47C00F1D86C /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		B20543692A3FCC9400F1D86C /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		B21D81A82A2130B900BDBE93 /* PlantCodeiOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantCodeiOS15.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B21D81AB2A2130B900BDBE93 /* PlantCodeiOS15App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCodeiOS15App.swift; sourceTree = "<group>"; };
+		B21D81AB2A2130B900BDBE93 /* PlantCodeiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCodeiOSApp.swift; sourceTree = "<group>"; };
 		B21D81AD2A2130B900BDBE93 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B21D81AF2A2130BA00BDBE93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B21D81B22A2130BA00BDBE93 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		B21D819F2A2130B900BDBE93 = {
 			isa = PBXGroup;
 			children = (
-				B21D81AA2A2130B900BDBE93 /* PlantCodeiOS15 */,
+				B21D81AA2A2130B900BDBE93 /* PlantCodeiOS */,
 				B21D81A92A2130B900BDBE93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,10 +92,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B21D81AA2A2130B900BDBE93 /* PlantCodeiOS15 */ = {
+		B21D81AA2A2130B900BDBE93 /* PlantCodeiOS */ = {
 			isa = PBXGroup;
 			children = (
-				B21D81AB2A2130B900BDBE93 /* PlantCodeiOS15App.swift */,
+				B21D81AB2A2130B900BDBE93 /* PlantCodeiOSApp.swift */,
 				B21D81D62A35005300BDBE93 /* Controllers */,
 				B21D81D52A35000000BDBE93 /* Views */,
 				B21D81D22A342B3400BDBE93 /* Models */,
@@ -104,7 +104,7 @@
 				B21D81AF2A2130BA00BDBE93 /* Assets.xcassets */,
 				B21D81B12A2130BA00BDBE93 /* Preview Content */,
 			);
-			path = PlantCodeiOS15;
+			path = PlantCodeiOS;
 			sourceTree = "<group>";
 		};
 		B21D81B12A2130BA00BDBE93 /* Preview Content */ = {
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B21D81A32A2130B900BDBE93 /* Build configuration list for PBXProject "PlantCodeiOS15" */;
+			buildConfigurationList = B21D81A32A2130B900BDBE93 /* Build configuration list for PBXProject "PlantCodeiOS" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -257,7 +257,7 @@
 				B21D81DA2A35A06C00BDBE93 /* QuestionManager.swift in Sources */,
 				B20543642A3FC0D200F1D86C /* CartButton.swift in Sources */,
 				B20543562A3A37B900F1D86C /* SearchBar.swift in Sources */,
-				B21D81AC2A2130B900BDBE93 /* PlantCodeiOS15App.swift in Sources */,
+				B21D81AC2A2130B900BDBE93 /* PlantCodeiOSApp.swift in Sources */,
 				B21D81BB2A21BBDC00BDBE93 /* ARDetectView.swift in Sources */,
 				B21D81BD2A2E765B00BDBE93 /* ContentView.swift in Sources */,
 				B21D81CF2A33B08000BDBE93 /* ProjColor.swift in Sources */,
@@ -396,7 +396,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PlantCodeiOS15/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PlantCodeiOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PlantCodeiOS15/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PlantCodeiOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -448,7 +448,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B21D81A32A2130B900BDBE93 /* Build configuration list for PBXProject "PlantCodeiOS15" */ = {
+		B21D81A32A2130B900BDBE93 /* Build configuration list for PBXProject "PlantCodeiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B21D81B42A2130BA00BDBE93 /* Debug */,

@@ -9,12 +9,11 @@ import SwiftUI
 
 struct AnswerRow: View {
     @EnvironmentObject var questionManager: QuestionManager
-    //@State private var isSelected = false
+    
     var text: String
-    var qnum: Int
+    var isSelected: Bool
     
     var body: some View {
-        let isSelected = questionManager.answerChoices[qnum] == text
         HStack(spacing: 20) {
             Text(text)
                 .bold()
@@ -33,7 +32,7 @@ struct AnswerRow: View {
         .shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
             if !isSelected {
-                questionManager.selectAnswer(ans: text)
+                questionManager.select(answer: text)
             } else {
                 questionManager.unselectAnswer()
             }
@@ -43,7 +42,7 @@ struct AnswerRow: View {
 
 struct AnswerRow_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerRow(text: "Option 1", qnum: 0)
+        AnswerRow(text: "Option 1", isSelected: false)
             .environmentObject(QuestionManager())
     }
 }

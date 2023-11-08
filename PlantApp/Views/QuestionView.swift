@@ -10,7 +10,6 @@ import SwiftUI
 struct QuestionView: View {
     @EnvironmentObject var questionManager: QuestionManager
     
-    var question: Question = questionData[5]
     var body: some View {
         VStack(spacing: 20){
             
@@ -21,7 +20,9 @@ struct QuestionView: View {
 
             ForEach(questionManager.question!.options, id: \.self){
                 option in
-                AnswerRow(text: option, qnum: questionManager.question!.num)
+                let selectedOption = questionManager.answerChoices[questionManager.index]
+                let isSelected = (option == selectedOption)
+                AnswerRow(text: option, isSelected: isSelected)
                     .environmentObject(questionManager)
             }
 
@@ -38,13 +39,13 @@ struct QuestionView: View {
                     Image(systemName: "chevron.left")
                         .bold()
                         .onTapGesture {
-                            questionManager.goToPreQuestion()
+                            questionManager.goToPreviousQuestion()
                         }
                 }
                 
                 Spacer()
                 
-                Text(String(questionManager.question!.num+1) + " / 6")
+                Text(String(questionManager.questionsIterator.currentIndex) + " / 6")
                 
                 Spacer()
                 

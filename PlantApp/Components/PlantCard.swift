@@ -41,11 +41,18 @@ struct PlantCard: View {
                 .background(.ultraThinMaterial)
                 .cornerRadius(20)
             
-            Image(plant.image)
-                .resizable()
-                .cornerRadius(20)
-                .scaledToFill()
-                .offset( x:0, y:-60)
+            if plant.image != "" {
+                AsyncImage(url: URL(string: plant.image)){ image in
+                    image.resizable()
+                        .cornerRadius(20)
+                        .scaledToFill()
+                        .offset( x:0, y:-60)
+                        .frame(width: 120, height: 180)
+                } placeholder: {
+                    ProgressView()
+                        .frame(width: 120, height: 180)
+                }
+            }
         }
         .frame(width: 190, height: 250)
         .shadow(radius: 3)

@@ -22,10 +22,17 @@ struct ProductDetailView: View {
             .position( x: 200, y: 120)
             
             VStack {
-                Image(plant.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxHeight: 350, alignment: .top)
+                
+                if plant.image != "" {
+                    AsyncImage(url: URL(string: plant.image)){ image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxHeight: 350, alignment: .top)
+                    } placeholder: {
+                        ProgressView()
+                            .frame(maxHeight: 350, alignment: .top)
+                    }
+                }
                 
                 VStack {
                     ScrollView {

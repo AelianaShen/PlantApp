@@ -52,6 +52,18 @@ struct ProductDetailView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                             .padding()
+                        
+                        Text(plant.careTips)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.gray)
+                            .padding()
+                        
+                        Text(plant.benefits)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.gray)
+                            .padding()
                     }
                     .frame(height: 280)
                     
@@ -79,6 +91,6 @@ struct ProductDetailView: View {
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView(plant: plantList[1])
+        ProductDetailView(plant: plantList[0])
     }
 }

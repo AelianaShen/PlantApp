@@ -24,10 +24,18 @@ struct ARPlaceBoxViewContainer: UIViewRepresentable {
         config.planeDetection = [.horizontal]
         arView.session.run(config)
         
+        arView.addGestureRecognizer(UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap)))
+        context.coordinator.arView = arView
+        context.coordinator.setupUI()
+        
         arView.addCoachingOverlay()
         
         return arView
         
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}

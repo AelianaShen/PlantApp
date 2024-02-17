@@ -7,6 +7,7 @@
 
 import Foundation
 import RealityKit
+import ARKit
 import SwiftUI
 import Combine
 
@@ -15,33 +16,11 @@ class Coordinator {
     var boxAnchor: AnchorEntity?
     var cancellable: AnyCancellable?
     
-    lazy var measurementButton: UIButton = {
-        let button = UIButton(configuration: .filled())
-        button.setTitle("0.00", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isUserInteractionEnabled = false
-        return button
-    }()
+    @Binding var boxSize: SIMD3<Float>
     
-    lazy var getSizeButton: UIButton = {
-        
-        let button = UIButton(configuration: .gray(), primaryAction: UIAction(handler: { [weak self] action in
-            guard let arView = self?.arView else { return }
-            
-            let boxSize: SIMD3<Float> = arView.scene.findEntity(named: "modelEntity")!.visualBounds(relativeTo: nil).extents
-            self!.measurementButton.setTitle(String(format: "%.2f %.2f %.2f meters", boxSize.x,boxSize.y,boxSize.z), for: .normal)
-        }))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("get size", for: .normal)
-        return button
-    }()
-
-    lazy var guideMessage: UILabel = {
-        let message = UILabel()
-        message.text = "Click the screen to place the box."
-        message.textColor = UIColor.white
-        return message
-    }()
+    init(boxSize: Binding<SIMD3<Float>>) {
+        _boxSize = boxSize
+    }
     
     @objc func handleTap(_ reconizer: UITapGestureRecognizer) {
         guard let arView = arView else { return }
@@ -65,37 +44,11 @@ class Coordinator {
                 modelEntity.name = "modelEntity"
                 modelEntity.generateCollisionShapes(recursive: true)
                 arView.installGestures([.rotation, .scale], for: modelEntity)
+                
+                DispatchQueue.main.async {
+                    self.boxSize = arView.scene.findEntity(named: "modelEntity")!.visualBounds(relativeTo: nil).extents
+                }
             }
         }
-    }
-    
-    func setupUI() {
-        
-        guard let arView = arView else { return }
-        
-        let stackView = UIStackView(arrangedSubviews: [measurementButton, getSizeButton])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        arView.addSubview(stackView)
-        
-        stackView.centerXAnchor.constraint(equalTo: arView.centerXAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: arView.bottomAnchor, constant: -60).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        
-        let stackView2 = UIStackView(arrangedSubviews: [guideMessage])
-        stackView2.axis = .vertical
-        stackView2.spacing = 8
-        stackView2.distribution = .fillEqually
-        stackView2.translatesAutoresizingMaskIntoConstraints = false
-        
-        arView.addSubview(stackView2)
-        
-        stackView2.centerXAnchor.constraint(equalTo: arView.centerXAnchor).isActive = true
-        stackView2.topAnchor.constraint(equalTo: arView.topAnchor, constant: 80).isActive = true
-        stackView2.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        
     }
 }

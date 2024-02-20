@@ -19,7 +19,14 @@ struct ARPlaceBoxViewContainer: UIViewRepresentable {
         config.planeDetection = [.horizontal]
         arView.session.run(config)
         
-        arView.addGestureRecognizer(UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap)))
+        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap))
+        let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleScale))
+        
+        tapGesture.delegate = context.coordinator
+        pinchGesture.delegate = context.coordinator
+                
+        arView.addGestureRecognizer(tapGesture)
+        arView.addGestureRecognizer(pinchGesture)
         context.coordinator.arView = arView
         
         arView.addCoachingOverlay()

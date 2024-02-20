@@ -15,13 +15,11 @@ struct ARDetectView: View {
             Text("Open your camera and decide where to place your plant. We are going to find the best plant choice for you!")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
-            Text("Find a place for your plant")
-                .font(.title3)
-                .bold()
-                .frame(width: 280, height: 50)
-                .background(Color.accentColor)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+            NavigationLink {
+                ARPlaceBoxView()
+            } label: {
+                PrimaryBtn(text: "Find a place for your plant")
+            }
         }
         .padding(.horizontal, 40)
     }

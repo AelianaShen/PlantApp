@@ -29,7 +29,9 @@ class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
         let results = arView.raycast(from: tappedLocation, allowing: .estimatedPlane, alignment: .horizontal)
         if let result = results.first {
             if boxAnchor == nil {
-                boxAnchor = AnchorEntity(raycastResult: result)
+                boxAnchor = AnchorEntity()
+                boxAnchor?.transform = Transform(matrix: result.worldTransform)
+                
                 let mesh = MeshResource.generateBox(size: 0.1)
                 let material = SimpleMaterial(color: .green, roughness: 0.5, isMetallic: true)
                 let modelEntity = ModelEntity(mesh: mesh, materials: [material])

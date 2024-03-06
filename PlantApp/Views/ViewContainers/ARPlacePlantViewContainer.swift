@@ -9,7 +9,11 @@ import RealityKit
 import ARKit
 
 struct ARPlacePlantViewContainer: UIViewRepresentable {
-    var plant: String
+    private let plant: String
+    
+    init(plant: String) {
+        self.plant = plant
+    }
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)

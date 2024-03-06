@@ -10,7 +10,11 @@ import RealityKit
 import ARKit
 
 struct ARPlacePlantView : View {
-    var plant: String
+    private let plant: String
+
+    init(plant: String) {
+        self.plant = plant
+    }
     
     var body: some View {
         ARPlacePlantViewContainer(plant: plant)

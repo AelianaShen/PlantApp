@@ -27,17 +27,11 @@ class PlacePlantCoordinator: NSObject, UIGestureRecognizerDelegate {
         let modelEntity = try! Entity.loadModel(named: modelName + ".usdz")
         
         let results = arView.raycast(from: tappedLocation, allowing: .estimatedPlane, alignment: .horizontal)
-        if let result = results.first {
-            if anchor == nil {
-                anchor = AnchorEntity()
-                anchor?.transform = Transform(matrix: result.worldTransform)
-                anchor?.addChild(modelEntity)
-                
-                guard let anchor = anchor else {
-                    return
-                }
-                arView.scene.addAnchor(anchor)
-            }
+        if let result = results.first, anchor == nil {
+            let anchor = AnchorEntity()
+            anchor.transform = Transform(matrix: result.worldTransform)
+            anchor.addChild(modelEntity)
+            arView.scene.addAnchor(anchor)
         }
     }
 }

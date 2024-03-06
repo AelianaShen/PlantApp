@@ -10,9 +10,10 @@ import RealityKit
 import ARKit
 
 struct ARPlacePlantView : View {
+    var plant: String
     
     var body: some View {
-        ARPlacePlantViewContainer()
+        ARPlacePlantViewContainer(plant: plant)
             .edgesIgnoringSafeArea(.all)
             .overlay(alignment: .top){
                     Text("Simply touch the screen to add the plant to your home!")

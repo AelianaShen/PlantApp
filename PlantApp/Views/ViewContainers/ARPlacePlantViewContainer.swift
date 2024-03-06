@@ -9,6 +9,7 @@ import RealityKit
 import ARKit
 
 struct ARPlacePlantViewContainer: UIViewRepresentable {
+    var plant: String
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -29,6 +30,6 @@ struct ARPlacePlantViewContainer: UIViewRepresentable {
     func updateUIView(_ uiView: ARView, context: Context) {}
     
     func makeCoordinator() -> PlacePlantCoordinator {
-        return PlacePlantCoordinator()
+        return PlacePlantCoordinator(plant: plant)
     }
 }

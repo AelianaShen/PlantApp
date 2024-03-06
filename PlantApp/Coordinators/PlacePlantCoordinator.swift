@@ -13,12 +13,17 @@ import Combine
 class PlacePlantCoordinator: NSObject, UIGestureRecognizerDelegate {
     var arView: ARView?
     var anchor: AnchorEntity?
+    var plant: String
+    
+    init(plant: String) {
+        self.plant = plant
+    }
     
     @objc func handleTap(_ reconizer: UITapGestureRecognizer) {
         guard let arView = arView else { return }
         let tappedLocation = reconizer.location(in: arView)
         
-        let modelName = "swiss_cheese"
+        let modelName = plant //"golden_pothos"
         let modelEntity = try! Entity.loadModel(named: modelName + ".usdz")
         
         let results = arView.raycast(from: tappedLocation, allowing: .estimatedPlane, alignment: .horizontal)

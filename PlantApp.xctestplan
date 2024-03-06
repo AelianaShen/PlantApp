@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "6D122724-136F-4818-BC55-AFEAE5A7487A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PlantApp.xcodeproj",
+      "identifier" : "B23108BA2AFA051300D13F17",
+      "name" : "PlantApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PlantApp.xcodeproj",
+        "identifier" : "B23108CC2AFA051500D13F17",
+        "name" : "PlantAppTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PlantApp.xcodeproj",
+        "identifier" : "B23108D62AFA051500D13F17",
+        "name" : "PlantAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

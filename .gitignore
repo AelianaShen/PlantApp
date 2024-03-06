@@ -131,7 +131,4 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-PlantApp.xcodeproj/
-PlantApp.xctestplan
-
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode,macos

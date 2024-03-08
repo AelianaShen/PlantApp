@@ -110,7 +110,7 @@
 		B23109142AFA0E6100D13F17 /* ScrollSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollSection.swift; sourceTree = "<group>"; };
 		B23109152AFA0E6100D13F17 /* PrimaryBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryBtn.swift; sourceTree = "<group>"; };
 		B231091F2AFA106300D13F17 /* ProjColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjColor.swift; sourceTree = "<group>"; };
-		B23109212AFA10B900D13F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../PlantCodeiOS15/PlantCodeiOS/Assets.xcassets; sourceTree = "<group>"; };
+		B23109212AFA10B900D13F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B23109232AFA171F00D13F17 /* Iterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iterator.swift; sourceTree = "<group>"; };
 		B23109262AFA42F000D13F17 /* IteratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IteratorTests.swift; sourceTree = "<group>"; };
 		B23109282AFA43AD00D13F17 /* PlantApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlantApp.xctestplan; sourceTree = "<group>"; };

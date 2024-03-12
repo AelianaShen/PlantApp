@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScrollSection: View {
+    private let getProductService = GetProductService()
     @State private var products: ResponseJson?
     @State var productsList: [Plant]
     var body: some View {
@@ -33,7 +34,7 @@ struct ScrollSection: View {
         }
         .task {
             do {
-                products = try await getProduct()
+                products = try await getProductService.getProduct()
                 productsList = convertJSON(resJson: products!)
                 print(productsList)
             } catch GHError.invalidResponse {
@@ -45,26 +46,6 @@ struct ScrollSection: View {
             } catch {
                 print("unexpected error")
             }
-        }
-    }
-    
-    func getProduct() async throws -> ResponseJson {
-        // let endpoint = "https://kkq4d2a80b.execute-api.us-west-2.amazonaws.com/prod/product?productId=100002"
-        let endpoint = "https://kkq4d2a80b.execute-api.us-west-2.amazonaws.com/prod/defproducts"
-        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw GHError.invalidResponse
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(ResponseJson.self, from: data)
-        } catch {
-            throw GHError.invalidData
         }
     }
 }

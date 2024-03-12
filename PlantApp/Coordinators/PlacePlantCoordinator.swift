@@ -24,7 +24,10 @@ class PlacePlantCoordinator: NSObject, UIGestureRecognizerDelegate {
         let tappedLocation = reconizer.location(in: arView)
         
         let modelName = plant //"golden_pothos"
-        let modelEntity = try! Entity.loadModel(named: modelName + ".usdz")
+        guard let modelEntity = try? Entity.loadModel(named: modelName + ".usdz") else {
+            print("Failed to load model: \(modelName)")
+            return
+        }
         
         let results = arView.raycast(from: tappedLocation, allowing: .estimatedPlane, alignment: .horizontal)
         if let result = results.first, anchor == nil {

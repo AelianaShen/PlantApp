@@ -10,18 +10,14 @@ import SwiftUI
 struct SecondBtn: View {
     var text: String
     var body: some View {
-        Button {
-            
-        } label: {
-            Text(text)
-                .font(.title3)
-                .bold()
-                .foregroundColor(.white)
-        }
-        .frame(width: 168, height: 50)
-        .background(ProjColor.Yuma)
-        .cornerRadius(10)
-        .shadow(radius: 3)
+        Text(text)
+            .font(.title3)
+            .bold()
+            .frame(width: 168, height: 50)
+            .background(ProjColor.Yuma)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .shadow(radius: 3)
     }
 }
 

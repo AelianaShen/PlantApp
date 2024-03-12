@@ -78,7 +78,11 @@ struct ProductDetailView: View {
             
             VStack {
                 HStack {
-                    SecondBtn(text: "AR simulate")
+                    NavigationLink {
+                        ARPlacePlantView(plant: plant.model)
+                    } label: {
+                        SecondBtn(text: "AR simulate")
+                    }
                     SecondBtn(text: "Add to cart")
                 }
             }

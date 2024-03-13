@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScrollSection: View {
     private let getProductService = GetProductService()
-    @State private var products: ResponseJson?
+    @State private var products: [Plant]?
     @State var productsList: [Plant]
     var body: some View {
         VStack (alignment: .leading) {
@@ -20,7 +20,7 @@ struct ScrollSection: View {
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
-                    ForEach(productsList, id: \.id) { product in
+                    ForEach(productsList, id: \.productID) { product in
                         NavigationLink {
                             ProductDetailView(plant: product)
                         } label: {
@@ -35,8 +35,7 @@ struct ScrollSection: View {
         .task {
             do {
                 products = try await getProductService.getProduct()
-                productsList = convertJSON(resJson: products!)
-                print(productsList)
+                // print(products)
             } catch GHError.invalidResponse {
                 print("invalid response")
             } catch GHError.invalidData {

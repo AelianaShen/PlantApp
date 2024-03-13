@@ -23,8 +23,8 @@ struct ProductDetailView: View {
             
             VStack {
                 
-                if plant.image != "" {
-                    AsyncImage(url: URL(string: plant.image)){ image in
+                if plant.imgURL != "" {
+                    AsyncImage(url: URL(string: plant.imgURL)){ image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxHeight: 350, alignment: .top)
@@ -36,30 +36,30 @@ struct ProductDetailView: View {
                 
                 VStack {
                     ScrollView {
-                        Text(plant.commonName)
+                        Text(plant.plantInfo.commonName)
                             .font(.largeTitle)
                             .bold()
                             .padding()
                         
-                        Text(plant.scientificName)
+                        Text(plant.plantInfo.scientificName)
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                             
                         
-                        Text(plant.description)
+                        Text(plant.plantInfo.description)
                             .font(.body)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                             .padding()
                         
-                        Text(plant.careTips)
+                        Text(plant.plantInfo.careTips)
                             .font(.body)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                             .padding()
                         
-                        Text(plant.benefits)
+                        Text(plant.plantInfo.benefits)
                             .font(.body)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
@@ -79,7 +79,7 @@ struct ProductDetailView: View {
             VStack {
                 HStack {
                     NavigationLink {
-                        ARPlacePlantView(plant: plant.model)
+                        ARPlacePlantView(plant: plant.modelURL)
                     } label: {
                         SecondBtn(text: "AR simulate")
                     }

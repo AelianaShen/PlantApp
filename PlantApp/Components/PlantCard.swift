@@ -16,7 +16,7 @@ struct PlantCard: View {
         ZStack(alignment: .bottom){
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading){
-                    Text(plant.commonName)
+                    Text(plant.plantInfo.commonName)
                         .bold()
                     
                     Text("$\(plant.price)")
@@ -41,8 +41,8 @@ struct PlantCard: View {
                 .background(.ultraThinMaterial)
                 .cornerRadius(20)
             
-            if plant.image != "" {
-                AsyncImage(url: URL(string: plant.image)){ image in
+            if plant.imgURL != "" {
+                AsyncImage(url: URL(string: plant.imgURL)){ image in
                     image.resizable()
                         .cornerRadius(20)
                         .scaledToFill()

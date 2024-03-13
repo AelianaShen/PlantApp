@@ -12,7 +12,7 @@ struct CartView: View {
     var body: some View {
         ScrollView {
             if cartManager.products.count > 0 {
-                ForEach(cartManager.products, id: \.id) {
+                ForEach(cartManager.products, id: \.productID) {
                     plant in
                     ProductRow(plant: plant)
                 }

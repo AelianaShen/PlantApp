@@ -13,14 +13,14 @@ struct ProductRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(plant.image)
+            Image(plant.imgURL)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)
                 .cornerRadius(10)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(plant.commonName)
+                Text(plant.plantInfo.commonName)
                     .bold()
                 
                 Text("$\(plant.price)")

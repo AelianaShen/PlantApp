@@ -55,6 +55,7 @@
 		B2E566882BA10CCB0065B1C8 /* PlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566872BA10CCB0065B1C8 /* PlantService.swift */; };
 		B2E5668A2BA116D50065B1C8 /* PlantCollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566892BA116D50065B1C8 /* PlantCollectionResponse.swift */; };
 		B2E5668D2BA119F70065B1C8 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668C2BA119F70065B1C8 /* Plant.swift */; };
+		B2E566902BA16E900065B1C8 /* PlantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668F2BA16E900065B1C8 /* PlantResponse.swift */; };
 		B2FFEEF82B7D200500886F87 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF72B7D200500886F87 /* Coordinator.swift */; };
 		B2FFEEFA2B7EB6DA00886F87 /* LuxMeasureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */; };
 		B2FFEEFD2B80546800886F87 /* ARPlaceBoxViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */; };
@@ -131,6 +132,7 @@
 		B2E566872BA10CCB0065B1C8 /* PlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantService.swift; sourceTree = "<group>"; };
 		B2E566892BA116D50065B1C8 /* PlantCollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCollectionResponse.swift; sourceTree = "<group>"; };
 		B2E5668C2BA119F70065B1C8 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		B2E5668F2BA16E900065B1C8 /* PlantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResponse.swift; sourceTree = "<group>"; };
 		B2FFEEF72B7D200500886F87 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxMeasureCoordinator.swift; sourceTree = "<group>"; };
 		B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewContainer.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E5668C2BA119F70065B1C8 /* Plant.swift */,
+				B2E5668F2BA16E900065B1C8 /* PlantResponse.swift */,
 				B2E566892BA116D50065B1C8 /* PlantCollectionResponse.swift */,
 			);
 			path = Models;
@@ -507,6 +510,7 @@
 				B231091D2AFA0E6100D13F17 /* PrimaryBtn.swift in Sources */,
 				B2D94BFD2B858B64002B38AB /* PlacePlantCoordinator.swift in Sources */,
 				B23108FC2AFA05D700D13F17 /* ContentView.swift in Sources */,
+				B2E566902BA16E900065B1C8 /* PlantResponse.swift in Sources */,
 				B23108F52AFA05D700D13F17 /* QuestionView.swift in Sources */,
 				B2D94BF92B856FE7002B38AB /* ARPlacePlantView.swift in Sources */,
 				B2D94BFB2B858019002B38AB /* ARPlacePlantViewContainer.swift in Sources */,

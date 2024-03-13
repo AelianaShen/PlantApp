@@ -34,6 +34,7 @@ struct ScrollSection: View {
         .task {
             do {
                 plantList = try await plantService.getPlants()
+                // print(try await plantService.getPlant(withId: "100002"))
             } catch URLError.badURL {
                 print("bad URL")
             } catch URLError.badServerResponse {

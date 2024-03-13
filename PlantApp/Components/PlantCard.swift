@@ -41,8 +41,8 @@ struct PlantCard: View {
                 .background(.ultraThinMaterial)
                 .cornerRadius(20)
             
-            if plant.imgURL != "" {
-                AsyncImage(url: URL(string: plant.imgURL)){ image in
+            if plant.imageURL != "" {
+                AsyncImage(url: URL(string: plant.imageURL)){ image in
                     image.resizable()
                         .cornerRadius(20)
                         .scaledToFill()

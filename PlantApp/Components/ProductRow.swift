@@ -13,7 +13,7 @@ struct ProductRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(plant.imgURL)
+            Image(plant.imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)

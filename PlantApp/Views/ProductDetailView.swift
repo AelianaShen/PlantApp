@@ -23,8 +23,8 @@ struct ProductDetailView: View {
             
             VStack {
                 
-                if plant.imgURL != "" {
-                    AsyncImage(url: URL(string: plant.imgURL)){ image in
+                if plant.imageURL != "" {
+                    AsyncImage(url: URL(string: plant.imageURL)){ image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxHeight: 350, alignment: .top)

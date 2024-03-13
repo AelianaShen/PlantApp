@@ -10,6 +10,9 @@ import SwiftUI
 struct ScrollSection: View {
     private let plantService = PlantService()
     @State private var plantList: [Plant]?
+    @State private var showingError = false
+    @State private var errorMessage = ""
+    
     var body: some View {
         VStack (alignment: .leading) {
             Text("Recommand list for you")
@@ -36,15 +39,22 @@ struct ScrollSection: View {
                 plantList = try await plantService.getPlants()
                 // print(try await plantService.getPlant(withId: "100002"))
             } catch URLError.badURL {
-                print("bad URL")
+                showingError = true
+                errorMessage = "bad URL"
             } catch URLError.badServerResponse {
-                print("bad server response")
+                showingError = true
+                errorMessage = "bad server response"
             } catch URLError.cannotDecodeContentData {
-                print("can not decode content data")
+                showingError = true
+                errorMessage = "can not decode content data"
             } catch {
-                print("unexpected error")
+                showingError = true
+                errorMessage = "unexpected error"
             }
         }
+        .alert(isPresented: $showingError, content: {
+            Alert(title: Text("Error: " + errorMessage))
+        })
     }
 }
 

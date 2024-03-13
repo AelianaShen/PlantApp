@@ -34,12 +34,12 @@ struct ScrollSection: View {
         .task {
             do {
                 plantList = try await getProductService.getProduct()
-            } catch GHError.invalidResponse {
-                print("invalid response")
-            } catch GHError.invalidData {
-                print("invalid data")
-            } catch GHError.invalidURL {
-                print("invalid URL")
+            } catch URLError.badURL {
+                print("bad URL")
+            } catch URLError.badServerResponse {
+                print("bad server response")
+            } catch URLError.cannotDecodeContentData {
+                print("can not decode content data")
             } catch {
                 print("unexpected error")
             }
@@ -51,10 +51,4 @@ struct ScrollSection_Previews: PreviewProvider {
     static var previews: some View {
         ScrollSection()
     }
-}
-
-enum GHError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
 }

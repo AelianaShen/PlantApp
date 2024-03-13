@@ -13,12 +13,12 @@ class GetProductService {
     
     func getProduct() async throws -> [Plant]? {
         
-        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
+        guard let url = URL(string: endpoint) else { throw URLError(.badURL) }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw GHError.invalidResponse
+            throw URLError(.badServerResponse)
         }
         
         do {
@@ -26,7 +26,7 @@ class GetProductService {
             let plantsResponse = try decoder.decode(ProductCollectionResponse.self, from: data)
             return plantsResponse.plants
         } catch {
-            throw GHError.invalidData
+            throw URLError(.cannotDecodeContentData)
         }
     }
 }

@@ -194,8 +194,8 @@
 				B23108EA2AFA056D00D13F17 /* Views */,
 				B23108FD2AFA072300D13F17 /* Controllers */,
 				B2FFEEF62B7D1F9300886F87 /* Coordinators */,
-				B23109702B0DD8B300D13F17 /* Extensions */,
 				B2E566862BA10C200065B1C8 /* NetworkService */,
+				B23109702B0DD8B300D13F17 /* Extensions */,
 				B23108BE2AFA051300D13F17 /* AppDelegate.swift */,
 				B23108C02AFA051300D13F17 /* ContentARView.swift */,
 				B23108C62AFA051500D13F17 /* Preview Content */,
@@ -261,8 +261,6 @@
 		B23109022AFA07BB00D13F17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B2E566892BA116D50065B1C8 /* ProductCollectionResponse.swift */,
-				B2E5668C2BA119F70065B1C8 /* Plant.swift */,
 				B23109052AFA07ED00D13F17 /* QuestionModel.swift */,
 			);
 			path = Models;
@@ -327,9 +325,19 @@
 		B2E566862BA10C200065B1C8 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				B2E5668E2BA15A3F0065B1C8 /* Models */,
 				B2E566872BA10CCB0065B1C8 /* GetProductService.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		B2E5668E2BA15A3F0065B1C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B2E5668C2BA119F70065B1C8 /* Plant.swift */,
+				B2E566892BA116D50065B1C8 /* ProductCollectionResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B2FFEEF62B7D1F9300886F87 /* Coordinators */ = {

@@ -61,7 +61,7 @@ struct PlantCard: View {
 
 struct PlantCard_Previews: PreviewProvider {
     static var previews: some View {
-        PlantCard(plant: plantList[0])
+        PlantCard(plant: localPlantList[0])
             .environmentObject(CartManager())
     }
 }

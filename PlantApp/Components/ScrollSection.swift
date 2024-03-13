@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ScrollSection: View {
     private let getProductService = GetProductService()
-    @State private var products: [Plant]?
-    @State var productsList: [Plant]
+    @State private var plantList: [Plant]?
     var body: some View {
         VStack (alignment: .leading) {
             Text("Recommand list for you")
@@ -20,7 +19,7 @@ struct ScrollSection: View {
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
-                    ForEach(productsList, id: \.productID) { product in
+                    ForEach(plantList ?? localPlantList, id: \.productID) { product in
                         NavigationLink {
                             ProductDetailView(plant: product)
                         } label: {
@@ -34,8 +33,7 @@ struct ScrollSection: View {
         }
         .task {
             do {
-                products = try await getProductService.getProduct()
-                // print(products)
+                plantList = try await getProductService.getProduct()
             } catch GHError.invalidResponse {
                 print("invalid response")
             } catch GHError.invalidData {
@@ -51,7 +49,7 @@ struct ScrollSection: View {
 
 struct ScrollSection_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollSection(productsList: plantList)
+        ScrollSection()
     }
 }
 

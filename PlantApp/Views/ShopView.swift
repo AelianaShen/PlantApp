@@ -20,7 +20,7 @@ struct ShopView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    ScrollSection(productsList: plantList)
+                    ScrollSection()
                 }
             }
             

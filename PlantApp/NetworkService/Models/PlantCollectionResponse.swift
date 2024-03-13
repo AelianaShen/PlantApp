@@ -1,5 +1,5 @@
 //
-//  ProductCollectionResponse.swift
+//  PlantCollectionResponse.swift
 //  PlantApp
 //
 //  Created by Aeliana Shen on 3/12/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductCollectionResponse: Codable {
+struct PlantCollectionResponse: Codable {
     let count: Int
     let plants: [Plant]
     let scannedCount: Int

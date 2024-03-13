@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrollSection: View {
-    private let getProductService = GetProductService()
+    private let plantService = PlantService()
     @State private var plantList: [Plant]?
     var body: some View {
         VStack (alignment: .leading) {
@@ -33,7 +33,7 @@ struct ScrollSection: View {
         }
         .task {
             do {
-                plantList = try await getProductService.getProduct()
+                plantList = try await plantService.getPlants()
             } catch URLError.badURL {
                 print("bad URL")
             } catch URLError.badServerResponse {

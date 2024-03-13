@@ -1,5 +1,5 @@
 //
-//  GetProductService.swift
+//  PlantService.swift
 //  PlantApp
 //
 //  Created by Aeliana Shen on 3/12/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class GetProductService {
+class PlantService {
     private let endpoint = "https://kkq4d2a80b.execute-api.us-west-2.amazonaws.com/prod/defproducts"
     // private let endpoint = "https://kkq4d2a80b.execute-api.us-west-2.amazonaws.com/prod/product?productId=100002"
     
-    func getProduct() async throws -> [Plant]? {
+    func getPlants() async throws -> [Plant]? {
         
         guard let url = URL(string: endpoint) else { throw URLError(.badURL) }
         
@@ -23,7 +23,7 @@ class GetProductService {
         
         do {
             let decoder = JSONDecoder()
-            let plantsResponse = try decoder.decode(ProductCollectionResponse.self, from: data)
+            let plantsResponse = try decoder.decode(PlantCollectionResponse.self, from: data)
             return plantsResponse.plants
         } catch {
             throw URLError(.cannotDecodeContentData)

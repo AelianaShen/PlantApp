@@ -95,6 +95,6 @@ struct ProductDetailView: View {
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView(plant: localPlantList[0])
+        ProductDetailView(plant: Plant.localPlantList[0])
     }
 }

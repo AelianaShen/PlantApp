@@ -22,7 +22,7 @@ struct ScrollSection: View {
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
-                    ForEach(plantList ?? localPlantList, id: \.productID) { product in
+                    ForEach(plantList ?? Plant.localPlantList, id: \.productID) { product in
                         NavigationLink {
                             ProductDetailView(plant: product)
                         } label: {

@@ -50,14 +50,16 @@ struct ScrollSection: View {
                 errorMessage = "bad server response"
             } catch URLError.cannotDecodeContentData {
                 showingError = true
-                errorMessage = "can not decode content data"
+                errorMessage = "cannot decode content data"
             } catch {
                 showingError = true
                 errorMessage = "unexpected error"
             }
         }
         .alert(isPresented: $showingError, content: {
-            Alert(title: Text("Error: " + errorMessage))
+            Alert(title: Text("Load the local plant list?"), message: Text("Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: \(errorMessage)"), primaryButton: .default(Text("Load")) {
+                plantList = Plant.localPlantList
+            }, secondaryButton: .cancel())
         })
     }
 }

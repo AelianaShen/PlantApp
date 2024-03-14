@@ -1,5 +1,5 @@
 //
-//  SecondBtn.swift
+//  SecondButton.swift
 //  PlantCodeiOS15
 //
 //  Created by Aeliana Shen on 6/15/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SecondBtn: View {
+struct SecondButton: View {
     var text: String
     var body: some View {
         Text(text)
@@ -21,8 +21,8 @@ struct SecondBtn: View {
     }
 }
 
-struct SecondBtn_Previews: PreviewProvider {
+struct SecondButton_Previews: PreviewProvider {
     static var previews: some View {
-        SecondBtn(text: "Second Button")
+        SecondButton(text: "Second Button")
     }
 }

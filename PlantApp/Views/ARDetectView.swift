@@ -18,7 +18,7 @@ struct ARDetectView: View {
             NavigationLink {
                 ARPlaceBoxView()
             } label: {
-                PrimaryBtn(text: "Find a place for your plant")
+                PrimaryButton(text: "Find a place for your plant")
             }
         }
         .padding(.horizontal, 40)

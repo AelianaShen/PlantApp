@@ -1,5 +1,5 @@
 //
-//  PrimaryBtn.swift
+//  PrimaryButton.swift
 //  PlantCodeiOS15
 //
 //  Created by Aeliana Shen on 6/9/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PrimaryBtn: View {
+struct PrimaryButton: View {
     var text: String
     
     var body: some View {
@@ -21,8 +21,8 @@ struct PrimaryBtn: View {
     }
 }
 
-struct PrimaryBtn_Previews: PreviewProvider {
+struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryBtn(text: "Primary Button")
+        PrimaryButton(text: "Primary Button")
     }
 }

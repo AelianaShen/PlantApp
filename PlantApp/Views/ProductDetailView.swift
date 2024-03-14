@@ -81,9 +81,9 @@ struct ProductDetailView: View {
                     NavigationLink {
                         ARPlacePlantView(plant: plant.modelURL)
                     } label: {
-                        SecondBtn(text: "AR simulate")
+                        SecondButton(text: "AR simulate")
                     }
-                    SecondBtn(text: "Add to cart")
+                    SecondButton(text: "Add to cart")
                 }
             }
             .frame(maxHeight: .infinity, alignment: .bottom)

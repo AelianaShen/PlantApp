@@ -7,7 +7,11 @@
 
 import Foundation
 
-class PlantService {
+protocol PlantServiceProtocol {
+    func getPlants() async throws -> [Plant]
+}
+
+class PlantService: PlantServiceProtocol {
     private let endpoint = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/defproducts"
     private let endpoint_single = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/product?productId="
     

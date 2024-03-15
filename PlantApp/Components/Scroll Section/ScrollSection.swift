@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrollSection: View {
-    let viewModel = ScrollSectionViewModel()
+    let viewModel = ScrollSectionViewModel(plantService: PlantService())
     
     var body: some View {
         VStack {
@@ -69,14 +69,14 @@ struct ScrollSection: View {
             PlantCard(plant: product)
         }
     }
-    
+
     private var plantListFetchAlert: Alert {
         Alert(
             title: Text(viewModel.alertTitleString),
             message: Text(viewModel.alertBodyString),
-            primaryButton: .default(Text(viewModel.alertButtonString)) {
-                viewModel.plantList = Plant.localPlantList
-            },
+            primaryButton: .default(
+                Text(viewModel.alertButtonString),
+                action: viewModel.updatePlantListToDefault),
             secondaryButton: .cancel()
         )
     }

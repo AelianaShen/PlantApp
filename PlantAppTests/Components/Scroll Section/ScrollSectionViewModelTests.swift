@@ -13,7 +13,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel() {
         // Given
-        let viewModel = ScrollSectionViewModel()
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
         
         // When
         viewModel.plantList = []
@@ -25,7 +25,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel_is_false_when_isLoadingPlantList() {
         // Given
-        let viewModel = ScrollSectionViewModel()
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
         
         // When
         viewModel.plantList = []
@@ -37,7 +37,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel_is_false_when_plantList_not_empty() {
         // Given
-        let viewModel = ScrollSectionViewModel()
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
         
         // When
         viewModel.plantList = Plant.localPlantList
@@ -49,7 +49,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel_is_false_when_plantList_not_empty_and_isLoadingPlantList() {
         // Given
-        let viewModel = ScrollSectionViewModel()
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
         
         // When
         viewModel.plantList = Plant.localPlantList
@@ -61,23 +61,65 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_getPlantList() async {
         // Given
-        let viewModel = ScrollSectionViewModel()
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
         
         // When
         await viewModel.getPlantList()
         
         // Then
         XCTAssertFalse(viewModel.plantList.isEmpty)
+        XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
-    func test_getPlantList() async {
+    func test_getPlantList_bad_url_failure() async {
         // Given
-        let viewModel = ScrollSectionViewModel()
+        let viewModel = ScrollSectionViewModel(plantService: MockBadUrlFailurePlantService())
         
         // When
         await viewModel.getPlantList()
         
         // Then
-        XCTAssertFalse(viewModel.plantList.isEmpty)
+        XCTAssertTrue(viewModel.showingError)
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad URL")
+        XCTAssertFalse(viewModel.isLoadingPlantList)
+    }
+    
+    func test_getPlantList_bad_server_response_failure() async {
+        // Given
+        let viewModel = ScrollSectionViewModel(plantService: MockBadServerResponseFailurePlantService())
+        
+        // When
+        await viewModel.getPlantList()
+        
+        // Then
+        XCTAssertTrue(viewModel.showingError)
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad server response")
+        XCTAssertFalse(viewModel.isLoadingPlantList)
+    }
+    
+    func test_getPlantList_cannot_decode_content_data_failure() async {
+        // Given
+        let viewModel = ScrollSectionViewModel(plantService: MockCannotDecodeContentDataFailurePlantService())
+        
+        // When
+        await viewModel.getPlantList()
+        
+        // Then
+        XCTAssertTrue(viewModel.showingError)
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: cannot decode content data")
+        XCTAssertFalse(viewModel.isLoadingPlantList)
+    }
+    
+    func test_getPlantList_connection_lost_failure() async {
+        // Given
+        let viewModel = ScrollSectionViewModel(plantService: MockGeneralFailurePlantService())
+        
+        // When
+        await viewModel.getPlantList()
+        
+        // Then
+        XCTAssertTrue(viewModel.showingError)
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: unexpected error")
+        XCTAssertFalse(viewModel.isLoadingPlantList)
     }
 }

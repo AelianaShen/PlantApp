@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9971488D2BA503FD00282138 /* MockPlantService.swift */; };
 		B23108BF2AFA051300D13F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23108BE2AFA051300D13F17 /* AppDelegate.swift */; };
 		B23108C12AFA051300D13F17 /* ContentARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23108C02AFA051300D13F17 /* ContentARView.swift */; };
 		B23108C82AFA051500D13F17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23108C72AFA051500D13F17 /* Preview Assets.xcassets */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9971488D2BA503FD00282138 /* MockPlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlantService.swift; sourceTree = "<group>"; };
 		B23108BB2AFA051300D13F17 /* PlantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23108BE2AFA051300D13F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23108C02AFA051300D13F17 /* ContentARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentARView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9971488C2BA503E500282138 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9971488D2BA503FD00282138 /* MockPlantService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		B23108B22AFA051300D13F17 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +230,7 @@
 		B23108D02AFA051500D13F17 /* PlantAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				9971488C2BA503E500282138 /* Mocks */,
 				B2B5EA062BA4F4AA0078D804 /* Components */,
 				B23109262AFA42F000D13F17 /* IteratorTests.swift */,
 				B23108D12AFA051500D13F17 /* PlantAppTests.swift */,
@@ -579,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,
+				9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */,
 				B23108D22AFA051500D13F17 /* PlantAppTests.swift in Sources */,
 				B23109272AFA42F000D13F17 /* IteratorTests.swift in Sources */,
 			);

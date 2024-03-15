@@ -22,7 +22,7 @@ struct PreferSetView: View {
                     QuestionView()
                         .environmentObject(questionManager)
                 } label: {
-                    PrimaryBtn(text: "Set My Preference")
+                    PrimaryButton(text: "Set My Preference")
                 }
                 
             }

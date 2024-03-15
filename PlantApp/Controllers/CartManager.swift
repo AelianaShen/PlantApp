@@ -13,12 +13,12 @@ class CartManager: ObservableObject {
     
     func addToCart(product: Plant) {
         products.append(product)
-        total += Int(product.price) ?? 0
+        total += Int(product.price) 
     }
     
     func removeFromCart(product: Plant) {
-        products = products.filter { $0.id != product.id }
-        total -= Int(product.price) ?? 0
+        products = products.filter { $0.productID != product.productID }
+        total -= Int(product.price) 
     }
     
 }

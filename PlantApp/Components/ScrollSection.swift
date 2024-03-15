@@ -8,24 +8,31 @@
 import SwiftUI
 
 struct ScrollSection: View {
-    @State private var products: ResponseJson?
-    @State var productsList: [Plant]
+    private let plantService = PlantService()
+    @State private var plantList: [Plant]?
+    @State private var showingError = false
+    @State private var errorMessage = ""
+    
     var body: some View {
         VStack (alignment: .leading) {
-            Text("Recommand list for you")
+            Text("Recommended list for you")
                 .font(.headline)
                 .foregroundColor(ProjColor.Gumleaf)
                 .padding(.horizontal, 25.0)
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
-                    ForEach(productsList, id: \.id) { product in
+                    ForEach(plantList ?? [], id: \.productID) { product in
                         NavigationLink {
                             ProductDetailView(plant: product)
                         } label: {
                             PlantCard(plant: product)
                         }
-                        
+                    }
+                    if (plantList == nil) {
+                        Text("The recommended list has no data.")
+                            .font(.headline)
+                            .foregroundColor(ProjColor.PrimaryGreen)
                     }
                 }
                 .padding(50)
@@ -33,50 +40,32 @@ struct ScrollSection: View {
         }
         .task {
             do {
-                products = try await getProduct()
-                productsList = convertJSON(resJson: products!)
-                print(productsList)
-            } catch GHError.invalidResponse {
-                print("invalid response")
-            } catch GHError.invalidData {
-                print("invalid data")
-            } catch GHError.invalidURL {
-                print("invalid URL")
+                plantList = try await plantService.getPlants()
+                // print(try await plantService.getPlant(withId: "100002"))
+            } catch URLError.badURL {
+                showingError = true
+                errorMessage = "bad URL"
+            } catch URLError.badServerResponse {
+                showingError = true
+                errorMessage = "bad server response"
+            } catch URLError.cannotDecodeContentData {
+                showingError = true
+                errorMessage = "cannot decode content data"
             } catch {
-                print("unexpected error")
+                showingError = true
+                errorMessage = "unexpected error"
             }
         }
-    }
-    
-    func getProduct() async throws -> ResponseJson {
-        // let endpoint = "https://kkq4d2a80b.execute-api.us-west-2.amazonaws.com/prod/product?productId=100002"
-        let endpoint = "https://kkq4d2a80b.execute-api.us-west-2.amazonaws.com/prod/defproducts"
-        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw GHError.invalidResponse
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(ResponseJson.self, from: data)
-        } catch {
-            throw GHError.invalidData
-        }
+        .alert(isPresented: $showingError, content: {
+            Alert(title: Text("Load the local plant list?"), message: Text("Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: \(errorMessage)"), primaryButton: .default(Text("Load")) {
+                plantList = Plant.localPlantList
+            }, secondaryButton: .cancel())
+        })
     }
 }
 
 struct ScrollSection_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollSection(productsList: plantList)
+        ScrollSection()
     }
-}
-
-enum GHError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
 }

@@ -13,14 +13,14 @@ struct ProductRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(plant.image)
+            Image(plant.imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)
                 .cornerRadius(10)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(plant.commonName)
+                Text(plant.plantInfo.commonName)
                     .bold()
                 
                 Text("$\(plant.price)")
@@ -41,7 +41,7 @@ struct ProductRow: View {
 
 struct ProductRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProductRow(plant: plantList[2])
+        ProductRow(plant: Plant.localPlantList[1])
             .environmentObject(CartManager())
     }
 }

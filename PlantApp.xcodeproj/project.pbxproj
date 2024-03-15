@@ -39,6 +39,7 @@
 		B23109272AFA42F000D13F17 /* IteratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23109262AFA42F000D13F17 /* IteratorTests.swift */; };
 		B231096E2B0DD7EE00D13F17 /* ARPlaceBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231096D2B0DD7EE00D13F17 /* ARPlaceBoxView.swift */; };
 		B23109722B0DD91500D13F17 /* ARView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23109712B0DD91500D13F17 /* ARView+Extensions.swift */; };
+		B2B5EA052BA4D6430078D804 /* ScrollSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */; };
 		B2D94BF42B856EC6002B38AB /* swiss_cheese.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B2D94BF22B856EC6002B38AB /* swiss_cheese.usdz */; };
 		B2D94BF92B856FE7002B38AB /* ARPlacePlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D94BF82B856FE7002B38AB /* ARPlacePlantView.swift */; };
 		B2D94BFB2B858019002B38AB /* ARPlacePlantViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D94BFA2B858019002B38AB /* ARPlacePlantViewContainer.swift */; };
@@ -116,6 +117,7 @@
 		B23109282AFA43AD00D13F17 /* PlantApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlantApp.xctestplan; sourceTree = "<group>"; };
 		B231096D2B0DD7EE00D13F17 /* ARPlaceBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxView.swift; sourceTree = "<group>"; };
 		B23109712B0DD91500D13F17 /* ARView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARView+Extensions.swift"; sourceTree = "<group>"; };
+		B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModel.swift; sourceTree = "<group>"; };
 		B2D94BF22B856EC6002B38AB /* swiss_cheese.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = swiss_cheese.usdz; sourceTree = "<group>"; };
 		B2D94BF82B856FE7002B38AB /* ARPlacePlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantView.swift; sourceTree = "<group>"; };
 		B2D94BFA2B858019002B38AB /* ARPlacePlantViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantViewContainer.swift; sourceTree = "<group>"; };
@@ -276,7 +278,7 @@
 				B231090E2AFA0E6100D13F17 /* PlantCard.swift */,
 				B23109152AFA0E6100D13F17 /* PrimaryButton.swift */,
 				B23109112AFA0E6100D13F17 /* ProductRow.swift */,
-				B23109142AFA0E6100D13F17 /* ScrollSection.swift */,
+				B2B5EA032BA4D5F60078D804 /* Scroll Section */,
 				B23109122AFA0E6100D13F17 /* SearchBar.swift */,
 				B23109132AFA0E6100D13F17 /* SecondButton.swift */,
 			);
@@ -305,6 +307,15 @@
 				B23109712B0DD91500D13F17 /* ARView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B2B5EA032BA4D5F60078D804 /* Scroll Section */ = {
+			isa = PBXGroup;
+			children = (
+				B23109142AFA0E6100D13F17 /* ScrollSection.swift */,
+				B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */,
+			);
+			path = "Scroll Section";
 			sourceTree = "<group>";
 		};
 		B2D94BF12B856DC5002B38AB /* 3DModels */ = {
@@ -518,6 +529,7 @@
 				B2FFEEFA2B7EB6DA00886F87 /* LuxMeasureCoordinator.swift in Sources */,
 				B23108F42AFA05D700D13F17 /* OnboardingView.swift in Sources */,
 				B23109082AFA07ED00D13F17 /* QuestionModel.swift in Sources */,
+				B2B5EA052BA4D6430078D804 /* ScrollSectionViewModel.swift in Sources */,
 				B23109242AFA171F00D13F17 /* Iterator.swift in Sources */,
 				B231091C2AFA0E6100D13F17 /* ScrollSection.swift in Sources */,
 				B23109012AFA077300D13F17 /* QuestionManager.swift in Sources */,
@@ -628,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -683,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -11,7 +11,7 @@ class PlantService {
     private let endpoint = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/defproducts"
     private let endpoint_single = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/product?productId="
     
-    func getPlants() async throws -> [Plant]? {
+    func getPlants() async throws -> [Plant] {
         guard let url = URL(string: endpoint) else { throw URLError(.badURL) }
         
         let (data, response) = try await URLSession.shared.data(from: url)

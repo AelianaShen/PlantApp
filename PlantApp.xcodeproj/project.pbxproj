@@ -40,6 +40,7 @@
 		B231096E2B0DD7EE00D13F17 /* ARPlaceBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231096D2B0DD7EE00D13F17 /* ARPlaceBoxView.swift */; };
 		B23109722B0DD91500D13F17 /* ARView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23109712B0DD91500D13F17 /* ARView+Extensions.swift */; };
 		B2B5EA052BA4D6430078D804 /* ScrollSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */; };
+		B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */; };
 		B2D94BF42B856EC6002B38AB /* swiss_cheese.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B2D94BF22B856EC6002B38AB /* swiss_cheese.usdz */; };
 		B2D94BF92B856FE7002B38AB /* ARPlacePlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D94BF82B856FE7002B38AB /* ARPlacePlantView.swift */; };
 		B2D94BFB2B858019002B38AB /* ARPlacePlantViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D94BFA2B858019002B38AB /* ARPlacePlantViewContainer.swift */; };
@@ -118,6 +119,7 @@
 		B231096D2B0DD7EE00D13F17 /* ARPlaceBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxView.swift; sourceTree = "<group>"; };
 		B23109712B0DD91500D13F17 /* ARView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARView+Extensions.swift"; sourceTree = "<group>"; };
 		B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModel.swift; sourceTree = "<group>"; };
+		B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModelTests.swift; sourceTree = "<group>"; };
 		B2D94BF22B856EC6002B38AB /* swiss_cheese.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = swiss_cheese.usdz; sourceTree = "<group>"; };
 		B2D94BF82B856FE7002B38AB /* ARPlacePlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantView.swift; sourceTree = "<group>"; };
 		B2D94BFA2B858019002B38AB /* ARPlacePlantViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantViewContainer.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		B23108D02AFA051500D13F17 /* PlantAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2B5EA062BA4F4AA0078D804 /* Components */,
 				B23109262AFA42F000D13F17 /* IteratorTests.swift */,
 				B23108D12AFA051500D13F17 /* PlantAppTests.swift */,
 			);
@@ -314,6 +317,22 @@
 			children = (
 				B23109142AFA0E6100D13F17 /* ScrollSection.swift */,
 				B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */,
+			);
+			path = "Scroll Section";
+			sourceTree = "<group>";
+		};
+		B2B5EA062BA4F4AA0078D804 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B2B5EA072BA4F4BC0078D804 /* Scroll Section */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B2B5EA072BA4F4BC0078D804 /* Scroll Section */ = {
+			isa = PBXGroup;
+			children = (
+				B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */,
 			);
 			path = "Scroll Section";
 			sourceTree = "<group>";
@@ -559,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,
 				B23108D22AFA051500D13F17 /* PlantAppTests.swift in Sources */,
 				B23109272AFA42F000D13F17 /* IteratorTests.swift in Sources */,
 			);
@@ -775,7 +795,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = osu.sunshine.PlantAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -794,7 +814,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = osu.sunshine.PlantAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,46 +11,74 @@ struct ScrollSection: View {
     let viewModel = ScrollSectionViewModel()
     
     var body: some View {
-        VStack (alignment: .leading) {
-            Text("Recommended list for you")
+        VStack {
+            sectionHeader
+            
+            if viewModel.isLoadingPlantList {
+                loadingIndicator
+            } else {
+                plantScrollView
+            }
+        }
+        .task { await viewModel.getPlantList() }
+        .alert(isPresented: viewModel.plantListFetchFailed) { plantListFetchAlert }
+    }
+    
+    private var sectionHeader: some View {
+        HStack {
+            Text(viewModel.sectionHeaderString)
                 .font(.headline)
                 .foregroundColor(ProjColor.Gumleaf)
                 .padding(.horizontal, 25.0)
-            
-            if viewModel.isLoadingPlantList {
-                HStack {
-                    Spacer()
-                    ProgressView()
-                    Spacer()
+            Spacer()
+        }
+    }
+    
+    private var plantScrollView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(viewModel.plantList, id: \.productID) { product in
+                    productView(product)
                 }
-            } else {
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack {
-                        ForEach(viewModel.plantList ?? [], id: \.productID) { product in
-                            NavigationLink {
-                                ProductDetailView(plant: product)
-                            } label: {
-                                PlantCard(plant: product)
-                            }
-                        }
-                        if (viewModel.plantList == nil && !viewModel.isLoadingPlantList) {
-                            Text("The recommended list has no data.")
-                                .font(.headline)
-                                .foregroundColor(ProjColor.PrimaryGreen)
-                        }
-                    }
-                    .padding(50)
+                if viewModel.shouldShowEmptyListLabel {
+                    emptyListLabel
                 }
             }
+            .padding(50)
         }
-        .task {
-            await viewModel.getPlantList()
+    }
+    
+    private var loadingIndicator: some View {
+        HStack {
+            Spacer()
+            ProgressView()
+            Spacer()
         }
-        .alert(isPresented: viewModel.showingErrorBinding, content: {
-            Alert(title: Text("Load the local plant list?"), message: Text("Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: \(viewModel.errorMessage)"), primaryButton: .default(Text("Load")) {
+    }
+    
+    private var emptyListLabel: some View {
+        Text(viewModel.emptyListString)
+            .font(.headline)
+            .foregroundColor(ProjColor.PrimaryGreen)
+    }
+    
+    private func productView(_ product: Plant) -> some View {
+        NavigationLink {
+            ProductDetailView(plant: product)
+        } label: {
+            PlantCard(plant: product)
+        }
+    }
+    
+    private var plantListFetchAlert: Alert {
+        Alert(
+            title: Text(viewModel.alertTitleString),
+            message: Text(viewModel.alertBodyString),
+            primaryButton: .default(Text(viewModel.alertButtonString)) {
                 viewModel.plantList = Plant.localPlantList
-            }, secondaryButton: .cancel())
-        })
+            },
+            secondaryButton: .cancel()
+        )
     }
 }
 

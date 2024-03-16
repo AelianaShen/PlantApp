@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-@Observable class ScrollSectionViewModel{
+@Observable class ScrollSectionViewModel {
     private let plantService: PlantServiceProtocol
 
     var showingError = false
@@ -19,7 +19,7 @@ import SwiftUI
     let emptyListString = "The recommended list has no data."
     let alertTitleString = "Load the local plant list?"
     let alertButtonString = "OK"
-    private(set) var alertBodyString = "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error:"
+    private(set) var alertBodyString = "Problems occurred when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error:"
     
     var plantListFetchFailed: Binding<Bool> {
         Binding(

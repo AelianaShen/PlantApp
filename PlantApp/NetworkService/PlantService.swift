@@ -9,6 +9,7 @@ import Foundation
 
 protocol PlantServiceProtocol {
     func getPlants() async throws -> [Plant]
+    func getPlant(withId plantId: String) async throws -> Plant
 }
 
 class NetworkManager {
@@ -17,7 +18,7 @@ class NetworkManager {
     func getCollection<Model: Codable>(endpoint: String) async throws -> [Model] {
         guard let url = URL(string: "\(baseURL)\(endpoint)") else { throw URLError(.badURL) }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
             let decoder = JSONDecoder()
@@ -31,7 +32,7 @@ class NetworkManager {
     func get<Model: Codable>(endpoint: String) async throws -> Model {
         guard let url = URL(string: "\(baseURL)\(endpoint)") else { throw URLError(.badURL) }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
             let decoder = JSONDecoder()

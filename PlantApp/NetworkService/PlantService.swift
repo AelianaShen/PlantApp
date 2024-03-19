@@ -11,43 +11,46 @@ protocol PlantServiceProtocol {
     func getPlants() async throws -> [Plant]
 }
 
-class PlantService: PlantServiceProtocol {
-    private let endpoint = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/defproducts"
-    private let endpoint_single = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/product?productId="
+class NetworkManager {
+    private let baseURL = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/"
     
-    func getPlants() async throws -> [Plant] {
-        guard let url = URL(string: endpoint) else { throw URLError(.badURL) }
+    func getCollection<Model: Codable>(endpoint: String) async throws -> [Model] {
+        guard let url = URL(string: "\(baseURL)\(endpoint)") else { throw URLError(.badURL) }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw URLError(.badServerResponse)
-        }
-        
         do {
             let decoder = JSONDecoder()
-            let plantsResponse = try decoder.decode(PlantCollectionResponse.self, from: data)
-            return plantsResponse.plants
+            let response = try decoder.decode(CollectionResponse<Model>.self, from: data)
+            return response.items
         } catch {
             throw URLError(.cannotDecodeContentData)
         }
     }
     
-    func getPlant(withId plantId: String) async throws -> Plant? {
-        guard let url = URL(string: endpoint_single + plantId) else { throw URLError(.badURL) }
+    func get<Model: Codable>(endpoint: String) async throws -> Model {
+        guard let url = URL(string: "\(baseURL)\(endpoint)") else { throw URLError(.badURL) }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw URLError(.badServerResponse)
-        }
-        
         do {
             let decoder = JSONDecoder()
-            let plantResponse = try decoder.decode(PlantResponse.self, from: data)
-            return plantResponse.plant
+            let response = try decoder.decode(Response<Model>.self, from: data)
+            return response.item
         } catch {
             throw URLError(.cannotDecodeContentData)
         }
+    }
+}
+
+class PlantService: PlantServiceProtocol {
+    private let networkManager = NetworkManager()
+    
+    func getPlants() async throws -> [Plant] {
+        try await networkManager.getCollection(endpoint: "defproducts")
+    }
+    
+    func getPlant(withId plantId: String) async throws -> Plant {
+        try await networkManager.get(endpoint: "products?productId\(plantId)")
     }
 }

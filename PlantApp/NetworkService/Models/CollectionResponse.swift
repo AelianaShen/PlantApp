@@ -1,5 +1,5 @@
 //
-//  PlantCollectionResponse.swift
+//  CollectionResponse.swift
 //  PlantApp
 //
 //  Created by Aeliana Shen on 3/12/24.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct PlantCollectionResponse: Codable {
+struct CollectionResponse<Model: Codable>: Codable {
     let count: Int
-    let plants: [Plant]
+    let items: [Model]
 
     enum CodingKeys: String, CodingKey {
         case count = "Count"
-        case plants = "Items"
+        case items = "Items"
     }
 }

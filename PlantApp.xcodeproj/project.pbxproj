@@ -56,9 +56,9 @@
 		B2DFADB02B8822CF00FB0B0A /* peacock_plant.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B2DFADAF2B8822CE00FB0B0A /* peacock_plant.usdz */; };
 		B2DFADB22B88258300FB0B0A /* parlor_palm.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B2DFADB12B88258300FB0B0A /* parlor_palm.usdz */; };
 		B2E566882BA10CCB0065B1C8 /* PlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566872BA10CCB0065B1C8 /* PlantService.swift */; };
-		B2E5668A2BA116D50065B1C8 /* PlantCollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566892BA116D50065B1C8 /* PlantCollectionResponse.swift */; };
+		B2E5668A2BA116D50065B1C8 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566892BA116D50065B1C8 /* CollectionResponse.swift */; };
 		B2E5668D2BA119F70065B1C8 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668C2BA119F70065B1C8 /* Plant.swift */; };
-		B2E566902BA16E900065B1C8 /* PlantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668F2BA16E900065B1C8 /* PlantResponse.swift */; };
+		B2E566902BA16E900065B1C8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668F2BA16E900065B1C8 /* Response.swift */; };
 		B2FFEEF82B7D200500886F87 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF72B7D200500886F87 /* Coordinator.swift */; };
 		B2FFEEFA2B7EB6DA00886F87 /* LuxMeasureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */; };
 		B2FFEEFD2B80546800886F87 /* ARPlaceBoxViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */; };
@@ -136,9 +136,9 @@
 		B2DFADAF2B8822CE00FB0B0A /* peacock_plant.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = peacock_plant.usdz; sourceTree = "<group>"; };
 		B2DFADB12B88258300FB0B0A /* parlor_palm.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = parlor_palm.usdz; sourceTree = "<group>"; };
 		B2E566872BA10CCB0065B1C8 /* PlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantService.swift; sourceTree = "<group>"; };
-		B2E566892BA116D50065B1C8 /* PlantCollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCollectionResponse.swift; sourceTree = "<group>"; };
+		B2E566892BA116D50065B1C8 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
 		B2E5668C2BA119F70065B1C8 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		B2E5668F2BA16E900065B1C8 /* PlantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantResponse.swift; sourceTree = "<group>"; };
+		B2E5668F2BA16E900065B1C8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		B2FFEEF72B7D200500886F87 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxMeasureCoordinator.swift; sourceTree = "<group>"; };
 		B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewContainer.swift; sourceTree = "<group>"; };
@@ -378,8 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				B2E5668C2BA119F70065B1C8 /* Plant.swift */,
-				B2E5668F2BA16E900065B1C8 /* PlantResponse.swift */,
-				B2E566892BA116D50065B1C8 /* PlantCollectionResponse.swift */,
+				B2E5668F2BA16E900065B1C8 /* Response.swift */,
+				B2E566892BA116D50065B1C8 /* CollectionResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -551,7 +551,7 @@
 				B231091D2AFA0E6100D13F17 /* PrimaryButton.swift in Sources */,
 				B2D94BFD2B858B64002B38AB /* PlacePlantCoordinator.swift in Sources */,
 				B23108FC2AFA05D700D13F17 /* ContentView.swift in Sources */,
-				B2E566902BA16E900065B1C8 /* PlantResponse.swift in Sources */,
+				B2E566902BA16E900065B1C8 /* Response.swift in Sources */,
 				B23108F52AFA05D700D13F17 /* QuestionView.swift in Sources */,
 				B2D94BF92B856FE7002B38AB /* ARPlacePlantView.swift in Sources */,
 				B2D94BFB2B858019002B38AB /* ARPlacePlantViewContainer.swift in Sources */,
@@ -575,7 +575,7 @@
 				B231091A2AFA0E6100D13F17 /* SearchBar.swift in Sources */,
 				B23108F72AFA05D700D13F17 /* ARDetectView.swift in Sources */,
 				B23108C12AFA051300D13F17 /* ContentARView.swift in Sources */,
-				B2E5668A2BA116D50065B1C8 /* PlantCollectionResponse.swift in Sources */,
+				B2E5668A2BA116D50065B1C8 /* CollectionResponse.swift in Sources */,
 				B23108BF2AFA051300D13F17 /* AppDelegate.swift in Sources */,
 				B231096E2B0DD7EE00D13F17 /* ARPlaceBoxView.swift in Sources */,
 				B2E566882BA10CCB0065B1C8 /* PlantService.swift in Sources */,

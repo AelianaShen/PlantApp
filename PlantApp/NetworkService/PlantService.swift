@@ -52,6 +52,6 @@ class PlantService: PlantServiceProtocol {
     }
     
     func getPlant(withId plantId: String) async throws -> Plant {
-        try await networkManager.get(endpoint: "products?productId\(plantId)")
+        try await networkManager.get(endpoint: "product?productId=\(plantId)")
     }
 }

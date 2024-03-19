@@ -40,6 +40,7 @@ import SwiftUI
         isLoadingPlantList = true
         do {
             plantList = try await plantService.getPlants()
+            // try await print(plantService.getPlant(withId: "100001"))
         } catch URLError.badURL {
             showingError = true
             alertBodyString += " bad URL"

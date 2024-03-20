@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol PlantServiceProtocol {
-    func getPlants() async throws -> [Plant]
-    func getPlant(withId plantId: String) async throws -> Plant
-}
-
 class NetworkManager {
     private let baseURL = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/"
     
@@ -41,17 +36,5 @@ class NetworkManager {
         } catch {
             throw URLError(.cannotDecodeContentData)
         }
-    }
-}
-
-class PlantService: PlantServiceProtocol {
-    private let networkManager = NetworkManager()
-    
-    func getPlants() async throws -> [Plant] {
-        try await networkManager.getCollection(endpoint: "defproducts")
-    }
-    
-    func getPlant(withId plantId: String) async throws -> Plant {
-        try await networkManager.get(endpoint: "product?productId=\(plantId)")
     }
 }

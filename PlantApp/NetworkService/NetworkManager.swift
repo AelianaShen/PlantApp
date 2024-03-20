@@ -1,5 +1,5 @@
 //
-//  PlantService.swift
+//  NetworkManage.swift
 //  PlantApp
 //
 //  Created by Aeliana Shen on 3/12/24.

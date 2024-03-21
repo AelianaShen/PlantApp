@@ -13,14 +13,10 @@ struct AnswerRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Text(viewModel.text)
-                .bold()
+            buttonText
             if (viewModel.isSelected) {
-                Image(systemName: "checkmark")
-                    .bold()
-                    .font(.caption)
+                checkMark
             }
-            
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -29,11 +25,26 @@ struct AnswerRow: View {
         .cornerRadius(10)
         .shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
-            if !viewModel.isSelected {
-                questionManager.select(answer: viewModel.text)
-            } else {
-                questionManager.unselectAnswer()
-            }
+            handleTap()
+        }
+    }
+    
+    private var buttonText: some View {
+        Text(viewModel.text)
+            .bold()
+    }
+    
+    private var checkMark: some View {
+        Image(systemName: "checkmark")
+            .bold()
+            .font(.caption)
+    }
+    
+    private func handleTap(){
+        if !viewModel.isSelected {
+            questionManager.select(answer: viewModel.text)
+        } else {
+            questionManager.unselectAnswer()
         }
     }
 }

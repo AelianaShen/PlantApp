@@ -22,7 +22,7 @@ struct QuestionView: View {
                 option in
                 let selectedOption = questionManager.answerChoices[questionManager.index]
                 let isSelected = (option == selectedOption)
-                AnswerRow(text: option, isSelected: isSelected)
+                AnswerRow(viewModel: AnswerRowViewModel(text: option, isSelected: isSelected))
                     .environmentObject(questionManager)
             }
 

@@ -9,21 +9,21 @@ import SwiftUI
 
 struct ProductRow: View {
     @EnvironmentObject var cartManager: CartManager
-    var plant: Plant
+    @ObservedObject var viewModel: ProductRowViewModel
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(plant.imageURL)
+            Image(viewModel.plant.imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)
                 .cornerRadius(10)
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(plant.plantInfo.commonName)
+                Text(viewModel.plant.plantInfo.commonName)
                     .bold()
                 
-                Text("$\(plant.price)")
+                Text("$\(viewModel.plant.price)")
             }
             
             Spacer()
@@ -31,7 +31,7 @@ struct ProductRow: View {
             Image(systemName: "trash")
                 .foregroundColor(ProjColor.PrimaryGreen)
                 .onTapGesture {
-                    cartManager.removeFromCart(product: plant)
+                    cartManager.removeFromCart(product: viewModel.plant)
                 }
         }
         .padding(.horizontal)
@@ -41,7 +41,7 @@ struct ProductRow: View {
 
 struct ProductRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProductRow(plant: Plant.localPlantList[1])
+        ProductRow(viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]))
             .environmentObject(CartManager())
     }
 }

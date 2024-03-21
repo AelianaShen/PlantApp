@@ -14,7 +14,7 @@ struct CartView: View {
             if cartManager.products.count > 0 {
                 ForEach(cartManager.products, id: \.productID) {
                     plant in
-                    ProductRow(plant: plant)
+                    ProductRow(viewModel: ProductRowViewModel(plant: plant))
                 }
                 
                 HStack {

@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @State var searchText = ""
+    @Binding var searchText: String
     
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass")
-            
-            TextField("Search", text: $searchText)
-            
-            Image(systemName: "mic.fill")
+            magnifyingglassImage
+            searchTextFiedld
+            micImage
         }
         .padding(EdgeInsets(top: 7, leading: 8, bottom: 7, trailing: 8))
         .font(.headline)
@@ -24,10 +22,22 @@ struct SearchBar: View {
         .foregroundColor(ProjColor.PrimaryGreen.opacity(0.6))
         .cornerRadius(10)
     }
+    
+    private var magnifyingglassImage: some View {
+        Image(systemName: "magnifyingglass")
+    }
+    
+    private var searchTextFiedld: some View {
+        TextField("Search", text: $searchText)
+    }
+    
+    private var micImage: some View {
+        Image(systemName: "mic.fill")
+    }
 }
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar()
+        SearchBar(searchText: .constant(""))
     }
 }

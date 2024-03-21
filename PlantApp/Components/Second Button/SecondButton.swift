@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SecondButton: View {
     var text: String
+    
     var body: some View {
+        secondButtonLabel
+    }
+    
+    private var secondButtonLabel: some View {
         Text(text)
             .font(.title3)
             .bold()

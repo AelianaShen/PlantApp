@@ -11,6 +11,10 @@ struct PrimaryButton: View {
     var text: String
     
     var body: some View {
+        primaryButtonLabel
+    }
+    
+    private var primaryButtonLabel: some View {
         Text(text)
             .font(.title3)
             .bold()

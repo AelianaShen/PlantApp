@@ -15,7 +15,7 @@ struct ShopView: View {
                 .font(.title2)
                 .foregroundColor(ProjColor.PrimaryGreen)
             
-            SearchBar()
+            SearchBar(searchText: .constant(""))
                 .padding(EdgeInsets(top: 25, leading: 20, bottom: 20, trailing: 20))
             
             ScrollView(.vertical, showsIndicators: false) {

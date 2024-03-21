@@ -289,14 +289,14 @@
 		B23109092AFA084F00D13F17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B231090F2AFA0E6100D13F17 /* AnswerRow.swift */,
-				B23109102AFA0E6100D13F17 /* CartButton.swift */,
-				B231090E2AFA0E6100D13F17 /* PlantCard.swift */,
-				B23109152AFA0E6100D13F17 /* PrimaryButton.swift */,
-				B23109112AFA0E6100D13F17 /* ProductRow.swift */,
+				B2C632C62BABB8DE00A0BE62 /* Answer Row */,
+				B2C632C72BABB8F200A0BE62 /* Cart Button */,
+				B2C632C82BABB90D00A0BE62 /* Plant Card */,
+				B2C632C52BABB7FD00A0BE62 /* Primary Button */,
+				B2C632C92BABB93600A0BE62 /* Product Row */,
 				B2B5EA032BA4D5F60078D804 /* Scroll Section */,
-				B23109122AFA0E6100D13F17 /* SearchBar.swift */,
-				B23109132AFA0E6100D13F17 /* SecondButton.swift */,
+				B2C632C32BABB75700A0BE62 /* Search Bar */,
+				B2C632C42BABB7B600A0BE62 /* Second Button */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -348,6 +348,62 @@
 				B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */,
 			);
 			path = "Scroll Section";
+			sourceTree = "<group>";
+		};
+		B2C632C32BABB75700A0BE62 /* Search Bar */ = {
+			isa = PBXGroup;
+			children = (
+				B23109122AFA0E6100D13F17 /* SearchBar.swift */,
+			);
+			path = "Search Bar";
+			sourceTree = "<group>";
+		};
+		B2C632C42BABB7B600A0BE62 /* Second Button */ = {
+			isa = PBXGroup;
+			children = (
+				B23109132AFA0E6100D13F17 /* SecondButton.swift */,
+			);
+			path = "Second Button";
+			sourceTree = "<group>";
+		};
+		B2C632C52BABB7FD00A0BE62 /* Primary Button */ = {
+			isa = PBXGroup;
+			children = (
+				B23109152AFA0E6100D13F17 /* PrimaryButton.swift */,
+			);
+			path = "Primary Button";
+			sourceTree = "<group>";
+		};
+		B2C632C62BABB8DE00A0BE62 /* Answer Row */ = {
+			isa = PBXGroup;
+			children = (
+				B231090F2AFA0E6100D13F17 /* AnswerRow.swift */,
+			);
+			path = "Answer Row";
+			sourceTree = "<group>";
+		};
+		B2C632C72BABB8F200A0BE62 /* Cart Button */ = {
+			isa = PBXGroup;
+			children = (
+				B23109102AFA0E6100D13F17 /* CartButton.swift */,
+			);
+			path = "Cart Button";
+			sourceTree = "<group>";
+		};
+		B2C632C82BABB90D00A0BE62 /* Plant Card */ = {
+			isa = PBXGroup;
+			children = (
+				B231090E2AFA0E6100D13F17 /* PlantCard.swift */,
+			);
+			path = "Plant Card";
+			sourceTree = "<group>";
+		};
+		B2C632C92BABB93600A0BE62 /* Product Row */ = {
+			isa = PBXGroup;
+			children = (
+				B23109112AFA0E6100D13F17 /* ProductRow.swift */,
+			);
+			path = "Product Row";
 			sourceTree = "<group>";
 		};
 		B2D94BF12B856DC5002B38AB /* 3DModels */ = {

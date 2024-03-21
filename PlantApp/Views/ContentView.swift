@@ -44,7 +44,7 @@ struct ContentView: View {
                         CartView()
                             .environmentObject(cartManager)
                     } label: {
-                        CartButton(numOfProducts: cartManager.products.count)
+                        CartButton(viewModel: CartButtonViewModel(numOfProducts: cartManager.products.count))
                     }
                 }
             }

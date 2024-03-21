@@ -16,25 +16,13 @@ struct PlantCard: View {
         ZStack(alignment: .bottom){
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading){
-                    Text(viewModel.plant.plantInfo.commonName)
-                        .bold()
-                    
-                    Text("$\(viewModel.plant.price)")
-                        .font(.caption)
+                    commonNameLabel
+                    priceLabel
                 }
                 .padding([.leading, .bottom])
                 .frame(width: 120)
                 
-                Button {
-                    print("add it to cart!")
-                    viewModel.addToCart(cartManager: cartManager)
-                } label: {
-                    Image(systemName: "cart")
-                        .padding(10)
-                        .foregroundColor(ProjColor.accentColor)
-                        .background(ProjColor.SnowDrift)
-                        .cornerRadius(50)
-                }.padding([.bottom, .trailing])
+                addToCartButton
                 
             }
             .frame(width: 180, height: 220, alignment: .bottom)
@@ -42,20 +30,47 @@ struct PlantCard: View {
                 .cornerRadius(20)
             
             if viewModel.plant.imageURL != "" {
-                AsyncImage(url: URL(string: viewModel.plant.imageURL)){ image in
-                    image.resizable()
-                        .cornerRadius(20)
-                        .scaledToFill()
-                        .offset( x:0, y:-90)
-                        .frame(width: 120, height: 180)
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: 120, height: 180)
-                }
+                plantImage
             }
         }
         .frame(width: 190, height: 250)
         .shadow(radius: 3)
+    }
+    
+    private var commonNameLabel: some View {
+        Text(viewModel.plant.plantInfo.commonName)
+            .bold()
+    }
+    
+    private var priceLabel: some View {
+        Text("$\(viewModel.plant.price)")
+            .font(.caption)
+    }
+    
+    private var addToCartButton: some View {
+        Button {
+            print("add it to cart!")
+            viewModel.addToCart(cartManager: cartManager)
+        } label: {
+            Image(systemName: "cart")
+                .padding(10)
+                .foregroundColor(ProjColor.accentColor)
+                .background(ProjColor.SnowDrift)
+                .cornerRadius(50)
+        }.padding([.bottom, .trailing])
+    }
+    
+    private var plantImage: some View {
+        AsyncImage(url: URL(string: viewModel.plant.imageURL)){ image in
+            image.resizable()
+                .cornerRadius(20)
+                .scaledToFill()
+                .offset( x:0, y:-90)
+                .frame(width: 120, height: 180)
+        } placeholder: {
+            ProgressView()
+                .frame(width: 120, height: 180)
+        }
     }
 }
 

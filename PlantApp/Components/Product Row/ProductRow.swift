@@ -13,29 +13,48 @@ struct ProductRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(viewModel.plant.imageURL)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 50)
-                .cornerRadius(10)
+            plantImage
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(viewModel.plant.plantInfo.commonName)
-                    .bold()
-                
-                Text("$\(viewModel.plant.price)")
+                commonNameLabel
+                priceLabel
             }
             
             Spacer()
             
-            Image(systemName: "trash")
-                .foregroundColor(ProjColor.PrimaryGreen)
-                .onTapGesture {
-                    cartManager.removeFromCart(product: viewModel.plant)
-                }
+            trashImage
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var plantImage: some View {
+        AsyncImage(url: URL(string: viewModel.plant.imageURL)){ image in
+            image.resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50)
+                .cornerRadius(10)
+        } placeholder: {
+            ProgressView()
+                .frame(width: 50)
+        }
+    }
+    
+    private var commonNameLabel: some View {
+        Text(viewModel.plant.plantInfo.commonName)
+            .bold()
+    }
+    
+    private var priceLabel: some View {
+        Text("$\(viewModel.plant.price)")
+    }
+    
+    private var trashImage: some View {
+        Image(systemName: "trash")
+            .foregroundColor(ProjColor.PrimaryGreen)
+            .onTapGesture {
+                cartManager.removeFromCart(product: viewModel.plant)
+            }
     }
 }
 

@@ -66,7 +66,7 @@ struct ScrollSection: View {
         NavigationLink {
             ProductDetailView(plant: product)
         } label: {
-            PlantCard(plant: product)
+            PlantCard(viewModel: PlantCardViewModel(plant: product))
         }
     }
 

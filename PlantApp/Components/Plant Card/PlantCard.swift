@@ -9,17 +9,17 @@ import SwiftUI
 
 struct PlantCard: View {
     @EnvironmentObject var cartManager: CartManager
-    var plant: Plant
+    @ObservedObject var viewModel: PlantCardViewModel
     
     var body: some View {
         
         ZStack(alignment: .bottom){
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading){
-                    Text(plant.plantInfo.commonName)
+                    Text(viewModel.plant.plantInfo.commonName)
                         .bold()
                     
-                    Text("$\(plant.price)")
+                    Text("$\(viewModel.plant.price)")
                         .font(.caption)
                 }
                 .padding([.leading, .bottom])
@@ -27,7 +27,7 @@ struct PlantCard: View {
                 
                 Button {
                     print("add it to cart!")
-                    cartManager.addToCart(product: plant)
+                    viewModel.addToCart(cartManager: cartManager)
                 } label: {
                     Image(systemName: "cart")
                         .padding(10)
@@ -41,12 +41,12 @@ struct PlantCard: View {
                 .background(.ultraThinMaterial)
                 .cornerRadius(20)
             
-            if plant.imageURL != "" {
-                AsyncImage(url: URL(string: plant.imageURL)){ image in
+            if viewModel.plant.imageURL != "" {
+                AsyncImage(url: URL(string: viewModel.plant.imageURL)){ image in
                     image.resizable()
                         .cornerRadius(20)
                         .scaledToFill()
-                        .offset( x:0, y:-60)
+                        .offset( x:0, y:-90)
                         .frame(width: 120, height: 180)
                 } placeholder: {
                     ProgressView()
@@ -61,7 +61,8 @@ struct PlantCard: View {
 
 struct PlantCard_Previews: PreviewProvider {
     static var previews: some View {
-        PlantCard(plant: Plant.localPlantList[0])
+        let viewModel = PlantCardViewModel(plant: Plant.localPlantList[0])
+        return PlantCard(viewModel: viewModel)
             .environmentObject(CartManager())
     }
 }

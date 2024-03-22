@@ -64,7 +64,7 @@ struct ScrollSection: View {
     
     private func productView(_ product: Plant) -> some View {
         NavigationLink {
-            ProductDetailView(plant: product)
+            ProductDetailView(viewModel: ProductDetailViewModel(plant: product))
         } label: {
             PlantCard(viewModel: PlantCardViewModel(plant: product))
         }

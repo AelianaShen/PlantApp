@@ -41,7 +41,7 @@ struct ContentView: View {
                 .ignoresSafeArea(.keyboard)
                 .toolbar{
                     NavigationLink {
-                        CartView()
+                        CartView(viewModel: CartViewModel(cartManager: cartManager))
                             .environmentObject(cartManager)
                     } label: {
                         CartButton(viewModel: CartButtonViewModel(numOfProducts: cartManager.products.count))

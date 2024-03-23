@@ -46,6 +46,7 @@
 		B26D33BF2BAD6BBE00789F6E /* ARDetectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33BE2BAD6BBE00789F6E /* ARDetectViewModel.swift */; };
 		B26D33C52BAE29BE00789F6E /* PreferSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33C42BAE29BE00789F6E /* PreferSetViewModel.swift */; };
 		B26D33C82BAE370000789F6E /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33C72BAE370000789F6E /* QuestionViewModel.swift */; };
+		B26D33CB2BAE5C6000789F6E /* ARPlacePlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */; };
 		B2B5EA052BA4D6430078D804 /* ScrollSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */; };
 		B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */; };
 		B2B5EA0C2BAA69880078D804 /* PlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA0B2BAA69880078D804 /* PlantService.swift */; };
@@ -138,6 +139,7 @@
 		B26D33BE2BAD6BBE00789F6E /* ARDetectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetectViewModel.swift; sourceTree = "<group>"; };
 		B26D33C42BAE29BE00789F6E /* PreferSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferSetViewModel.swift; sourceTree = "<group>"; };
 		B26D33C72BAE370000789F6E /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantViewModel.swift; sourceTree = "<group>"; };
 		B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModel.swift; sourceTree = "<group>"; };
 		B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModelTests.swift; sourceTree = "<group>"; };
 		B2B5EA0B2BAA69880078D804 /* PlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantService.swift; sourceTree = "<group>"; };
@@ -285,7 +287,7 @@
 				B26D33B72BAD5DF200789F6E /* Shop View */,
 				B26D33BD2BAD68B500789F6E /* AR Detect View */,
 				B231096D2B0DD7EE00D13F17 /* ARPlaceBoxView.swift */,
-				B2D94BF82B856FE7002B38AB /* ARPlacePlantView.swift */,
+				B26D33C92BAE5C4200789F6E /* AR Place Plant View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +401,15 @@
 				B26D33C72BAE370000789F6E /* QuestionViewModel.swift */,
 			);
 			path = "Question View";
+			sourceTree = "<group>";
+		};
+		B26D33C92BAE5C4200789F6E /* AR Place Plant View */ = {
+			isa = PBXGroup;
+			children = (
+				B2D94BF82B856FE7002B38AB /* ARPlacePlantView.swift */,
+				B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */,
+			);
+			path = "AR Place Plant View";
 			sourceTree = "<group>";
 		};
 		B2B5EA032BA4D5F60078D804 /* Scroll Section */ = {
@@ -736,6 +747,7 @@
 				B23108C12AFA051300D13F17 /* ContentARView.swift in Sources */,
 				B2E5668A2BA116D50065B1C8 /* CollectionResponse.swift in Sources */,
 				B23108BF2AFA051300D13F17 /* AppDelegate.swift in Sources */,
+				B26D33CB2BAE5C6000789F6E /* ARPlacePlantViewModel.swift in Sources */,
 				B2C632D62BAD12DC00A0BE62 /* AccountViewModel.swift in Sources */,
 				B231096E2B0DD7EE00D13F17 /* ARPlaceBoxView.swift in Sources */,
 				B2E566882BA10CCB0065B1C8 /* NetworkManager.swift in Sources */,

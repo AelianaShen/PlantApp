@@ -97,7 +97,7 @@ struct ProductDetailView: View {
     
     private var arSimulateButton: some View {
         NavigationLink {
-            ARPlacePlantView(plant: viewModel.plant.modelURL)
+            ARPlacePlantView(viewModel: ARPlacePlantViewModel(plant: viewModel.plant.modelURL))
         } label: {
             SecondButton(text: "AR simulate")
         }

@@ -111,9 +111,6 @@ struct ProductDetailView: View {
     }
 }
 
-struct ProductDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = ProductDetailViewModel(plant: Plant.localPlantList[0])
-        return ProductDetailView(viewModel: viewModel)
-    }
+#Preview {
+    ProductDetailView(viewModel: ProductDetailViewModel(plant: Plant.localPlantList[0]))
 }

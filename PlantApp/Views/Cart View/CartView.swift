@@ -50,8 +50,6 @@ struct CartView: View {
     }
 }
 
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView(cartManager: CartManager(), viewModel: CartViewModel(cartManager: CartManager()))
-    }
+#Preview {
+    CartView(cartManager: CartManager(), viewModel: CartViewModel(cartManager: CartManager()))
 }

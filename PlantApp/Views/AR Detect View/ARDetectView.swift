@@ -38,8 +38,6 @@ struct ARDetectView: View {
     }
 }
 
-struct ARDetectView_Previews: PreviewProvider {
-    static var previews: some View {
-        ARDetectView()
-    }
+#Preview {
+    ARDetectView(viewModel: ARDetectViewModel())
 }

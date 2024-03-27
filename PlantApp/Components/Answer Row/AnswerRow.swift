@@ -48,8 +48,6 @@ struct AnswerRow: View {
     }
 }
 
-struct AnswerRow_Previews: PreviewProvider {
-    static var previews: some View {
-        AnswerRow(viewModel: AnswerRowViewModel(text: "Option 1", isSelected: false, questionManager: QuestionManager()))
-    }
+#Preview {
+    AnswerRow(viewModel: AnswerRowViewModel(text: "Option 1", isSelected: false, questionManager: QuestionManager()))
 }

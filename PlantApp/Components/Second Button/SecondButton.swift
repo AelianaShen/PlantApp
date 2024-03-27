@@ -26,8 +26,6 @@ struct SecondButton: View {
     }
 }
 
-struct SecondButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SecondButton(text: "Second Button")
-    }
+#Preview {
+    SecondButton(text: "Second Button")
 }

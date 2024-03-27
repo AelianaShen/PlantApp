@@ -74,9 +74,6 @@ struct PlantCard: View {
     }
 }
 
-struct PlantCard_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = PlantCardViewModel(plant: Plant.localPlantList[0])
-        return PlantCard(cartManager: CartManager(), viewModel: viewModel)
-    }
+#Preview {
+    PlantCard(cartManager: CartManager(), viewModel: PlantCardViewModel(plant: Plant.localPlantList[0]))
 }

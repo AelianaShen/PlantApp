@@ -34,9 +34,6 @@ struct CartButton: View {
     }
 }
 
-struct CartButton_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = CartButtonViewModel(numOfProducts: 1)
-        return CartButton(viewModel: viewModel)
-    }
+#Preview {
+    CartButton(viewModel: CartButtonViewModel(numOfProducts: 1))
 }

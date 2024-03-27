@@ -25,8 +25,6 @@ struct PrimaryButton: View {
     }
 }
 
-struct PrimaryButton_Previews: PreviewProvider {
-    static var previews: some View {
-        PrimaryButton(text: "Primary Button")
-    }
+#Preview {
+    PrimaryButton(text: "Primary Button")
 }

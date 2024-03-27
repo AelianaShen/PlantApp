@@ -41,8 +41,6 @@ struct ShopView: View {
     }
 }
 
-struct ShopView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopView(cartManager: CartManager())
-    }
+#Preview {
+    ShopView(cartManager: CartManager(), viewModel: ShopViewModel())
 }

@@ -41,8 +41,6 @@ struct PreferSetView: View {
     }
 }
 
-struct PreferSetView_Previews: PreviewProvider {
-    static var previews: some View {
-        PreferSetView()
-    }
+#Preview {
+    PreferSetView(viewModel: PreferSetViewModel(), questionManager: QuestionManager())
 }

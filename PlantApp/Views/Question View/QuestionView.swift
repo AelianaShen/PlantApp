@@ -81,8 +81,6 @@ struct QuestionView: View {
     }
 }
 
-struct QuestionView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionView(questionManager: QuestionManager(), viewModel: QuestionViewModel(questionManager: QuestionManager()))
-    }
+#Preview {
+    QuestionView(questionManager: QuestionManager(), viewModel: QuestionViewModel(questionManager: QuestionManager()))
 }

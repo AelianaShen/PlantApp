@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @EnvironmentObject var questionManager: QuestionManager
+    let questionManager: QuestionManager
     @StateObject var viewModel: QuestionViewModel
     
     var body: some View {
@@ -46,8 +46,7 @@ struct QuestionView: View {
         ForEach(viewModel.questionManager.question!.options, id: \.self) { option in
             let selectedOption = viewModel.questionManager.answerChoices[viewModel.questionManager.index]
             let isSelected = (option == selectedOption)
-            AnswerRow(viewModel: AnswerRowViewModel(text: option, isSelected: isSelected))
-                .environmentObject(viewModel.questionManager)
+            AnswerRow(viewModel: AnswerRowViewModel(text: option, isSelected: isSelected, questionManager: questionManager))
         }
     }
     
@@ -84,7 +83,6 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(viewModel: QuestionViewModel(questionManager: QuestionManager()))
-            .environmentObject(QuestionManager())
+        QuestionView(questionManager: QuestionManager(), viewModel: QuestionViewModel(questionManager: QuestionManager()))
     }
 }

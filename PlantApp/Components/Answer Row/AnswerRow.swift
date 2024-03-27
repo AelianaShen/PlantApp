@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AnswerRow: View {
-    @EnvironmentObject var questionManager: QuestionManager
     @ObservedObject var viewModel: AnswerRowViewModel
     
     var body: some View {
@@ -42,16 +41,15 @@ struct AnswerRow: View {
     
     private func handleTap(){
         if !viewModel.isSelected {
-            questionManager.select(answer: viewModel.text)
+            viewModel.questionManager.select(answer: viewModel.text)
         } else {
-            questionManager.unselectAnswer()
+            viewModel.questionManager.unselectAnswer()
         }
     }
 }
 
 struct AnswerRow_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerRow(viewModel: AnswerRowViewModel(text: "Option 1", isSelected: false))
-            .environmentObject(QuestionManager())
+        AnswerRow(viewModel: AnswerRowViewModel(text: "Option 1", isSelected: false, questionManager: QuestionManager()))
     }
 }

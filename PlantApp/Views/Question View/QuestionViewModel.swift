@@ -11,7 +11,7 @@ import SwiftUI
 class QuestionViewModel: ObservableObject {
     @Published var questionManager: QuestionManager
     
-    init(questionManager: QuestionManager = QuestionManager()) {
+    init(questionManager: QuestionManager) {
         self.questionManager = questionManager
     }
     

@@ -80,7 +80,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         
         // Then
         XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad URL")
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occurred when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad URL")
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
@@ -93,7 +93,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         
         // Then
         XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad server response")
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occurred when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad server response")
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
@@ -106,7 +106,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         
         // Then
         XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: cannot decode content data")
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occurred when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: cannot decode content data")
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
@@ -119,7 +119,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         
         // Then
         XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: unexpected error")
+        XCTAssertEqual(viewModel.alertBodyString, "Problems occurred when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: unexpected error")
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CartView: View {
-    @EnvironmentObject var cartManager: CartManager
+    let cartManager: CartManager
     @ObservedObject var viewModel: CartViewModel
     var body: some View {
         ScrollView {
@@ -32,7 +32,7 @@ struct CartView: View {
     private var productsInCart: some View {
         ForEach(viewModel.cartManager.products, id: \.productID) {
             plant in
-            ProductRow(viewModel: ProductRowViewModel(plant: plant))
+            ProductRow(cartManager: cartManager, viewModel: ProductRowViewModel(plant: plant))
         }
     }
     
@@ -52,7 +52,6 @@ struct CartView: View {
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(viewModel: CartViewModel(cartManager: CartManager()))
-            .environmentObject(CartManager())
+        CartView(cartManager: CartManager(), viewModel: CartViewModel(cartManager: CartManager()))
     }
 }

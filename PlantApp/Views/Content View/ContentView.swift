@@ -27,12 +27,11 @@ struct ContentView: View {
                         Image(systemName: "camera.viewfinder")
                         Text("ARDetect")
                     }
-                ShopView()
+                ShopView(cartManager: cartManager)
                     .tabItem {
                         Image(systemName: "leaf")
                         Text("Plants")
                     }
-                    .environmentObject(cartManager)
                 PreferSetView()
                     .tabItem {
                         Image(systemName: "heart")
@@ -53,8 +52,7 @@ struct ContentView: View {
     
     private var cartTool: some View {
         NavigationLink {
-            CartView(viewModel: CartViewModel(cartManager: cartManager))
-                .environmentObject(cartManager)
+            CartView(cartManager: cartManager, viewModel: CartViewModel(cartManager: cartManager))
         } label: {
             CartButton(viewModel: CartButtonViewModel(numOfProducts: cartManager.products.count))
         }

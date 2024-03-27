@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductRow: View {
-    @EnvironmentObject var cartManager: CartManager
+    let cartManager: CartManager
     @ObservedObject var viewModel: ProductRowViewModel
     
     var body: some View {
@@ -60,7 +60,6 @@ struct ProductRow: View {
 
 struct ProductRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProductRow(viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]))
-            .environmentObject(CartManager())
+        ProductRow(cartManager: CartManager(), viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]))
     }
 }

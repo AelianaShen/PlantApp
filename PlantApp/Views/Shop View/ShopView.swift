@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ShopView: View {
+    let cartManager: CartManager
     @StateObject var viewModel = ShopViewModel()
     
     var body: some View {
@@ -34,7 +35,7 @@ struct ShopView: View {
     private var scrollProducts: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                ScrollSection()
+                ScrollSection(cartManager: cartManager)
             }
         }
     }
@@ -42,6 +43,6 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView()
+        ShopView(cartManager: CartManager())
     }
 }

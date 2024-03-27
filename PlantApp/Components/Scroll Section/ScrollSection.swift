@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScrollSection: View {
+    let cartManager: CartManager
     let viewModel = ScrollSectionViewModel(plantService: PlantService())
     
     var body: some View {
@@ -66,7 +67,7 @@ struct ScrollSection: View {
         NavigationLink {
             ProductDetailView(viewModel: ProductDetailViewModel(plant: product))
         } label: {
-            PlantCard(viewModel: PlantCardViewModel(plant: product))
+            PlantCard(cartManager: cartManager, viewModel: PlantCardViewModel(plant: product))
         }
     }
 
@@ -84,6 +85,6 @@ struct ScrollSection: View {
 
 struct ScrollSection_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollSection()
+        ScrollSection(cartManager: CartManager())
     }
 }

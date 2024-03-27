@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlantCard: View {
-    @EnvironmentObject var cartManager: CartManager
+    let cartManager: CartManager
     @ObservedObject var viewModel: PlantCardViewModel
     
     var body: some View {
@@ -77,7 +77,6 @@ struct PlantCard: View {
 struct PlantCard_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = PlantCardViewModel(plant: Plant.localPlantList[0])
-        return PlantCard(viewModel: viewModel)
-            .environmentObject(CartManager())
+        return PlantCard(cartManager: CartManager(), viewModel: viewModel)
     }
 }

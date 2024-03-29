@@ -22,7 +22,6 @@ struct ScrollSection: View {
             }
         }
         .task { await viewModel.getPlantList() }
-        .alert(isPresented: viewModel.plantListFetchFailed) { plantListFetchAlert }
     }
     
     private var sectionHeader: some View {
@@ -69,17 +68,6 @@ struct ScrollSection: View {
         } label: {
             PlantCard(cartManager: cartManager, viewModel: PlantCardViewModel(plant: product))
         }
-    }
-
-    private var plantListFetchAlert: Alert {
-        Alert(
-            title: Text(viewModel.alertTitleString),
-            message: Text(viewModel.alertBodyString),
-            primaryButton: .default(
-                Text(viewModel.alertButtonString),
-                action: viewModel.updatePlantListToDefault),
-            secondaryButton: .cancel()
-        )
     }
 }
 

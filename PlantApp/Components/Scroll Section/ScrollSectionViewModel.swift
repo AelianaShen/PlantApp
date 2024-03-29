@@ -38,22 +38,7 @@ import SwiftUI
 
     func getPlantList() async {
         isLoadingPlantList = true
-        do {
-            plantList = try await plantService.getPlants()
-        } catch URLError.badURL {
-            showingError = true
-            alertBodyString += " bad URL"
-        } catch URLError.badServerResponse {
-            showingError = true
-            alertBodyString += " bad server response"
-        } catch URLError.cannotDecodeContentData {
-            showingError = true
-            alertBodyString += " cannot decode content data"
-        } catch {
-            showingError = true
-            alertBodyString += " unexpected error"
-        }
-
+        plantList = await plantService.getPlants()
         isLoadingPlantList = false
     }
 

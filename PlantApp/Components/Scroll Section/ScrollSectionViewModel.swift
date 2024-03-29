@@ -38,11 +38,9 @@ import SwiftUI
 
     func getPlantList() async {
         isLoadingPlantList = true
-        plantList = await plantService.getPlants()
+        if plantList.isEmpty {
+            plantList = await plantService.getPlants()
+        }
         isLoadingPlantList = false
-    }
-
-    func updatePlantListToDefault() {
-        self.plantList = Plant.localPlantList
     }
 }

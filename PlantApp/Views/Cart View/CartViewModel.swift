@@ -8,22 +8,30 @@
 import Foundation
 import SwiftUI
 
-class CartViewModel: ObservableObject {
-    @Published var cartManager: CartManager
-    
+@Observable class CartViewModel {
     let totalTitleString = "Your cart total is"
     let emptyString = "Your cart is empty"
     let navigationTitleString = "My Cart"
     
-    init(cartManager: CartManager = CartManager()) {
+    private let cartManager: CartManaging
+    
+    init(cartManager: CartManaging) {
         self.cartManager = cartManager
     }
     
     var cartTotal: String {
-        return "$\(cartManager.total).00"
+        "$\(cartManager.total).00"
     }
     
     var isEmpty: Bool {
-        return cartManager.products.isEmpty
+        cartManager.products.isEmpty
+    }
+    
+    var cartProducts: [Plant] {
+        cartManager.products
+    }
+    
+    func removeFromCart(product: Plant) {
+        cartManager.removeFromCart(product: product)
     }
 }

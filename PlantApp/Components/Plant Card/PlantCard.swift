@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct PlantCard: View {
-    let cartManager: CartManager
-    @ObservedObject var viewModel: PlantCardViewModel
-    
+    let viewModel: PlantCardViewModel
+
     var body: some View {
-        
         ZStack(alignment: .bottom){
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading){
@@ -29,7 +27,7 @@ struct PlantCard: View {
                 .background(.ultraThinMaterial)
                 .cornerRadius(20)
             
-            if viewModel.plant.imageURL != "" {
+            if !viewModel.plantImageURLString.isEmpty {
                 plantImage
             }
         }
@@ -38,30 +36,31 @@ struct PlantCard: View {
     }
     
     private var commonNameLabel: some View {
-        Text(viewModel.plant.plantInfo.commonName)
+        Text(viewModel.plantName)
             .bold()
     }
     
     private var priceLabel: some View {
-        Text("$\(viewModel.plant.price)")
+        Text(viewModel.plantPrice)
             .font(.caption)
     }
     
     private var addToCartButton: some View {
         Button {
             print("add it to cart!")
-            viewModel.addToCart(cartManager: cartManager)
+            viewModel.addToCart()
         } label: {
             Image(systemName: "cart")
                 .padding(10)
                 .foregroundColor(ProjColor.accentColor)
                 .background(ProjColor.SnowDrift)
                 .cornerRadius(50)
-        }.padding([.bottom, .trailing])
+        }
+        .padding([.bottom, .trailing])
     }
     
     private var plantImage: some View {
-        AsyncImage(url: URL(string: viewModel.plant.imageURL)){ image in
+        AsyncImage(url: URL(string: viewModel.plantImageURLString)){ image in
             image.resizable()
                 .cornerRadius(20)
                 .scaledToFill()
@@ -75,5 +74,10 @@ struct PlantCard: View {
 }
 
 #Preview {
-    PlantCard(cartManager: CartManager(), viewModel: PlantCardViewModel(plant: Plant.localPlantList[0]))
+    PlantCard(
+        viewModel: PlantCardViewModel(
+            plant: Plant.localPlantList[0],
+            cartManager: CartManager()
+        )
+    )
 }

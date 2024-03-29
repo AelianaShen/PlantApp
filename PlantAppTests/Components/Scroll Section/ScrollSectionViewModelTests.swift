@@ -16,7 +16,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
         
         // When
-        viewModel.plantList = []
+`        viewModel.plantList = []
         viewModel.isLoadingPlantList = false
         
         // Then

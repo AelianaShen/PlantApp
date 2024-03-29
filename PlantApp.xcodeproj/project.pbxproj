@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9971488D2BA503FD00282138 /* MockPlantService.swift */; };
+		99C0F0A72BB684FA00526CA2 /* CartManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0F0A62BB684FA00526CA2 /* CartManaging.swift */; };
+		99C0F0AC2BB6896F00526CA2 /* MockCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0F0AB2BB6896F00526CA2 /* MockCartManager.swift */; };
 		B23108BF2AFA051300D13F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23108BE2AFA051300D13F17 /* AppDelegate.swift */; };
 		B23108C12AFA051300D13F17 /* ContentARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23108C02AFA051300D13F17 /* ContentARView.swift */; };
 		B23108C82AFA051500D13F17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23108C72AFA051500D13F17 /* Preview Assets.xcassets */; };
@@ -105,6 +107,8 @@
 
 /* Begin PBXFileReference section */
 		9971488D2BA503FD00282138 /* MockPlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlantService.swift; sourceTree = "<group>"; };
+		99C0F0A62BB684FA00526CA2 /* CartManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManaging.swift; sourceTree = "<group>"; };
+		99C0F0AB2BB6896F00526CA2 /* MockCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartManager.swift; sourceTree = "<group>"; };
 		B23108BB2AFA051300D13F17 /* PlantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23108BE2AFA051300D13F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23108C02AFA051300D13F17 /* ContentARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentARView.swift; sourceTree = "<group>"; };
@@ -216,8 +220,16 @@
 			isa = PBXGroup;
 			children = (
 				9971488D2BA503FD00282138 /* MockPlantService.swift */,
+				99C0F0AB2BB6896F00526CA2 /* MockCartManager.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		99C0F0A82BB688A700526CA2 /* Plant Card */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Plant Card";
 			sourceTree = "<group>";
 		};
 		B23108B22AFA051300D13F17 = {
@@ -313,6 +325,7 @@
 			children = (
 				B23109252AFA417D00D13F17 /* classes */,
 				B23108FE2AFA077300D13F17 /* CartManager.swift */,
+				99C0F0A62BB684FA00526CA2 /* CartManaging.swift */,
 				B23108FF2AFA077300D13F17 /* QuestionManager.swift */,
 			);
 			path = Controllers;
@@ -496,6 +509,7 @@
 		B2B5EA062BA4F4AA0078D804 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				99C0F0A82BB688A700526CA2 /* Plant Card */,
 				B2B5EA072BA4F4BC0078D804 /* Scroll Section */,
 			);
 			path = Components;
@@ -804,6 +818,7 @@
 				B26D33CE2BAE605200789F6E /* ARPlaceBoxViewModel.swift in Sources */,
 				B2FFEEFD2B80546800886F87 /* ARPlaceBoxViewContainer.swift in Sources */,
 				B23109182AFA0E6100D13F17 /* CartButton.swift in Sources */,
+				99C0F0A72BB684FA00526CA2 /* CartManaging.swift in Sources */,
 				B26D33BF2BAD6BBE00789F6E /* ARDetectViewModel.swift in Sources */,
 				B23109172AFA0E6100D13F17 /* AnswerRow.swift in Sources */,
 				B23109192AFA0E6100D13F17 /* ProductRow.swift in Sources */,
@@ -844,6 +859,7 @@
 				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,
 				9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */,
 				B23108D22AFA051500D13F17 /* PlantAppTests.swift in Sources */,
+				99C0F0AC2BB6896F00526CA2 /* MockCartManager.swift in Sources */,
 				B23109272AFA42F000D13F17 /* IteratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProductRow: View {
-    let cartManager: CartManager
     @ObservedObject var viewModel: ProductRowViewModel
+    let onDelete: () -> Void
     
     var body: some View {
         HStack(spacing: 20) {
@@ -53,11 +53,11 @@ struct ProductRow: View {
         Image(systemName: "trash")
             .foregroundColor(ProjColor.PrimaryGreen)
             .onTapGesture {
-                cartManager.removeFromCart(product: viewModel.plant)
+                onDelete()
             }
     }
 }
 
 #Preview {
-    ProductRow(cartManager: CartManager(), viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]))
+    ProductRow(viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]), onDelete: {})
 }

@@ -8,14 +8,37 @@
 import Foundation
 import SwiftUI
 
-class PlantCardViewModel: ObservableObject {
-    @Published var plant: Plant
-    
-    init(plant: Plant) {
+class PlantCardViewModel {
+
+    // MARK: - Properties
+
+    private let plant: Plant
+    private let cartManager: CartManaging
+
+    // MARK: - Initialization
+
+    init(plant: Plant, cartManager: CartManaging) {
         self.plant = plant
+        self.cartManager = cartManager
+    }
+
+    // MARK: - Accessors
+    
+    var plantName: String {
+        plant.plantInfo.commonName
     }
     
-    func addToCart(cartManager: CartManager) {
+    var plantPrice: String {
+        "$\(plant.price)"
+    }
+    
+    var plantImageURLString: String {
+        plant.imageURL
+    }
+
+    // MARK: - Methods
+
+    func addToCart() {
         cartManager.addToCart(product: plant)
     }
 }

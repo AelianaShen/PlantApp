@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-@Observable class AnswerRowViewModel {
+class AnswerRowViewModel {
     let text: String
     let isSelected: Bool
     let questionManager: QuestionManager

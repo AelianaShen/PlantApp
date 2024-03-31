@@ -24,6 +24,12 @@ class ProductRowViewModel: ObservableObject {
     }
     
     var price: String {
-        "$\(plant.price)"
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .none
+        if let formattedNumber = numberFormatter.string(from: NSNumber(value: plant.price)) {
+            return "$\(formattedNumber)"
+        } else {
+            return "NaN"
+        }
     }
 }

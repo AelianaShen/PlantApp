@@ -22,7 +22,13 @@ class PlantCardViewModel {
     }
     
     var plantPrice: String {
-        "$\(plant.price)"
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .none
+        if let formattedNumber = numberFormatter.string(from: NSNumber(value: plant.price)) {
+            return "$\(formattedNumber)"
+        } else {
+            return "NaN"
+        }
     }
     
     var plantImageURL: String {

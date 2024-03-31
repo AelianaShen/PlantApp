@@ -25,7 +25,7 @@ import SwiftUI
         if let formattedNumber = numberFormatter.string(from: NSNumber(value: cartManager.total)) {
             return formattedNumber
         } else {
-            return "0.00"
+            return "0.00 (NaN error)"
         }
     }
     

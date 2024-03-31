@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ARDetectView: View {
-    @StateObject var viewModel = ARDetectViewModel()
+    let viewModel = ARDetectViewModel()
     
     var body: some View {
         VStack(spacing: 20) {
@@ -39,5 +39,5 @@ struct ARDetectView: View {
 }
 
 #Preview {
-    ARDetectView(viewModel: ARDetectViewModel())
+    ARDetectView()
 }

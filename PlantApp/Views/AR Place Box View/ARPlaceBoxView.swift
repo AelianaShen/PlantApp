@@ -10,11 +10,11 @@ import RealityKit
 import ARKit
 
 struct ARPlaceBoxView : View {
-    @StateObject var viewModel = ARPlaceBoxViewModel()
+    let viewModel = ARPlaceBoxViewModel()
     
     var body: some View {
         if viewModel.useARKit {
-            ARLuxMeasureViewContainer(luxValue: $viewModel.luxValue)
+            ARLuxMeasureViewContainer(luxValue: viewModel.luxValueBinding)
                 .edgesIgnoringSafeArea(.all)
                 .overlay(alignment: .bottom) {
                     VStack {
@@ -24,7 +24,7 @@ struct ARPlaceBoxView : View {
                     }
                 }
         } else {
-            ARPlaceBoxViewContainer(boxSize: $viewModel.boxSize)
+            ARPlaceBoxViewContainer(boxSize: viewModel.boxSizeBinding)
                 .edgesIgnoringSafeArea(.all)
                 .overlay(alignment: .bottom) {
                     VStack {
@@ -54,7 +54,13 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your indoor light Value is around %.2f ft-c (footcandle).", viewModel.luxValue), isPresented: $viewModel.showConfirmMsg){
+        .alert(
+            String(
+                format: "Your indoor light Value is around %.2f ft-c (footcandle).",
+                viewModel.luxValue
+            ),
+            isPresented: viewModel.showConfirmMsgBinding
+        ) {
             Button("OK") {
                 viewModel.confirmLuxValue = viewModel.luxValue
             }
@@ -85,7 +91,10 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your potential plant size is around %.2f %.2f %.2f meters", viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z), isPresented: $viewModel.showConfirmMsg){
+        .alert(
+            String(format: "Your potential plant size is around %.2f %.2f %.2f meters", viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z),
+            isPresented: viewModel.showConfirmMsgBinding
+        ){
             Button("OK") {
                 viewModel.confirmBoxSize = viewModel.boxSize
                 viewModel.useARKit = true

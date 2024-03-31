@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ARPlacePlantViewModel: ObservableObject {
+class ARPlacePlantViewModel {
     var plant: String
     let guidelineString = "Simply touch the screen to add the plant to your home!"
     

@@ -13,7 +13,13 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel() {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
+        let viewModel = ScrollSectionViewModel(
+            plantService: MockSuccessPlantService(),
+            cartManager: MockCartManager(
+                products: [],
+                total: 0
+            )
+        )
         
         // When
         viewModel.plantList = []
@@ -25,7 +31,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel_is_false_when_isLoadingPlantList() {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         viewModel.plantList = []
@@ -37,7 +43,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel_is_false_when_plantList_not_empty() {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         viewModel.plantList = Plant.localPlantList
@@ -49,7 +55,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_shouldShowEmptyListLabel_is_false_when_plantList_not_empty_and_isLoadingPlantList() {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         viewModel.plantList = Plant.localPlantList
@@ -61,7 +67,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_getPlantList() async {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockSuccessPlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         await viewModel.getPlantList()
@@ -73,7 +79,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_getPlantList_bad_url_failure() async {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockBadUrlFailurePlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockBadUrlFailurePlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         await viewModel.getPlantList()
@@ -85,7 +91,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_getPlantList_bad_server_response_failure() async {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockBadServerResponseFailurePlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockBadServerResponseFailurePlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         await viewModel.getPlantList()
@@ -97,7 +103,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_getPlantList_cannot_decode_content_data_failure() async {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockCannotDecodeContentDataFailurePlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockCannotDecodeContentDataFailurePlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         await viewModel.getPlantList()
@@ -109,7 +115,7 @@ class ScrollSectionViewModelTests: XCTestCase {
     
     func test_getPlantList_connection_lost_failure() async {
         // Given
-        let viewModel = ScrollSectionViewModel(plantService: MockGeneralFailurePlantService())
+        let viewModel = ScrollSectionViewModel(plantService: MockGeneralFailurePlantService(), cartManager: MockCartManager(products: [], total: 0))
         
         // When
         await viewModel.getPlantList()

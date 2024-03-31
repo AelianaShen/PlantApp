@@ -8,8 +8,18 @@
 import Foundation
 import SwiftUI
 
-class ShopViewModel: ObservableObject {
-    @Published var searchText: String = ""
+@Observable class ShopViewModel {
+    var searchText: String = ""
+    let cartManager: CartManaging
     
-    func searchPlants() { }
+    var searchTextBinding: Binding<String> {
+        Binding(
+            get: { self.searchText },
+            set: { self.searchText = $0 }
+        )
+    }
+    
+    init(cartManager: CartManaging) {
+        self.cartManager = cartManager
+    }
 }

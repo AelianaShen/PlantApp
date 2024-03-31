@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol PlantServiceProtocol {
-    func getPlants() async -> [Plant]
-    func getPlant(withId plantId: String) async -> Plant?
-}
-
 class PlantService: PlantServiceProtocol {
     private let networkManager = NetworkManager()
     

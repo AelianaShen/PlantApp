@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @StateObject var viewModel = AccountViewModel()
+    let viewModel = AccountViewModel()
     
     var body: some View {
         VStack {
@@ -17,7 +17,7 @@ struct AccountView: View {
             onboardingButton
         }
     }
-    
+
     private var personImage: some View {
         Image(systemName: "person.crop.circle")
             .resizable()
@@ -35,9 +35,9 @@ struct AccountView: View {
     }
     
     private var onboardingButton: some View {
-        Button(action: {
+        Button {
             viewModel.toggleOnboardingState()
-        }) {
+        } label: {
             Text("Back to Onboarding")
                 .font(.title3)
                 .bold()
@@ -50,5 +50,5 @@ struct AccountView: View {
 }
 
 #Preview {
-    AccountView(viewModel: AccountViewModel())
+    AccountView()
 }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ARDetectViewModel: ObservableObject {
+class ARDetectViewModel {
     let guidelineString = "Open your camera and decide where to place your plant. We are going to find the best plant choice for you!"
     let buttonString = "Find a place for your plant"
 }

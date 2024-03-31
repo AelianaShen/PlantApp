@@ -9,13 +9,13 @@ import SwiftUI
 import RealityKit
 import ARKit
 
-struct ARPlacePlantView : View {
-    @StateObject var viewModel: ARPlacePlantViewModel
+struct ARPlacePlantView: View {
+    let viewModel: ARPlacePlantViewModel
     
     var body: some View {
         ARPlacePlantViewContainer(plant: viewModel.plant)
             .edgesIgnoringSafeArea(.all)
-            .overlay(alignment: .top){
+            .overlay(alignment: .top) {
                 guideline
             }
     }

@@ -22,7 +22,6 @@ struct PlantCard: View {
                 .frame(width: 120)
                 
                 addToCartButton
-                
             }
             .frame(width: 180, height: 220, alignment: .bottom)
                 .background(.ultraThinMaterial)
@@ -48,7 +47,6 @@ struct PlantCard: View {
     
     private var addToCartButton: some View {
         Button {
-            print("add it to cart!")
             viewModel.addToCart()
         } label: {
             Image(systemName: "cart")

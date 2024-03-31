@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = ContentViewModel()
-    let cartManager = CartManager()
+    let viewModel: ContentViewModel
     
     var body: some View {
         if viewModel.isOnboardingViewActive {
@@ -27,12 +26,12 @@ struct ContentView: View {
                         Image(systemName: "camera.viewfinder")
                         Text("ARDetect")
                     }
-                ShopView(cartManager: cartManager)
+                ShopView(viewModel: ShopViewModel(cartManager: viewModel.cartManager))
                     .tabItem {
                         Image(systemName: "leaf")
                         Text("Plants")
                     }
-                PreferSetView()
+                PreferSetView(viewModel: PreferSetViewModel())
                     .tabItem {
                         Image(systemName: "heart")
                         Text("Prefer")
@@ -44,7 +43,7 @@ struct ContentView: View {
                     }
             }
             .ignoresSafeArea(.keyboard)
-            .toolbar{
+            .toolbar {
                 cartTool
             }
         }
@@ -52,9 +51,9 @@ struct ContentView: View {
     
     private var cartTool: some View {
         NavigationLink {
-            CartView(viewModel: CartViewModel(cartManager: cartManager))
+            CartView(viewModel: CartViewModel(cartManager: viewModel.cartManager))
         } label: {
-            CartButton(viewModel: CartButtonViewModel(numOfProducts: cartManager.products.count))
+            CartButton(viewModel: CartButtonViewModel(numOfProducts: viewModel.cartManager.products.count))
         }
     }
 }

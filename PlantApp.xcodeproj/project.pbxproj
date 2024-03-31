@@ -49,6 +49,7 @@
 		B26D33CB2BAE5C6000789F6E /* ARPlacePlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */; };
 		B26D33CE2BAE605200789F6E /* ARPlaceBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33CD2BAE605200789F6E /* ARPlaceBoxViewModel.swift */; };
 		B26D33D12BAE697F00789F6E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33D02BAE697F00789F6E /* ContentViewModel.swift */; };
+		B282F6082BB8EA3C0089B9A2 /* CartManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */; };
 		B2B34BA72BAE96130025D34B /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BA62BAE96130025D34B /* OnboardView.swift */; };
 		B2B34BA92BAE96500025D34B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BA82BAE96500025D34B /* WelcomeView.swift */; };
 		B2B34BAD2BAE97430025D34B /* GetstartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BAC2BAE97430025D34B /* GetstartView.swift */; };
@@ -150,6 +151,7 @@
 		B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantViewModel.swift; sourceTree = "<group>"; };
 		B26D33CD2BAE605200789F6E /* ARPlaceBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewModel.swift; sourceTree = "<group>"; };
 		B26D33D02BAE697F00789F6E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManaging.swift; sourceTree = "<group>"; };
 		B2B34BA62BAE96130025D34B /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		B2B34BA82BAE96500025D34B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B2B34BAC2BAE97430025D34B /* GetstartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetstartView.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				B23109252AFA417D00D13F17 /* classes */,
 				B23108FE2AFA077300D13F17 /* CartManager.swift */,
 				B23108FF2AFA077300D13F17 /* QuestionManager.swift */,
+				B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				B26D33CE2BAE605200789F6E /* ARPlaceBoxViewModel.swift in Sources */,
 				B2FFEEFD2B80546800886F87 /* ARPlaceBoxViewContainer.swift in Sources */,
 				B23109182AFA0E6100D13F17 /* CartButton.swift in Sources */,
+				B282F6082BB8EA3C0089B9A2 /* CartManaging.swift in Sources */,
 				B26D33BF2BAD6BBE00789F6E /* ARDetectViewModel.swift in Sources */,
 				B23109172AFA0E6100D13F17 /* AnswerRow.swift in Sources */,
 				B23109192AFA0E6100D13F17 /* ProductRow.swift in Sources */,

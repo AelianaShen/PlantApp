@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
-    @StateObject var cartManager = CartManager()
+    let cartManager = CartManager()
     
     var body: some View {
         if viewModel.isOnboardingViewActive {
@@ -52,7 +52,7 @@ struct ContentView: View {
     
     private var cartTool: some View {
         NavigationLink {
-            CartView(cartManager: cartManager, viewModel: CartViewModel(cartManager: cartManager))
+            CartView(viewModel: CartViewModel(cartManager: cartManager))
         } label: {
             CartButton(viewModel: CartButtonViewModel(numOfProducts: cartManager.products.count))
         }
@@ -60,5 +60,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(viewModel: ContentViewModel(), cartManager: CartManager())
+    ContentView(viewModel: ContentViewModel())
 }

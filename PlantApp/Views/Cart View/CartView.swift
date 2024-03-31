@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CartView: View {
-    let cartManager: CartManager
-    @ObservedObject var viewModel: CartViewModel
+    let viewModel: CartViewModel
+    
     var body: some View {
         ScrollView {
-            if viewModel.cartManager.products.count > 0 {
+            if !viewModel.cartProducts.isEmpty {
                 productsInCart
                 
                 HStack {
@@ -30,9 +30,11 @@ struct CartView: View {
     }
     
     private var productsInCart: some View {
-        ForEach(viewModel.cartManager.products, id: \.productID) {
-            plant in
-            ProductRow(cartManager: cartManager, viewModel: ProductRowViewModel(plant: plant))
+        ForEach(viewModel.cartProducts, id: \.productID) { plant in
+            ProductRow(
+                viewModel: ProductRowViewModel(plant: plant),
+                onDelete: { viewModel.removeFromCart(product: plant) }
+            )
         }
     }
     
@@ -45,11 +47,11 @@ struct CartView: View {
     }
     
     private var cartTotalLabel: some View {
-        Text("$\(viewModel.cartManager.total).00")
+        Text(viewModel.cartTotal)
             .bold()
     }
 }
 
 #Preview {
-    CartView(cartManager: CartManager(), viewModel: CartViewModel(cartManager: CartManager()))
+    CartView(viewModel: CartViewModel(cartManager: CartManager()))
 }

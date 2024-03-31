@@ -15,7 +15,15 @@ class ProductRowViewModel: ObservableObject {
         self.plant = plant
     }
     
-    func removeFromCart(cartManager: CartManager) {
-        cartManager.removeFromCart(product: plant)
+    var imageURL: String {
+        plant.imageURL
+    }
+    
+    var commonName: String {
+        plant.plantInfo.commonName
+    }
+    
+    var price: String {
+        "$\(plant.price)"
     }
 }

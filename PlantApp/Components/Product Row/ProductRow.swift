@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProductRow: View {
-    let cartManager: CartManager
-    @ObservedObject var viewModel: ProductRowViewModel
+    let viewModel: ProductRowViewModel
+    let onDelete: () -> Void
     
     var body: some View {
         HStack(spacing: 20) {
@@ -29,7 +29,7 @@ struct ProductRow: View {
     }
     
     private var plantImage: some View {
-        AsyncImage(url: URL(string: viewModel.plant.imageURL)){ image in
+        AsyncImage(url: URL(string: viewModel.imageURL)) { image in
             image.resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)
@@ -41,23 +41,23 @@ struct ProductRow: View {
     }
     
     private var commonNameLabel: some View {
-        Text(viewModel.plant.plantInfo.commonName)
+        Text(viewModel.commonName)
             .bold()
     }
     
     private var priceLabel: some View {
-        Text("$\(viewModel.plant.price)")
+        Text(viewModel.price)
     }
     
     private var trashImage: some View {
         Image(systemName: "trash")
             .foregroundColor(ProjColor.PrimaryGreen)
             .onTapGesture {
-                cartManager.removeFromCart(product: viewModel.plant)
+                onDelete()
             }
     }
 }
 
 #Preview {
-    ProductRow(cartManager: CartManager(), viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]))
+    ProductRow(viewModel: ProductRowViewModel(plant: Plant.localPlantList[1]), onDelete: {})
 }

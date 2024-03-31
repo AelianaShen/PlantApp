@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AnswerRow: View {
-    @ObservedObject var viewModel: AnswerRowViewModel
+    let viewModel: AnswerRowViewModel
+    let onSelect: () -> Void
     
     var body: some View {
         HStack(spacing: 20) {
@@ -24,7 +25,7 @@ struct AnswerRow: View {
         .cornerRadius(10)
         .shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
-            handleTap()
+            onSelect()
         }
     }
     
@@ -38,16 +39,13 @@ struct AnswerRow: View {
             .bold()
             .font(.caption)
     }
-    
-    private func handleTap(){
-        if !viewModel.isSelected {
-            viewModel.questionManager.select(answer: viewModel.text)
-        } else {
-            viewModel.questionManager.unselectAnswer()
-        }
-    }
 }
 
 #Preview {
-    AnswerRow(viewModel: AnswerRowViewModel(text: "Option 1", isSelected: false, questionManager: QuestionManager()))
+    AnswerRow(
+        viewModel: AnswerRowViewModel(
+            text: "Option 1",
+            isSelected: false,
+            questionManager: QuestionManager()
+        ), onSelect: {})
 }

@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-class AnswerRowViewModel: ObservableObject {
-    @Published var text: String
-    @Published var isSelected: Bool
-    @Published var questionManager: QuestionManager
+@Observable class AnswerRowViewModel {
+    let text: String
+    let isSelected: Bool
+    let questionManager: QuestionManager
     
     init(text: String, isSelected: Bool, questionManager: QuestionManager) {
         self.text = text

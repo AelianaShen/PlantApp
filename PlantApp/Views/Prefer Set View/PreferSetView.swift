@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PreferSetView: View {
     @StateObject var viewModel = PreferSetViewModel()
-    @StateObject var questionManager = QuestionManager()
+    let questionManager = QuestionManager()
     
     var body: some View {
         NavigationView {
@@ -34,7 +34,7 @@ struct PreferSetView: View {
     
     private var startQuestionsButton: some View {
         NavigationLink {
-            QuestionView(questionManager: questionManager, viewModel: QuestionViewModel(questionManager: questionManager))
+            QuestionView(viewModel: QuestionViewModel(questionManager: questionManager))
         } label: {
             PrimaryButton(text: viewModel.primaryButtonString)
         }
@@ -42,5 +42,5 @@ struct PreferSetView: View {
 }
 
 #Preview {
-    PreferSetView(viewModel: PreferSetViewModel(), questionManager: QuestionManager())
+    PreferSetView(viewModel: PreferSetViewModel())
 }

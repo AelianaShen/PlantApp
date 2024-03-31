@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct QuestionView: View {
-    let questionManager: QuestionManager
-    @StateObject var viewModel: QuestionViewModel
+    let viewModel: QuestionViewModel
     
     var body: some View {
         VStack(spacing: 20) {
@@ -18,7 +17,7 @@ struct QuestionView: View {
             skipQuestionButton
 
             HStack {
-                if !viewModel.questionManager.reachedFront {
+                if !viewModel.reachedFront {
                     goToPreviousQuestionButton
                 }
                 
@@ -26,7 +25,7 @@ struct QuestionView: View {
                 currentIndexLabel
                 Spacer()
                 
-                if !viewModel.questionManager.reachedEnd {
+                if !viewModel.reachedEnd {
                     goToNextQuestionButton
                 }
             }
@@ -36,17 +35,23 @@ struct QuestionView: View {
     }
     
     private var questionDescription: some View {
-        Text(viewModel.questionManager.question!.description)
+        Text(viewModel.questionDescription)
             .multilineTextAlignment(.center)
             .padding(.bottom, 30)
             .font(.headline)
     }
     
     private var questionOptions: some View {
-        ForEach(viewModel.questionManager.question!.options, id: \.self) { option in
-            let selectedOption = viewModel.questionManager.answerChoices[viewModel.questionManager.index]
-            let isSelected = (option == selectedOption)
-            AnswerRow(viewModel: AnswerRowViewModel(text: option, isSelected: isSelected, questionManager: questionManager))
+        ForEach(viewModel.questionOptions, id: \.self) { option in
+            AnswerRow(
+                viewModel: AnswerRowViewModel(
+                    text: option,
+                    isSelected: option == viewModel.selectedOption,
+                    questionManager: viewModel.questionManager
+                ), onSelect: {
+                    viewModel.selectOption(option: option)
+                }
+            )
         }
     }
     
@@ -56,7 +61,7 @@ struct QuestionView: View {
             .font(.caption)
             .foregroundColor(.secondary)
             .onTapGesture {
-                viewModel.questionManager.skipQuestion()
+                viewModel.skipQuestion()
             }
     }
     
@@ -64,7 +69,7 @@ struct QuestionView: View {
         Image(systemName: "chevron.left")
             .bold()
             .onTapGesture {
-                viewModel.questionManager.goToPreviousQuestion()
+                viewModel.goToPreviousQuestion()
             }
     }
     
@@ -72,15 +77,19 @@ struct QuestionView: View {
         Image(systemName: "chevron.right")
             .bold()
             .onTapGesture {
-                viewModel.questionManager.goToNextQuestion()
+                viewModel.goToNextQuestion()
             }
     }
     
     private var currentIndexLabel: some View {
-        Text(viewModel.currentIndex + " / 6")
+        Text(viewModel.currentIndex)
     }
 }
 
 #Preview {
-    QuestionView(questionManager: QuestionManager(), viewModel: QuestionViewModel(questionManager: QuestionManager()))
+    QuestionView(
+        viewModel: QuestionViewModel(
+            questionManager: QuestionManager()
+        )
+    )
 }

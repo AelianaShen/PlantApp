@@ -7,13 +7,13 @@
 
 import Foundation
 
-class QuestionManager: ObservableObject {
-    @Published private(set) var index = 0
-    @Published private(set) var answerChoices: [String]
-    @Published private(set) var reachedEnd = false
-    @Published private(set) var reachedFront = true
-    @Published private(set) var question: Question?
-    var questionsIterator = Iterator(for: questions)
+@Observable class QuestionManager: QuestionManaging {
+    private(set) var index = 0
+    private(set) var answerChoices: [String]
+    private(set) var reachedEnd = false
+    private(set) var reachedFront = true
+    private(set) var question: Question?
+    let questionsIterator = Iterator(for: questions)
 
     init() {
         self.question = questionsIterator.next()
@@ -52,4 +52,3 @@ class QuestionManager: ObservableObject {
         self.reachedFront = (questionsIterator.currentIndex == 1)
     }
 }
-

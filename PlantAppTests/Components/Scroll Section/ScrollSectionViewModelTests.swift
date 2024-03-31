@@ -79,8 +79,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         await viewModel.getPlantList()
         
         // Then
-        XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad URL")
+        XCTAssert(viewModel.plantList.isEmpty)
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
@@ -92,8 +91,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         await viewModel.getPlantList()
         
         // Then
-        XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: bad server response")
+        XCTAssert(viewModel.plantList.isEmpty)
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
@@ -105,8 +103,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         await viewModel.getPlantList()
         
         // Then
-        XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: cannot decode content data")
+        XCTAssert(viewModel.plantList.isEmpty)
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
     
@@ -118,8 +115,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         await viewModel.getPlantList()
         
         // Then
-        XCTAssertTrue(viewModel.showingError)
-        XCTAssertEqual(viewModel.alertBodyString, "Problems occur when loading the recommended list from the internet. Click OK to load the local plant list. \n\n Error: unexpected error")
+        XCTAssert(viewModel.plantList.isEmpty)
         XCTAssertFalse(viewModel.isLoadingPlantList)
     }
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-class CartManager: ObservableObject {
-    @Published private(set) var products: [Plant] = []
-    @Published private(set) var total: Int = 0
+@Observable class CartManager: CartManaging {
+    private(set) var products: [Plant] = []
+    private(set) var total: Int = 0
     
     func addToCart(product: Plant) {
         products.append(product)
@@ -20,5 +20,4 @@ class CartManager: ObservableObject {
         products = products.filter { $0.productID != product.productID }
         total -= Int(product.price) 
     }
-    
 }

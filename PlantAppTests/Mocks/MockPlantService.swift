@@ -9,51 +9,51 @@ import Foundation
 @testable import PlantApp
 
 class MockSuccessPlantService: PlantServiceProtocol {
-    func getPlants() async throws -> [Plant] {
+    func getPlants() async -> [Plant] {
         return Plant.localPlantList
     }
     
-    func getPlant(withId plantId: String) async throws -> Plant {
+    func getPlant(withId plantId: String) async -> Plant? {
         return Plant.localPlantList[0]
     }
 }
 
 class MockBadUrlFailurePlantService: PlantServiceProtocol {
-    func getPlants() async throws -> [Plant] {
-        throw URLError(.badURL)
+    func getPlants() async -> [Plant] {
+        return []
     }
     
-    func getPlant(withId plantId: String) async throws -> Plant {
-        throw URLError(.badURL)
+    func getPlant(withId plantId: String) async -> Plant? {
+        return nil
     }
 }
 
 class MockBadServerResponseFailurePlantService: PlantServiceProtocol {
-    func getPlants() async throws -> [Plant] {
-        throw URLError(.badServerResponse)
+    func getPlants() async -> [Plant] {
+        return []
     }
     
-    func getPlant(withId plantId: String) async throws -> Plant {
-        throw URLError(.badServerResponse)
+    func getPlant(withId plantId: String) async -> Plant? {
+        return nil
     }
 }
 
 class MockCannotDecodeContentDataFailurePlantService: PlantServiceProtocol {
-    func getPlants() async throws -> [Plant] {
-        throw URLError(.cannotDecodeContentData)
+    func getPlants() async -> [Plant] {
+        return []
     }
     
-    func getPlant(withId plantId: String) async throws -> Plant {
-        throw URLError(.cannotDecodeContentData)
+    func getPlant(withId plantId: String) async -> Plant? {
+        return nil
     }
 }
 
 class MockGeneralFailurePlantService: PlantServiceProtocol {
-    func getPlants() async throws -> [Plant] {
-        throw URLError(.networkConnectionLost)
+    func getPlants() async -> [Plant] {
+        return []
     }
     
-    func getPlant(withId plantId: String) async throws -> Plant {
-        throw URLError(.networkConnectionLost)
+    func getPlant(withId plantId: String) async -> Plant? {
+        return nil
     }
 }

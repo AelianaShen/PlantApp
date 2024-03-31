@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScrollSection: View {
+    let cartManager: CartManager
     let viewModel = ScrollSectionViewModel(plantService: PlantService())
     
     var body: some View {
@@ -21,7 +22,6 @@ struct ScrollSection: View {
             }
         }
         .task { await viewModel.getPlantList() }
-        .alert(isPresented: viewModel.plantListFetchFailed) { plantListFetchAlert }
     }
     
     private var sectionHeader: some View {
@@ -64,26 +64,13 @@ struct ScrollSection: View {
     
     private func productView(_ product: Plant) -> some View {
         NavigationLink {
-            ProductDetailView(plant: product)
+            ProductDetailView(viewModel: ProductDetailViewModel(plant: product))
         } label: {
-            PlantCard(plant: product)
+            PlantCard(viewModel: PlantCardViewModel(plant: product, cartManager: cartManager))
         }
-    }
-
-    private var plantListFetchAlert: Alert {
-        Alert(
-            title: Text(viewModel.alertTitleString),
-            message: Text(viewModel.alertBodyString),
-            primaryButton: .default(
-                Text(viewModel.alertButtonString),
-                action: viewModel.updatePlantListToDefault),
-            secondaryButton: .cancel()
-        )
     }
 }
 
-struct ScrollSection_Previews: PreviewProvider {
-    static var previews: some View {
-        ScrollSection()
-    }
+#Preview {
+    ScrollSection(cartManager: CartManager())
 }

@@ -1,0 +1,43 @@
+//
+//  CartViewModel.swift
+//  PlantApp
+//
+//  Created by Aeliana Shen on 3/21/24.
+//
+
+import Foundation
+import SwiftUI
+
+@Observable class CartViewModel {
+    let totalTitleString = "Your cart total is"
+    let emptyString = "Your cart is empty"
+    let navigationTitleString = "My Cart"
+    let cartManager: CartManaging
+    
+    init(cartManager: CartManaging) {
+        self.cartManager = cartManager
+    }
+    
+    var cartTotal: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        if let formattedNumber = numberFormatter.string(from: NSNumber(value: cartManager.total)) {
+            return formattedNumber
+        } else {
+            return "0.00 (NaN error)"
+        }
+    }
+    
+    var isEmpty: Bool {
+        cartManager.products.isEmpty
+    }
+    
+    var cartProducts: [Plant] {
+        cartManager.products
+    }
+    
+    func removeFromCart(product: Plant) {
+        cartManager.removeFromCart(product: product)
+    }
+}

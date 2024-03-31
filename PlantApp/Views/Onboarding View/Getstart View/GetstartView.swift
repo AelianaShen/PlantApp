@@ -9,10 +9,6 @@ import SwiftUI
 
 struct GetstartView: View {
     @StateObject var viewModel: GetstartViewModel
-        
-    init(viewModel: GetstartViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
         VStack(spacing: 20) {

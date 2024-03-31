@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-class CartButtonViewModel: ObservableObject {
-    @Published var numOfProducts: Int
+final class CartButtonViewModel{
+    let numOfProducts: Int
     
     init(numOfProducts: Int) {
         self.numOfProducts = numOfProducts

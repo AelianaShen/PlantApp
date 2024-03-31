@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CartButton: View {
-    @ObservedObject var viewModel: CartButtonViewModel
+    let viewModel: CartButtonViewModel
+
     var body: some View {
         ZStack(alignment: .topLeading){
             cartImage

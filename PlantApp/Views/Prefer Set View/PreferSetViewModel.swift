@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-class PreferSetViewModel: ObservableObject {
+class PreferSetViewModel {
     let guidelineString = "Follow the discovery story to find your optimal choice"
     let primaryButtonString = "Set My Preference"
+    
+    let questionManager = QuestionManager()
 }

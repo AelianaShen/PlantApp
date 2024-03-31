@@ -8,14 +8,12 @@
 import Foundation
 import SwiftUI
 
-class AnswerRowViewModel {
+final class AnswerRowViewModel {
     let text: String
     let isSelected: Bool
-    let questionManager: QuestionManager
     
-    init(text: String, isSelected: Bool, questionManager: QuestionManager) {
+    init(text: String, isSelected: Bool) {
         self.text = text
         self.isSelected = isSelected
-        self.questionManager = questionManager
     }
 }

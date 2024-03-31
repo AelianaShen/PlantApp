@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ContentViewModel: ObservableObject {
+final class ContentViewModel {
     @AppStorage("onboarding") var isOnboardingViewActive: Bool = true
+    let cartManager = CartManager()
 }

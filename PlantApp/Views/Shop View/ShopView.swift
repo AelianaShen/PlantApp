@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ShopView: View {
-    let cartManager: CartManager
-    @StateObject var viewModel = ShopViewModel()
+    let viewModel: ShopViewModel
     
     var body: some View {
         VStack(spacing: 0.0) {
@@ -28,19 +27,28 @@ struct ShopView: View {
     }
     
     private var searchBar: some View {
-        SearchBar(searchText: $viewModel.searchText)
+        SearchBar(searchText: viewModel.searchTextBinding)
             .padding(EdgeInsets(top: 25, leading: 20, bottom: 20, trailing: 20))
     }
     
     private var scrollProducts: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                ScrollSection(cartManager: cartManager)
+                ScrollSection(
+                    viewModel: ScrollSectionViewModel(
+                        plantService: PlantService(),
+                        cartManager: viewModel.cartManager
+                    )
+                )
             }
         }
     }
 }
 
 #Preview {
-    ShopView(cartManager: CartManager(), viewModel: ShopViewModel())
+    ShopView(
+        viewModel: ShopViewModel(
+            cartManager: CartManager()
+        )
+    )
 }

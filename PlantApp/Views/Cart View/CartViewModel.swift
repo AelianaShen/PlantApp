@@ -19,7 +19,14 @@ import SwiftUI
     }
     
     var cartTotal: String {
-        "$\(cartManager.total).00"
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        if let formattedNumber = numberFormatter.string(from: NSNumber(value: cartManager.total)) {
+            return formattedNumber
+        } else {
+            return "0.00"
+        }
     }
     
     var isEmpty: Bool {

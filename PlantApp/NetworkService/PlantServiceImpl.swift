@@ -24,14 +24,13 @@ class PlantServiceImpl: PlantService {
     private let getPlantsEndpoint: String
     
     init() {
-        care_level = userPreferData.object(forKey: "care_level") as? String ?? nil
-        leaf_style = userPreferData.object(forKey: "leaf_style") as? String ?? nil
-        light_level = userPreferData.object(forKey: "light_level") as? String ?? nil
-        pet_friendly = userPreferData.object(forKey: "pet_friendly") as? String ?? nil
-        productive_or_decorative = userPreferData.object(forKey: "productive_or_decorative") as? String ?? nil
+        care_level = userPreferData.string(forKey: "care_level")
+        leaf_style = userPreferData.string(forKey: "leaf_style")
+        light_level = userPreferData.string(forKey: "light_level")
+        pet_friendly = userPreferData.string(forKey: "pet_friendly")
+        productive_or_decorative = userPreferData.string(forKey: "productive_or_decorative")
         // getPlantsEndpoint = "products?default_product=true&productive_or_decorative=decorative&leaf_style=dramatic&care_level=beginner"
         getPlantsEndpoint = "products?default_product=false\(care_level == nil ? "": "&care_level=\(care_level ?? "")")\(leaf_style == nil ? "": "&leaf_style=\(leaf_style ?? "")")\(light_level == nil ? "": "&light_level=\(light_level ?? "")")\(pet_friendly == nil ? "": "&pet_friendly=\(pet_friendly ?? "")")\(productive_or_decorative == nil ? "": "&productive_or_decorative=\(productive_or_decorative ?? "")")"
-        print(getPlantsEndpoint)
     }
     
     func getPlants() async -> [Plant] {

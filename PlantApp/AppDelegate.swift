@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PlantApp: App {
+    @StateObject private var userPreferData = UserPreferData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userPreferData)
         }
     }
 }

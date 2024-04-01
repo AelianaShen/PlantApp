@@ -8,15 +8,21 @@
 import Foundation
 import SwiftUI
 
-@Observable class QuestionViewModel {
+class QuestionViewModel: ObservableObject {
+    let userPreferData: UserPreferData
     let questionManager: QuestionManager
     
-    init(questionManager: QuestionManager) {
+    init(questionManager: QuestionManager, userPreferData: UserPreferData) {
         self.questionManager = questionManager
+        self.userPreferData = userPreferData
+    }
+    
+    var index: Int {
+        questionManager.questionsIterator.currentIndex
     }
     
     var currentIndex: String {
-        return "\(questionManager.questionsIterator.currentIndex) / 6"
+        return "\(index) / 6"
     }
     
     var questionDescription: String {
@@ -55,8 +61,42 @@ import SwiftUI
         let isSelected = option == selectedOption
         if !isSelected {
             questionManager.select(answer: option)
+            userSetPreference(option: option)
         } else {
             questionManager.unselectAnswer()
+            userUnsetPreference()
+        }
+    }
+    
+    func userSetPreference(option: String) {
+        if index == 1 {
+            userPreferData.care_level = option
+        } else if index == 2 {
+            userPreferData.maintenance_level = option
+        } else if index == 3 {
+            userPreferData.color_scheme = option
+        } else if index == 4 {
+            userPreferData.productive_or_decorative = option
+        } else if index == 5 {
+            userPreferData.leaf_style = option
+        } else if index == 6 {
+            userPreferData.pet_friendly = option
+        }
+    }
+    
+    func userUnsetPreference() {
+        if index == 1 {
+            userPreferData.care_level = ""
+        } else if index == 2 {
+            userPreferData.maintenance_level = ""
+        } else if index == 3 {
+            userPreferData.color_scheme = ""
+        } else if index == 4 {
+            userPreferData.productive_or_decorative = ""
+        } else if index == 5 {
+            userPreferData.leaf_style = ""
+        } else if index == 6 {
+            userPreferData.pet_friendly = ""
         }
     }
 }

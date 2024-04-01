@@ -38,7 +38,7 @@ import Foundation
     
     func goToPreviousQuestion() {
         self.question = questionsIterator.previous()
-        self.index = questionsIterator.currentIndex
+        self.index = questionsIterator.currentIndex-1
         checkReachedFrontAndEnd()
     }
     

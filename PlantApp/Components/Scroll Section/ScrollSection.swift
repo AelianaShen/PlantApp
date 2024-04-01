@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScrollSection: View {
     let cartManager: CartManager
-    let viewModel = ScrollSectionViewModel(plantService: PlantService())
+    let viewModel = ScrollSectionViewModel(plantService: PlantServiceImpl())
     
     var body: some View {
         VStack {

@@ -69,34 +69,36 @@ class QuestionViewModel: ObservableObject {
     }
     
     func userSetPreference(option: String) {
+        let userPreferData = UserDefaults.standard
         if index == 1 {
-            userPreferData.care_level = option
+            userPreferData.set(option, forKey: "care_level")
         } else if index == 2 {
-            userPreferData.maintenance_level = option
+            userPreferData.set(option, forKey: "maintenance_level")
         } else if index == 3 {
-            userPreferData.color_scheme = option
+            userPreferData.set(option, forKey: "color_scheme")
         } else if index == 4 {
-            userPreferData.productive_or_decorative = option
+            userPreferData.set(option, forKey: "productive_or_decorative")
         } else if index == 5 {
-            userPreferData.leaf_style = option
+            userPreferData.set(option, forKey: "leaf_style")
         } else if index == 6 {
-            userPreferData.pet_friendly = option
+            userPreferData.set(option, forKey: "pet_friendly")
         }
     }
     
     func userUnsetPreference() {
+        let userPreferData = UserDefaults.standard
         if index == 1 {
-            userPreferData.care_level = ""
+            userPreferData.set(nil, forKey: "care_level")
         } else if index == 2 {
-            userPreferData.maintenance_level = ""
+            userPreferData.set(nil, forKey: "maintenance_level")
         } else if index == 3 {
-            userPreferData.color_scheme = ""
+            userPreferData.set(nil, forKey: "color_scheme")
         } else if index == 4 {
-            userPreferData.productive_or_decorative = ""
+            userPreferData.set(nil, forKey: "productive_or_decorative")
         } else if index == 5 {
-            userPreferData.leaf_style = ""
+            userPreferData.set(nil, forKey: "leaf_style")
         } else if index == 6 {
-            userPreferData.pet_friendly = ""
+            userPreferData.set(nil, forKey: "pet_friendly")
         }
     }
 }

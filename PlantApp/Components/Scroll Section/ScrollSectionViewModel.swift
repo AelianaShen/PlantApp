@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @Observable class ScrollSectionViewModel {
-    private let plantService: PlantServiceProtocol
+    private let plantService: PlantService
 
     var plantList: [Plant] = []
     var isLoadingPlantList = false
@@ -21,7 +21,7 @@ import SwiftUI
         plantList.isEmpty && !isLoadingPlantList
     }
 
-    init(plantService: PlantServiceProtocol) {
+    init(plantService: PlantService) {
         self.plantService = plantService
     }
 

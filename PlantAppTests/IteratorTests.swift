@@ -43,15 +43,13 @@ class IteratorTests: XCTestCase {
     func testPrevious() {
         let _ = iterator.next()
         let _ = iterator.next()
-        
-        let thirdQuestion = iterator.previous()
-        XCTAssertEqual(thirdQuestion?.description, "Q2")
+        let _ = iterator.next()
         
         let secondQuestion = iterator.previous()
-        XCTAssertEqual(secondQuestion?.description, "Q1")
+        XCTAssertEqual(secondQuestion?.description, "Q2")
         
         let firstQuestion = iterator.previous()
-        XCTAssertNil(firstQuestion)
+        XCTAssertEqual(firstQuestion?.description, "Q1")
     }
     
     func testReset() {

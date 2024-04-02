@@ -54,11 +54,15 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your indoor light Value is around %.2f ft-c (footcandle).", viewModel.luxValue), isPresented: $viewModel.showConfirmMsg){
+        .alert(String(format: "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to disable filter", viewModel.luxValue), isPresented: $viewModel.showConfirmMsg){
             Button("OK") {
+                viewModel.saveLuxValue()
+            }.task {
                 viewModel.confirmLuxValue = viewModel.luxValue
             }
-            Button("Cancel", role: .cancel) {}
+            Button("Cancel", role: .cancel) {
+                viewModel.clearLuxValue()
+            }
         }
     }
     

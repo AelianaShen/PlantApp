@@ -39,8 +39,8 @@ let questions = [
     Question(
         description: "Are you interested in plants that flower or produce fruit, or do you prefer plants that are primarily decorative?",
         options: [
-            "production",
-            "decoration"
+            "productive",
+            "decorative"
         ]
     ),
     Question(

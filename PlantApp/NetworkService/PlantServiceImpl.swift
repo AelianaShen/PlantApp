@@ -24,7 +24,7 @@ class PlantServiceImpl: PlantService {
         let productive_or_decorative = userPreferences.productive_or_decorative
         
         // getPlantsEndpoint = "products?default_product=true&productive_or_decorative=decorative&leaf_style=dramatic&care_level=beginner"
-        getPlantsEndpoint = "products?default_product=false\(care_level == nil ? "": "&care_level=\(care_level ?? "")")"
+        getPlantsEndpoint = "products?default_product=false\(care_level == nil ? "": "&care_level=\(care_level ?? "")")\(leaf_style == nil ? "": "&leaf_style=\(leaf_style ?? "")")"
         print(getPlantsEndpoint)
     }
     

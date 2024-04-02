@@ -9,12 +9,10 @@ import Foundation
 import SwiftUI
 
 class QuestionViewModel: ObservableObject {
-    let userPreferData: UserPreferData
     let questionManager: QuestionManager
     
-    init(questionManager: QuestionManager, userPreferData: UserPreferData) {
+    init(questionManager: QuestionManager) {
         self.questionManager = questionManager
-        self.userPreferData = userPreferData
     }
     
     var index: Int {

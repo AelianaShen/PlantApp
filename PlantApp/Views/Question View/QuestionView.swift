@@ -89,8 +89,7 @@ struct QuestionView: View {
 #Preview {
     QuestionView(
         viewModel: QuestionViewModel(
-            questionManager: QuestionManager(),
-            userPreferData: UserPreferData()
+            questionManager: QuestionManager()
         )
     )
 }

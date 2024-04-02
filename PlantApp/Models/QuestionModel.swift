@@ -19,7 +19,7 @@ let questions = [
         options: [
             "beginner",
             "intermediate",
-            "expert"
+            "advanced"
         ]
     ),
     Question(

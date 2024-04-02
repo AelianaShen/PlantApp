@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @Observable class ScrollSectionViewModel {
-    private let plantServiceImp: PlantService
+    private var plantServiceImp: PlantService
     let cartManager: CartManaging
 
     var plantList: [Plant] = []
@@ -29,9 +29,8 @@ import SwiftUI
 
     func getPlantList() async {
         isLoadingPlantList = true
-        if plantList.isEmpty {
-            plantList = await plantServiceImp.getPlants()
-        }
+        plantServiceImp = PlantServiceImpl()
+        plantList = await plantServiceImp.getPlants()
         isLoadingPlantList = false
     }
 }

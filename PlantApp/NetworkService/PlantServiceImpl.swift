@@ -31,6 +31,7 @@ class PlantServiceImpl: PlantService {
         productive_or_decorative = userPreferData.string(forKey: "productive_or_decorative")
         // getPlantsEndpoint = "products?default_product=true&productive_or_decorative=decorative&leaf_style=dramatic&care_level=beginner"
         getPlantsEndpoint = "products?default_product=false\(care_level == nil ? "": "&care_level=\(care_level ?? "")")\(leaf_style == nil ? "": "&leaf_style=\(leaf_style ?? "")")\(light_level == nil ? "": "&light_level=\(light_level ?? "")")\(pet_friendly == nil ? "": "&pet_friendly=\(pet_friendly ?? "")")\(productive_or_decorative == nil ? "": "&productive_or_decorative=\(productive_or_decorative ?? "")")"
+        print(getPlantsEndpoint)
     }
     
     func getPlants() async -> [Plant] {

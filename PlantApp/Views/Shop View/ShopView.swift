@@ -47,5 +47,5 @@ struct ShopView: View {
 }
 
 #Preview {
-    ShopView(cartManager: CartManager(), viewModel: ShopViewModel())
+    ShopView(cartManager: CartManager())
 }

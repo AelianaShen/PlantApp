@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class QuestionViewModel: ObservableObject {
+class QuestionViewModel {
     let questionManager: QuestionManager
     
     init(questionManager: QuestionManager) {

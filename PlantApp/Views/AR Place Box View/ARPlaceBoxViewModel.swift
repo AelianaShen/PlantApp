@@ -18,6 +18,7 @@ class ARPlaceBoxViewModel: ObservableObject {
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
     @Published var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
     @Published var useARKit = false
+    @Published var boxLevel: Int = 2
     
     func saveLuxValue() {
         if confirmLuxValue > 25, confirmLuxValue <= 75 {
@@ -32,5 +33,21 @@ class ARPlaceBoxViewModel: ObservableObject {
     
     func clearLuxValue() {
         UserDefaults.standard.set(nil, forKey: "light_level")
+    }
+    
+    func saveBoxSize() {
+        let confirmBoxDiam = confirmBoxSize.x
+        if confirmBoxDiam <= 0.2 {
+            boxLevel = 1
+        } else if confirmBoxDiam > 0.2, confirmBoxDiam <= 0.32 {
+            boxLevel = 2
+        } else if confirmBoxDiam > 0.32 {
+            boxLevel = 3
+        }
+        UserDefaults.standard.set(boxLevel, forKey: "box_level")
+    }
+    
+    func clearBoxSize() {
+        UserDefaults.standard.set(nil, forKey: "box_level")
     }
 }

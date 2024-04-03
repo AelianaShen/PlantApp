@@ -89,12 +89,16 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your potential plant size is around %.2f %.2f %.2f meters", viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z), isPresented: $viewModel.showConfirmMsg){
+        .alert(String(format: "Your potential plant size is around %.2f %.2f %.2f meters. \n\n - OK to apply filter\n - Cancel to disable filter", viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z), isPresented: $viewModel.showConfirmMsg){
             Button("OK") {
-                viewModel.confirmBoxSize = viewModel.boxSize
+                viewModel.saveBoxSize()
                 viewModel.useARKit = true
+            }.task {
+                viewModel.confirmBoxSize = viewModel.boxSize
             }
-            Button("Cancel", role: .cancel) {}
+            Button("Cancel", role: .cancel) {
+                viewModel.clearBoxSize()
+            }
         }
     }
     

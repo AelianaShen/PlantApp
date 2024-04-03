@@ -53,14 +53,13 @@ import Foundation
         self.reachedFront = (questionsIterator.currentIndex == 1)
     }
     
-    func initFromUserDefaults(){
-        let userPreferData = UserDefaults.standard
-        let care_level = userPreferData.string(forKey: "care_level")
-        let maintenance_level = userPreferData.string(forKey: "maintenance_level")
-        let color_scheme = userPreferData.string(forKey: "color_scheme")
-        let productive_or_decorative = userPreferData.string(forKey: "productive_or_decorative")
-        let leaf_style = userPreferData.string(forKey: "leaf_style")
-        let pet_friendly = userPreferData.string(forKey: "pet_friendly")
+    func initFromUserDefaults(userPreferences: UserPreferences = UserPreferencesImpl()){
+        let care_level = userPreferences.care_level
+        let maintenance_level = userPreferences.maintenance_level
+        let color_scheme = userPreferences.color_scheme
+        let productive_or_decorative = userPreferences.productive_or_decorative
+        let leaf_style = userPreferences.leaf_style
+        let pet_friendly = userPreferences.pet_friendly
         
         if care_level != nil { self.answerChoices[0] = care_level! }
         if maintenance_level != nil { self.answerChoices[1] = maintenance_level! }

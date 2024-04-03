@@ -10,9 +10,11 @@ import SwiftUI
 
 class QuestionViewModel {
     let questionManager: QuestionManager
+    let userPreferences: UserPreferencesImpl
     
-    init(questionManager: QuestionManager) {
+    init(questionManager: QuestionManager, userPreferences: UserPreferencesImpl = UserPreferencesImpl()) {
         self.questionManager = questionManager
+        self.userPreferences = userPreferences
     }
     
     var index: Int {
@@ -67,36 +69,34 @@ class QuestionViewModel {
     }
     
     func userSetPreference(option: String) {
-        let userPreferData = UserDefaults.standard
         if index == 1 {
-            userPreferData.set(option, forKey: "care_level")
+            userPreferences.set_box_level(option: option)
         } else if index == 2 {
-            userPreferData.set(option, forKey: "maintenance_level")
+            userPreferences.set_maintenance_level(option: option)
         } else if index == 3 {
-            userPreferData.set(option, forKey: "color_scheme")
+            userPreferences.set_color_scheme(option: option)
         } else if index == 4 {
-            userPreferData.set(option, forKey: "productive_or_decorative")
+            userPreferences.set_productive_or_decorative(option: option)
         } else if index == 5 {
-            userPreferData.set(option, forKey: "leaf_style")
+            userPreferences.set_leaf_style(option: option)
         } else if index == 6 {
-            userPreferData.set(option, forKey: "pet_friendly")
+            userPreferences.set_pet_friendly(option: option)
         }
     }
     
     func userUnsetPreference() {
-        let userPreferData = UserDefaults.standard
         if index == 1 {
-            userPreferData.set(nil, forKey: "care_level")
+            userPreferences.set_box_level(option: nil)
         } else if index == 2 {
-            userPreferData.set(nil, forKey: "maintenance_level")
+            userPreferences.set_maintenance_level(option: nil)
         } else if index == 3 {
-            userPreferData.set(nil, forKey: "color_scheme")
+            userPreferences.set_color_scheme(option: nil)
         } else if index == 4 {
-            userPreferData.set(nil, forKey: "productive_or_decorative")
+            userPreferences.set_productive_or_decorative(option: nil)
         } else if index == 5 {
-            userPreferData.set(nil, forKey: "leaf_style")
+            userPreferences.set_leaf_style(option: nil)
         } else if index == 6 {
-            userPreferData.set(nil, forKey: "pet_friendly")
+            userPreferences.set_pet_friendly(option: nil)
         }
     }
 }

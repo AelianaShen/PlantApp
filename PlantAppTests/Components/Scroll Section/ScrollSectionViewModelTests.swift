@@ -70,7 +70,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         )
         
         // When
-        await viewModel.getPlantList()
+        await viewModel.getPlantList(plantServiceImp: MockSuccessPlantService())
         
         // Then
         XCTAssertFalse(viewModel.plantList.isEmpty)
@@ -85,7 +85,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         )
         
         // When
-        await viewModel.getPlantList()
+        await viewModel.getPlantList(plantServiceImp: MockBadUrlFailurePlantService())
         
         // Then
         XCTAssert(viewModel.plantList.isEmpty)
@@ -100,7 +100,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         )
         
         // When
-        await viewModel.getPlantList()
+        await viewModel.getPlantList(plantServiceImp: MockBadServerResponseFailurePlantService())
         
         // Then
         XCTAssert(viewModel.plantList.isEmpty)
@@ -115,7 +115,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         )
         
         // When
-        await viewModel.getPlantList()
+        await viewModel.getPlantList(plantServiceImp: MockCannotDecodeContentDataFailurePlantService())
         
         // Then
         XCTAssert(viewModel.plantList.isEmpty)
@@ -130,7 +130,7 @@ class ScrollSectionViewModelTests: XCTestCase {
         )
         
         // When
-        await viewModel.getPlantList()
+        await viewModel.getPlantList(plantServiceImp: MockGeneralFailurePlantService())
         
         // Then
         XCTAssert(viewModel.plantList.isEmpty)

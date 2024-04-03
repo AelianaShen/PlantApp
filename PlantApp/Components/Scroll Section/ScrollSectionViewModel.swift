@@ -27,9 +27,8 @@ import SwiftUI
         self.cartManager = cartManager
     }
 
-    func getPlantList() async {
+    func getPlantList(plantServiceImp: PlantService) async {
         isLoadingPlantList = true
-        plantServiceImp = PlantServiceImpl()
         plantList = await plantServiceImp.getPlants()
         isLoadingPlantList = false
     }

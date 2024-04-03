@@ -20,7 +20,7 @@ struct ScrollSection: View {
                 plantScrollView
             }
         }
-        .task { await viewModel.getPlantList() }
+        .task { await viewModel.getPlantList(plantServiceImp: PlantServiceImpl()) }
     }
     
     private var sectionHeader: some View {

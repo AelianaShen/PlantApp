@@ -25,19 +25,19 @@ import Foundation
     func initializeAnswers () {
         var ans = Array.init(repeating: "", count: questionsIterator.count)
         
-        let care_level = userPreferences.care_level
-        let maintenance_level = userPreferences.maintenance_level
-        let color_scheme = userPreferences.color_scheme
-        let productive_or_decorative = userPreferences.productive_or_decorative
-        let leaf_style = userPreferences.leaf_style
-        let pet_friendly = userPreferences.pet_friendly
+        let careLevel = userPreferences.careLevel
+        let maintenanceLevel = userPreferences.maintenanceLevel
+        let colorScheme = userPreferences.colorScheme
+        let productiveOrDecorative = userPreferences.productiveOrDecorative
+        let leafStyle = userPreferences.leafStyle
+        let petFriendly = userPreferences.petFriendly
         
-        if let care_level { ans[0] = care_level }
-        if let maintenance_level { ans[1] = maintenance_level }
-        if let color_scheme { ans[2] = color_scheme }
-        if let productive_or_decorative { ans[3] = productive_or_decorative }
-        if let leaf_style { ans[4] = leaf_style }
-        if let pet_friendly { ans[5] = pet_friendly }
+        if let careLevel { ans[0] = careLevel }
+        if let maintenanceLevel { ans[1] = maintenanceLevel }
+        if let colorScheme { ans[2] = colorScheme }
+        if let productiveOrDecorative { ans[3] = productiveOrDecorative }
+        if let leafStyle { ans[4] = leafStyle }
+        if let petFriendly { ans[5] = petFriendly }
         
         answerChoices = ans
     }

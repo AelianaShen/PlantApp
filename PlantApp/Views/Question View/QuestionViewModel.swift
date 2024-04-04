@@ -70,33 +70,33 @@ class QuestionViewModel {
     
     func userSetPreference(option: String) {
         if index == 1 {
-            userPreferences.set_care_level(option: option)
+            userPreferences.setCareLevel(option: option)
         } else if index == 2 {
-            userPreferences.set_maintenance_level(option: option)
+            userPreferences.setMaintenanceLevel(option: option)
         } else if index == 3 {
-            userPreferences.set_color_scheme(option: option)
+            userPreferences.setColorScheme(option: option)
         } else if index == 4 {
-            userPreferences.set_productive_or_decorative(option: option)
+            userPreferences.setProductiveOrDecorative(option: option)
         } else if index == 5 {
-            userPreferences.set_leaf_style(option: option)
+            userPreferences.setLeafStyle(option: option)
         } else if index == 6 {
-            userPreferences.set_pet_friendly(option: option)
+            userPreferences.setPetFriendly(option: option)
         }
     }
     
     func userUnsetPreference() {
         if index == 1 {
-            userPreferences.set_care_level(option: nil)
+            userPreferences.setCareLevel(option: nil)
         } else if index == 2 {
-            userPreferences.set_maintenance_level(option: nil)
+            userPreferences.setMaintenanceLevel(option: nil)
         } else if index == 3 {
-            userPreferences.set_color_scheme(option: nil)
+            userPreferences.setColorScheme(option: nil)
         } else if index == 4 {
-            userPreferences.set_productive_or_decorative(option: nil)
+            userPreferences.setProductiveOrDecorative(option: nil)
         } else if index == 5 {
-            userPreferences.set_leaf_style(option: nil)
+            userPreferences.setLeafStyle(option: nil)
         } else if index == 6 {
-            userPreferences.set_pet_friendly(option: nil)
+            userPreferences.setPetFriendly(option: nil)
         }
     }
 }

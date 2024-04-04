@@ -28,11 +28,11 @@ class ARPlaceBoxViewModel: ObservableObject {
         } else if confirmLuxValue > 200 {
             lightLevel = 3
         }
-        UserDefaults.standard.set(lightLevel, forKey: "light_level")
+        UserDefaults.standard.set(lightLevel, forKey: "lightLevel")
     }
     
     func clearLuxValue() {
-        UserDefaults.standard.set(nil, forKey: "light_level")
+        UserDefaults.standard.set(nil, forKey: "lightLevel")
     }
     
     func saveBoxSize() {
@@ -44,10 +44,10 @@ class ARPlaceBoxViewModel: ObservableObject {
         } else if confirmBoxDiam > 0.32 {
             boxLevel = 3
         }
-        UserDefaults.standard.set(boxLevel, forKey: "box_level")
+        UserDefaults.standard.set(boxLevel, forKey: "boxLevel")
     }
     
     func clearBoxSize() {
-        UserDefaults.standard.set(nil, forKey: "box_level")
+        UserDefaults.standard.set(nil, forKey: "boxLevel")
     }
 }

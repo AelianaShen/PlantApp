@@ -17,14 +17,14 @@ class PlantServiceImpl: PlantService {
     private var getPlantsEndpoint: String
     
     init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
-        let care_level = userPreferences.care_level
-        let leaf_style = userPreferences.leaf_style
-        let light_level = userPreferences.light_level
-        let box_level = userPreferences.box_level
-        let pet_friendly = userPreferences.pet_friendly
-        let productive_or_decorative = userPreferences.productive_or_decorative
+        let careLevel = userPreferences.careLevel
+        let leafStyle = userPreferences.leafStyle
+        let lightLevel = userPreferences.lightLevel
+        let boxLevel = userPreferences.boxLevel
+        let petFriendly = userPreferences.petFriendly
+        let productiveOrDecorative = userPreferences.productiveOrDecorative
         
-        getPlantsEndpoint = "products?default_product=false\(care_level == nil ? "": "&care_level=\(care_level ?? "")")\(leaf_style == nil ? "": "&leaf_style=\(leaf_style ?? "")")\(light_level == nil ? "": "&light_level=\(light_level ?? "")")\(box_level == nil ? "": "&box_level=\(box_level ?? "")")\(pet_friendly == "yes" ? "&pet_friendly=true": "")\(productive_or_decorative == nil ? "": "&productive_or_decorative=\(productive_or_decorative ?? "")")"
+        getPlantsEndpoint = "products?default_product=false\(careLevel == nil ? "": "&care_level=\(careLevel ?? "")")\(leafStyle == nil ? "": "&leaf_style=\(leafStyle ?? "")")\(lightLevel == nil ? "": "&light_level=\(lightLevel ?? "")")\(boxLevel == nil ? "": "&box_level=\(boxLevel ?? "")")\(petFriendly == "yes" ? "&pet_friendly=true": "")\(productiveOrDecorative == nil ? "": "&productive_or_decorative=\(productiveOrDecorative ?? "")")"
         print(getPlantsEndpoint)
     }
     

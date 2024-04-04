@@ -8,68 +8,68 @@
 import Foundation
 
 protocol UserPreferencesStore {
-    var care_level: String? { get set }
-    var leaf_style: String? { get set }
-    var light_level: String? { get set }
-    var box_level: String? { get set }
-    var pet_friendly: String? { get set }
-    var color_scheme: String? { get set }
-    var maintenance_level: String? { get set }
-    var productive_or_decorative: String? { get set }
+    var careLevel: String? { get set }
+    var leafStyle: String? { get set }
+    var lightLevel: String? { get set }
+    var boxLevel: String? { get set }
+    var petFriendly: String? { get set }
+    var colorScheme: String? { get set }
+    var maintenanceLevel: String? { get set }
+    var productiveOrDecorative: String? { get set }
 }
 
 class UserPreferencesStoreImpl: UserPreferencesStore {
     let userPreferData = UserDefaults.standard
     
-    var care_level: String?
-    var leaf_style: String?
-    var light_level: String?
-    var box_level: String?
-    var pet_friendly: String?
-    var color_scheme: String?
-    var maintenance_level: String?
-    var productive_or_decorative: String?
+    var careLevel: String?
+    var leafStyle: String?
+    var lightLevel: String?
+    var boxLevel: String?
+    var petFriendly: String?
+    var colorScheme: String?
+    var maintenanceLevel: String?
+    var productiveOrDecorative: String?
     
     init() {
-        care_level = userPreferData.string(forKey: "care_level")
-        leaf_style = userPreferData.string(forKey: "leaf_style")
-        light_level = userPreferData.string(forKey: "light_level")
-        box_level = userPreferData.string(forKey: "box_level")
-        pet_friendly = userPreferData.string(forKey: "pet_friendly")
-        color_scheme = userPreferData.string(forKey: "color_scheme")
-        maintenance_level = userPreferData.string(forKey: "maintenance_level")
-        productive_or_decorative = userPreferData.string(forKey: "productive_or_decorative")
+        careLevel = userPreferData.string(forKey: "careLevel")
+        leafStyle = userPreferData.string(forKey: "leafStyle")
+        lightLevel = userPreferData.string(forKey: "lightLevel")
+        boxLevel = userPreferData.string(forKey: "boxLevel")
+        petFriendly = userPreferData.string(forKey: "petFriendly")
+        colorScheme = userPreferData.string(forKey: "colorScheme")
+        maintenanceLevel = userPreferData.string(forKey: "maintenanceLevel")
+        productiveOrDecorative = userPreferData.string(forKey: "productiveOrDecorative")
     }
     
-    func set_care_level(option: String?) {
-        userPreferData.set(option, forKey: "care_level")
+    func setCareLevel(option: String?) {
+        userPreferData.set(option, forKey: "careLevel")
     }
     
-    func set_leaf_style(option: String?) {
-        userPreferData.set(option, forKey: "leaf_style")
+    func setLeafStyle(option: String?) {
+        userPreferData.set(option, forKey: "leafStyle")
     }
     
-    func set_light_level(option: String?) {
-        userPreferData.set(option, forKey: "light_level")
+    func setLightLevel(option: String?) {
+        userPreferData.set(option, forKey: "lightLevel")
     }
     
-    func set_box_level(option: String?) {
-        userPreferData.set(option, forKey: "box_level")
+    func setBoxLevel(option: String?) {
+        userPreferData.set(option, forKey: "boxLevel")
     }
     
-    func set_pet_friendly(option: String?) {
-        userPreferData.set(option, forKey: "pet_friendly")
+    func setPetFriendly(option: String?) {
+        userPreferData.set(option, forKey: "petFriendly")
     }
     
-    func set_color_scheme(option: String?) {
-        userPreferData.set(option, forKey: "color_scheme")
+    func setColorScheme(option: String?) {
+        userPreferData.set(option, forKey: "colorScheme")
     }
     
-    func set_maintenance_level(option: String?) {
-        userPreferData.set(option, forKey: "maintenance_level")
+    func setMaintenanceLevel(option: String?) {
+        userPreferData.set(option, forKey: "maintenanceLevel")
     }
     
-    func set_productive_or_decorative(option: String?) {
-        userPreferData.set(option, forKey: "productive_or_decorative")
+    func setProductiveOrDecorative(option: String?) {
+        userPreferData.set(option, forKey: "productiveOrDecorative")
     }
 }

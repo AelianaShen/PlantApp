@@ -9,8 +9,8 @@ import Foundation
 @testable import PlantApp
 
 class MockUserPreferences: UserPreferences {
-    var color_scheme: String?
-    var maintenance_level: String?
+    var color_scheme: String? = nil
+    var maintenance_level: String? = nil
     var care_level: String? = nil
     var leaf_style: String? = nil
     var light_level: String? = nil

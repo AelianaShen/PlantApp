@@ -13,7 +13,7 @@ class ARPlaceBoxViewModel: ObservableObject {
     @Published var showConfirmMsg: Bool = false
     @Published var luxValue: CGFloat = 0
     @Published var confirmLuxValue: CGFloat = 0
-    @Published var lightLevel: Int = 2
+    @Published var lightLevel: Int = UserPreferences.LightLevel.medium.rawValue
     
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
     @Published var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
@@ -22,11 +22,11 @@ class ARPlaceBoxViewModel: ObservableObject {
     
     func saveLuxValue() {
         if confirmLuxValue > 25, confirmLuxValue <= 75 {
-            lightLevel = 1
+            lightLevel = UserPreferences.LightLevel.low.rawValue
         } else if confirmLuxValue > 75, confirmLuxValue <= 200 {
-            lightLevel = 2
+            lightLevel = UserPreferences.LightLevel.medium.rawValue
         } else if confirmLuxValue > 200 {
-            lightLevel = 3
+            lightLevel = UserPreferences.LightLevel.high.rawValue
         }
         UserDefaults.standard.set(lightLevel, forKey: "lightLevel")
     }

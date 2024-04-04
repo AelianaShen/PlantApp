@@ -10,7 +10,7 @@ import Foundation
 protocol UserPreferencesStore {
     var careLevel: String? { get set }
     var leafStyle: String? { get set }
-    var lightLevel: String? { get set }
+    var lightLevel: Int? { get set }
     var boxLevel: String? { get set }
     var petFriendly: String? { get set }
     var colorScheme: String? { get set }
@@ -23,7 +23,7 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var careLevel: String?
     var leafStyle: String?
-    var lightLevel: String?
+    var lightLevel: Int?
     var boxLevel: String?
     var petFriendly: String?
     var colorScheme: String?
@@ -33,7 +33,7 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     init() {
         careLevel = userPreferData.string(forKey: "careLevel")
         leafStyle = userPreferData.string(forKey: "leafStyle")
-        lightLevel = userPreferData.string(forKey: "lightLevel")
+        lightLevel = userPreferData.integer(forKey: "lightLevel")
         boxLevel = userPreferData.string(forKey: "boxLevel")
         petFriendly = userPreferData.string(forKey: "petFriendly")
         colorScheme = userPreferData.string(forKey: "colorScheme")

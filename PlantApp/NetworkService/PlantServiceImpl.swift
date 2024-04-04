@@ -24,7 +24,7 @@ class PlantServiceImpl: PlantService {
         let petFriendly = userPreferences.petFriendly
         let productiveOrDecorative = userPreferences.productiveOrDecorative
         
-        getPlantsEndpoint = "products?default_product=false\(careLevel == nil ? "": "&care_level=\(careLevel ?? "")")\(leafStyle == nil ? "": "&leaf_style=\(leafStyle ?? "")")\(lightLevel == nil ? "": "&light_level=\(lightLevel ?? "")")\(boxLevel == nil ? "": "&box_level=\(boxLevel ?? "")")\(petFriendly == "yes" ? "&pet_friendly=true": "")\(productiveOrDecorative == nil ? "": "&productive_or_decorative=\(productiveOrDecorative ?? "")")"
+        getPlantsEndpoint = "products?default_product=false\(careLevel == nil ? "": "&care_level=\(careLevel ?? "")")\(leafStyle == nil ? "": "&leaf_style=\(leafStyle ?? "")")\(lightLevel == nil ? "": "&light_level=\(lightLevel ?? 2)")\(boxLevel == nil ? "": "&box_level=\(boxLevel ?? "")")\(petFriendly == "yes" ? "&pet_friendly=true": "")\(productiveOrDecorative == nil ? "": "&productive_or_decorative=\(productiveOrDecorative ?? "")")"
         print(getPlantsEndpoint)
     }
     

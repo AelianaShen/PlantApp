@@ -13,7 +13,7 @@ class MockUserPreferencesStore: UserPreferencesStore {
     var maintenanceLevel: String? = nil
     var careLevel: String? = nil
     var leafStyle: String? = nil
-    var lightLevel: String? = nil
+    var lightLevel: Int? = nil
     var boxLevel: String? = nil
     var petFriendly: String? = nil
     var productiveOrDecorative: String? = nil

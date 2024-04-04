@@ -13,33 +13,33 @@ import Foundation
     private(set) var reachedEnd = false
     private(set) var reachedFront = true
     private(set) var question: Question?
-    let questionsIterator = Iterator(for: questions)
-    private let userPreferences: UserPreferencesStore
+    private let questionsIterator = Iterator(for: questions)
+    private let userPreferencesStore: UserPreferencesStore
     
-    init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
-        self.userPreferences = userPreferences
+    init(userPreferencesStore: UserPreferencesStore = UserPreferencesStoreImpl()) {
+        self.userPreferencesStore = userPreferencesStore
         self.question = questionsIterator.next()
         initializeAnswers()
     }
     
     func initializeAnswers () {
-        var ans = Array.init(repeating: "", count: questionsIterator.count)
+        var answer = Array.init(repeating: "", count: questionsIterator.count)
         
-        let careLevel = userPreferences.careLevel
-        let maintenanceLevel = userPreferences.maintenanceLevel
-        let colorScheme = userPreferences.colorScheme
-        let productiveOrDecorative = userPreferences.productiveOrDecorative
-        let leafStyle = userPreferences.leafStyle
-        let petFriendly = userPreferences.petFriendly
+        let careLevel = userPreferencesStore.careLevel
+        let maintenanceLevel = userPreferencesStore.maintenanceLevel
+        let colorScheme = userPreferencesStore.colorScheme
+        let productiveOrDecorative = userPreferencesStore.productiveOrDecorative
+        let leafStyle = userPreferencesStore.leafStyle
+        let petFriendly = userPreferencesStore.petFriendly
         
-        if let careLevel { ans[0] = careLevel }
-        if let maintenanceLevel { ans[1] = maintenanceLevel }
-        if let colorScheme { ans[2] = colorScheme }
-        if let productiveOrDecorative { ans[3] = productiveOrDecorative }
-        if let leafStyle { ans[4] = leafStyle }
-        if let petFriendly { ans[5] = petFriendly }
+        if let careLevel { answer[0] = careLevel }
+        if let maintenanceLevel { answer[1] = maintenanceLevel }
+        if let colorScheme { answer[2] = colorScheme }
+        if let productiveOrDecorative { answer[3] = productiveOrDecorative }
+        if let leafStyle { answer[4] = leafStyle }
+        if let petFriendly { answer[5] = petFriendly }
         
-        answerChoices = ans
+        answerChoices = answer
     }
     
     func select(answer: String) {

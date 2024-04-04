@@ -18,7 +18,7 @@ class QuestionViewModel {
     }
     
     var index: Int {
-        questionManager.questionsIterator.currentIndex
+        questionManager.index + 1
     }
     
     var currentIndex: String {

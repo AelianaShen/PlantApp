@@ -14,7 +14,7 @@ class QuestionManager: QuestionManaging {
    private(set) var reachedEnd = false
    private(set) var reachedFront = true
    private(set) var question: Question?
-   let questionsIterator = Iterator(for: questions)
+   private let questionsIterator = Iterator(for: questions)
 
    init() {
        self.question = questionsIterator.next()

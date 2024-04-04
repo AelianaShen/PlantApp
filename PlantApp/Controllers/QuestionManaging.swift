@@ -13,7 +13,6 @@ protocol QuestionManaging {
     var reachedEnd: Bool { get }
     var reachedFront: Bool { get }
     var question: Question? { get }
-    var questionsIterator: Iterator { get }
 
     func select(answer: String)
     func unselectAnswer()

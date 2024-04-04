@@ -40,12 +40,12 @@ class ARPlaceBoxViewModel: ObservableObject {
     }
     
     func saveBoxSize() {
-        let confirmBoxDiam = confirmBoxSize.x
-        if confirmBoxDiam <= 0.2 {
+        let plantPotDiameter = confirmBoxSize.x
+        if plantPotDiameter <= 0.2 {
             boxLevel = UserPreferences.BoxLevel.small.rawValue
-        } else if confirmBoxDiam > 0.2, confirmBoxDiam <= 0.32 {
+        } else if plantPotDiameter > 0.2, plantPotDiameter <= 0.32 {
             boxLevel = UserPreferences.BoxLevel.medium.rawValue
-        } else if confirmBoxDiam > 0.32 {
+        } else if plantPotDiameter > 0.32 {
             boxLevel = UserPreferences.BoxLevel.large.rawValue
         } else {
             boxLevel = UserPreferences.BoxLevel.none.rawValue

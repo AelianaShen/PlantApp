@@ -8,7 +8,7 @@
 import Foundation
 @testable import PlantApp
 
-class MockUserPreferences: UserPreferences {
+class MockUserPreferencesStore: UserPreferencesStore {
     var color_scheme: String? = nil
     var maintenance_level: String? = nil
     var care_level: String? = nil

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UserPreferences {
+protocol UserPreferencesStore {
     var care_level: String? { get set }
     var leaf_style: String? { get set }
     var light_level: String? { get set }
@@ -18,7 +18,7 @@ protocol UserPreferences {
     var productive_or_decorative: String? { get set }
 }
 
-class UserPreferencesImpl: UserPreferences {
+class UserPreferencesStoreImpl: UserPreferencesStore {
     let userPreferData = UserDefaults.standard
     
     var care_level: String?

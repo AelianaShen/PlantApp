@@ -14,9 +14,9 @@ import Foundation
     private(set) var reachedFront = true
     private(set) var question: Question?
     let questionsIterator = Iterator(for: questions)
-    private let userPreferences: UserPreferences
+    private let userPreferences: UserPreferencesStore
     
-    init(userPreferences: UserPreferences = UserPreferencesImpl()) {
+    init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
         self.userPreferences = userPreferences
         self.question = questionsIterator.next()
         initializeAnswers()

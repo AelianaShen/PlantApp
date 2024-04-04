@@ -10,9 +10,9 @@ import SwiftUI
 
 class QuestionViewModel {
     let questionManager: QuestionManager
-    let userPreferences: UserPreferencesImpl
+    let userPreferences: UserPreferencesStoreImpl
     
-    init(questionManager: QuestionManager, userPreferences: UserPreferencesImpl = UserPreferencesImpl()) {
+    init(questionManager: QuestionManager, userPreferences: UserPreferencesStoreImpl = UserPreferencesStoreImpl()) {
         self.questionManager = questionManager
         self.userPreferences = userPreferences
     }

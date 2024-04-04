@@ -16,7 +16,7 @@ class PlantServiceImpl: PlantService {
     private let networkManager = NetworkManager()
     private var getPlantsEndpoint: String
     
-    init(userPreferences: UserPreferences = UserPreferencesImpl()) {
+    init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
         let care_level = userPreferences.care_level
         let leaf_style = userPreferences.leaf_style
         let light_level = userPreferences.light_level

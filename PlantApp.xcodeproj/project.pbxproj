@@ -84,8 +84,8 @@
 		B2E5668A2BA116D50065B1C8 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566892BA116D50065B1C8 /* CollectionResponse.swift */; };
 		B2E5668D2BA119F70065B1C8 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668C2BA119F70065B1C8 /* Plant.swift */; };
 		B2E566902BA16E900065B1C8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668F2BA16E900065B1C8 /* Response.swift */; };
-		B2E6FE2F2BBB964800FE8CE2 /* UserPreferencesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesImpl.swift */; };
-		B2E6FE312BBD47A700FE8CE2 /* MockUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6FE302BBD47A700FE8CE2 /* MockUserPreferences.swift */; };
+		B2E6FE2F2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift */; };
+		B2E6FE312BBD47A700FE8CE2 /* MockUserPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6FE302BBD47A700FE8CE2 /* MockUserPreferencesStore.swift */; };
 		B2FFEEF82B7D200500886F87 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF72B7D200500886F87 /* Coordinator.swift */; };
 		B2FFEEFA2B7EB6DA00886F87 /* LuxMeasureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */; };
 		B2FFEEFD2B80546800886F87 /* ARPlaceBoxViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */; };
@@ -191,8 +191,8 @@
 		B2E566892BA116D50065B1C8 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
 		B2E5668C2BA119F70065B1C8 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		B2E5668F2BA16E900065B1C8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesImpl.swift; sourceTree = "<group>"; };
-		B2E6FE302BBD47A700FE8CE2 /* MockUserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserPreferences.swift; sourceTree = "<group>"; };
+		B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesStoreImpl.swift; sourceTree = "<group>"; };
+		B2E6FE302BBD47A700FE8CE2 /* MockUserPreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserPreferencesStore.swift; sourceTree = "<group>"; };
 		B2FFEEF72B7D200500886F87 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxMeasureCoordinator.swift; sourceTree = "<group>"; };
 		B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewContainer.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 				9971488D2BA503FD00282138 /* MockPlantService.swift */,
 				B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */,
 				B282F60D2BB9093A0089B9A2 /* MockQuestionManager.swift */,
-				B2E6FE302BBD47A700FE8CE2 /* MockUserPreferences.swift */,
+				B2E6FE302BBD47A700FE8CE2 /* MockUserPreferencesStore.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -618,7 +618,7 @@
 				B2E5668E2BA15A3F0065B1C8 /* Models */,
 				B2E566872BA10CCB0065B1C8 /* NetworkManager.swift */,
 				B2B5EA0B2BAA69880078D804 /* PlantServiceImpl.swift */,
-				B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesImpl.swift */,
+				B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -853,7 +853,7 @@
 				B23108FA2AFA05D700D13F17 /* ProductDetailView.swift in Sources */,
 				B23109722B0DD91500D13F17 /* ARView+Extensions.swift in Sources */,
 				B2B34BAD2BAE97430025D34B /* GetstartView.swift in Sources */,
-				B2E6FE2F2BBB964800FE8CE2 /* UserPreferencesImpl.swift in Sources */,
+				B2E6FE2F2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift in Sources */,
 				B26D33D12BAE697F00789F6E /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -864,7 +864,7 @@
 			files = (
 				B282F60A2BB8FA6B0089B9A2 /* MockCartManager.swift in Sources */,
 				B282F60E2BB9093A0089B9A2 /* MockQuestionManager.swift in Sources */,
-				B2E6FE312BBD47A700FE8CE2 /* MockUserPreferences.swift in Sources */,
+				B2E6FE312BBD47A700FE8CE2 /* MockUserPreferencesStore.swift in Sources */,
 				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,
 				9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */,
 				B23108D22AFA051500D13F17 /* PlantAppTests.swift in Sources */,

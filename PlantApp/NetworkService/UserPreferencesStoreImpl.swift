@@ -1,5 +1,5 @@
 //
-//  UserPreferencesImpl.swift
+//  UserPreferencesStoreImpl.swift
 //  PlantApp
 //
 //  Created by Aeliana Shen on 4/1/24.

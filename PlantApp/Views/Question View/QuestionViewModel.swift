@@ -70,7 +70,7 @@ class QuestionViewModel {
     
     func userSetPreference(option: String) {
         if index == 1 {
-            userPreferences.set_box_level(option: option)
+            userPreferences.set_care_level(option: option)
         } else if index == 2 {
             userPreferences.set_maintenance_level(option: option)
         } else if index == 3 {
@@ -86,7 +86,7 @@ class QuestionViewModel {
     
     func userUnsetPreference() {
         if index == 1 {
-            userPreferences.set_box_level(option: nil)
+            userPreferences.set_care_level(option: nil)
         } else if index == 2 {
             userPreferences.set_maintenance_level(option: nil)
         } else if index == 3 {

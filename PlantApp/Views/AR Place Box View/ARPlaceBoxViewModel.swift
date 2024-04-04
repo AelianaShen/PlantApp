@@ -13,12 +13,12 @@ class ARPlaceBoxViewModel: ObservableObject {
     @Published var showConfirmMsg: Bool = false
     @Published var luxValue: CGFloat = 0
     @Published var confirmLuxValue: CGFloat = 0
-    @Published var lightLevel: Int = UserPreferences.LightLevel.medium.rawValue
+    @Published var lightLevel: Int = UserPreferences.LightLevel.none.rawValue
     
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
     @Published var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
     @Published var useARKit = false
-    @Published var boxLevel: Int = 2
+    @Published var boxLevel: Int = UserPreferences.BoxLevel.none.rawValue
     
     func saveLuxValue() {
         if confirmLuxValue > 25, confirmLuxValue <= 75 {
@@ -27,27 +27,37 @@ class ARPlaceBoxViewModel: ObservableObject {
             lightLevel = UserPreferences.LightLevel.medium.rawValue
         } else if confirmLuxValue > 200 {
             lightLevel = UserPreferences.LightLevel.high.rawValue
+        } else {
+            lightLevel = UserPreferences.LightLevel.none.rawValue
         }
         UserDefaults.standard.set(lightLevel, forKey: "lightLevel")
     }
     
     func clearLuxValue() {
-        UserDefaults.standard.set(nil, forKey: "lightLevel")
+        UserDefaults.standard.set(
+            UserPreferences.LightLevel.none.rawValue,
+            forKey: "lightLevel"
+        )
     }
     
     func saveBoxSize() {
         let confirmBoxDiam = confirmBoxSize.x
         if confirmBoxDiam <= 0.2 {
-            boxLevel = 1
+            boxLevel = UserPreferences.BoxLevel.small.rawValue
         } else if confirmBoxDiam > 0.2, confirmBoxDiam <= 0.32 {
-            boxLevel = 2
+            boxLevel = UserPreferences.BoxLevel.medium.rawValue
         } else if confirmBoxDiam > 0.32 {
-            boxLevel = 3
+            boxLevel = UserPreferences.BoxLevel.large.rawValue
+        } else {
+            boxLevel = UserPreferences.BoxLevel.none.rawValue
         }
         UserDefaults.standard.set(boxLevel, forKey: "boxLevel")
     }
     
     func clearBoxSize() {
-        UserDefaults.standard.set(nil, forKey: "boxLevel")
+        UserDefaults.standard.set(
+            UserPreferences.BoxLevel.none.rawValue,
+            forKey: "boxLevel"
+        )
     }
 }

@@ -11,7 +11,7 @@ protocol UserPreferencesStore {
     var careLevel: String? { get set }
     var leafStyle: String? { get set }
     var lightLevel: Int? { get set }
-    var boxLevel: String? { get set }
+    var boxLevel: Int? { get set }
     var petFriendly: String? { get set }
     var colorScheme: String? { get set }
     var maintenanceLevel: String? { get set }
@@ -24,7 +24,7 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     var careLevel: String?
     var leafStyle: String?
     var lightLevel: Int?
-    var boxLevel: String?
+    var boxLevel: Int?
     var petFriendly: String?
     var colorScheme: String?
     var maintenanceLevel: String?
@@ -34,7 +34,7 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
         careLevel = userPreferData.string(forKey: "careLevel")
         leafStyle = userPreferData.string(forKey: "leafStyle")
         lightLevel = userPreferData.integer(forKey: "lightLevel")
-        boxLevel = userPreferData.string(forKey: "boxLevel")
+        boxLevel = userPreferData.integer(forKey: "boxLevel")
         petFriendly = userPreferData.string(forKey: "petFriendly")
         colorScheme = userPreferData.string(forKey: "colorScheme")
         maintenanceLevel = userPreferData.string(forKey: "maintenanceLevel")
@@ -49,11 +49,11 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
         userPreferData.set(option, forKey: "leafStyle")
     }
     
-    func setLightLevel(option: String?) {
+    func setLightLevel(option: Int?) {
         userPreferData.set(option, forKey: "lightLevel")
     }
     
-    func setBoxLevel(option: String?) {
+    func setBoxLevel(option: Int?) {
         userPreferData.set(option, forKey: "boxLevel")
     }
     

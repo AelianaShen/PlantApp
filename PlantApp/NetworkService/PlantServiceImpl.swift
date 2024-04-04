@@ -24,8 +24,7 @@ class PlantServiceImpl: PlantService {
         let petFriendly = userPreferences.petFriendly
         let productiveOrDecorative = userPreferences.productiveOrDecorative
         
-        getPlantsEndpoint = "products?default_product=false\(careLevel == nil ? "": "&care_level=\(careLevel ?? "")")\(leafStyle == nil ? "": "&leaf_style=\(leafStyle ?? "")")\(lightLevel == 0 ? "": "&light_level=\(lightLevel ?? 2)")\(boxLevel == 0 ? "": "&box_level=\(boxLevel ?? 2)")\(petFriendly == "yes" ? "&pet_friendly=true": "")\(productiveOrDecorative == nil ? "": "&productive_or_decorative=\(productiveOrDecorative ?? "")")"
-        print(getPlantsEndpoint)
+        getPlantsEndpoint = "products?default_product=false\(careLevel == nil ? "": "&care_level=\(careLevel?.rawValue ?? "")")\(leafStyle == nil ? "": "&leaf_style=\(leafStyle?.rawValue ?? "")")\(lightLevel?.rawValue == 0 ? "": "&light_level=\(lightLevel?.rawValue ?? 2)")\(boxLevel?.rawValue == 0 ? "": "&light_level=\(boxLevel?.rawValue ?? 2)")\(petFriendly?.rawValue == "yes" ? "&pet_friendly=true": "")\(productiveOrDecorative == nil ? "": "&productive_or_decorative=\(productiveOrDecorative?.rawValue ?? "")")"
     }
     
     func getPlants() async -> [Plant] {

@@ -32,12 +32,12 @@ import Foundation
         let leafStyle = userPreferencesStore.leafStyle
         let petFriendly = userPreferencesStore.petFriendly
         
-        if let careLevel { answer[0] = careLevel }
-        if let maintenanceLevel { answer[1] = maintenanceLevel }
-        if let colorScheme { answer[2] = colorScheme }
-        if let productiveOrDecorative { answer[3] = productiveOrDecorative }
-        if let leafStyle { answer[4] = leafStyle }
-        if let petFriendly { answer[5] = petFriendly }
+        if let careLevel { answer[0] = careLevel.rawValue }
+        if let maintenanceLevel { answer[1] = maintenanceLevel.rawValue }
+        if let colorScheme { answer[2] = colorScheme.rawValue }
+        if let productiveOrDecorative { answer[3] = productiveOrDecorative.rawValue }
+        if let leafStyle { answer[4] = leafStyle.rawValue }
+        if let petFriendly { answer[5] = petFriendly.rawValue }
         
         answerChoices = answer
     }

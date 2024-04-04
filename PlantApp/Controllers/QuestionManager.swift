@@ -32,14 +32,14 @@ import Foundation
     }
     
     func goToNextQuestion() {
-        self.index = questionsIterator.currentIndex
         self.question = questionsIterator.next()
+        self.index += 1
         checkReachedFrontAndEnd()
     }
     
     func goToPreviousQuestion() {
         self.question = questionsIterator.previous()
-        self.index = questionsIterator.currentIndex-1
+        self.index -= 1
         checkReachedFrontAndEnd()
     }
     

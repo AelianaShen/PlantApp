@@ -20,5 +20,5 @@ protocol QuestionManaging {
     func goToNextQuestion()
     func goToPreviousQuestion()
     func skipQuestion()
-    func checkReachedFrontAndEnd()
+    func updateReachedFrontAndEnd()
 }

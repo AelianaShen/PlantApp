@@ -8,13 +8,13 @@
 import Foundation
 
 enum UserPreferences {
-    enum CareLevel: String {
+    enum CareLevel: String, CaseIterable {
         case beginner
         case intermediate
         case advanced
     }
     
-    enum LeafStyle: String {
+    enum LeafStyle: String, CaseIterable  {
         case dramatic
         case delicate
     }
@@ -27,22 +27,22 @@ enum UserPreferences {
         case none = 0, small, medium, large
     }
     
-    enum PetFriendly: String {
+    enum PetFriendly: String, CaseIterable  {
         case yes
         case no
     }
     
-    enum ColorScheme: String {
+    enum ColorScheme: String, CaseIterable  {
         case complement
         case contrast
     }
     
-    enum MaintenanceLevel: String {
-        case lowMaintenance
-        case moreEffort
+    enum MaintenanceLevel: String, CaseIterable  {
+        case lowMaintenance = "low-maintenance"
+        case moreEffort = "more effort"
     }
     
-    enum ProductiveOrDecorative: String {
+    enum ProductiveOrDecorative: String, CaseIterable  {
         case productive
         case decorative
     }

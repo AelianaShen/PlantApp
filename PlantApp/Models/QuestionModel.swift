@@ -16,45 +16,26 @@ struct Question: Identifiable {
 let questions = [
     Question(
         description: "What is your level of experience with indoor plants?",
-        options: [
-            "beginner",
-            "intermediate",
-            "advanced"
-        ]
+        options: UserPreferences.CareLevel.allCases.map { $0.rawValue }
     ),
     Question(
         description: "How often are you willing to water and care for your plants?",
-        options: [
-            "low-maintenance",
-            "more effort"
-        ]
+        options: UserPreferences.MaintenanceLevel.allCases.map { $0.rawValue }
     ),
     Question(
         description: "Do you have a specific color scheme or aesthetic in mind for you indoor space?",
-        options: [
-            "complement",
-            "contrast"
-        ]
+        options: UserPreferences.ColorScheme.allCases.map { $0.rawValue }
     ),
     Question(
         description: "Are you interested in plants that flower or produce fruit, or do you prefer plants that are primarily decorative?",
-        options: [
-            "productive",
-            "decorative"
-        ]
+        options: UserPreferences.ProductiveOrDecorative.allCases.map { $0.rawValue }
     ),
     Question(
         description: "Do you preper plants with large, dramatic leaves or more delicate foliage?",
-        options: [
-            "dramatic",
-            "delicate"
-        ]
+        options: UserPreferences.LeafStyle.allCases.map { $0.rawValue }
     ),
     Question(
         description: "Are you looking for pet-safe or child-friendly options?",
-        options: [
-            "yes",
-            "no"
-        ]
+        options: UserPreferences.PetFriendly.allCases.map { $0.rawValue }
     )
 ]

@@ -13,10 +13,11 @@ protocol PlantService {
 }
 
 class PlantServiceImpl: PlantService {
-    private let networkManager = NetworkManager()
+    private let networkManager: NetworkManager
     private let getPlantsEndpoint: String
     
-    init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
+    init(networkManager: NetworkManager = NetworkManagerImpl(), userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
+        self.networkManager = networkManager
         let queryParams = Self.queryParams(userPreferences)
         getPlantsEndpoint = "products?\(queryParams)"
     }

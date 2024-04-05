@@ -1,5 +1,5 @@
 //
-//  NetworkManage.swift
+//  NetworkManagerImpl.swift
 //  PlantApp
 //
 //  Created by Aeliana Shen on 3/12/24.
@@ -7,7 +7,12 @@
 
 import Foundation
 
-class NetworkManager {
+protocol NetworkManager {
+    func getCollection<Model: Codable>(endpoint: String) async -> [Model]
+    func get<Model: Codable>(endpoint: String) async -> Model?
+}
+
+class NetworkManagerImpl: NetworkManager {
     private let baseURL = "https://p6ib01la4m.execute-api.us-west-2.amazonaws.com/prod/"
     
     func getCollection<Model: Codable>(endpoint: String) async -> [Model] {

@@ -28,7 +28,7 @@ protocol UserPreferencesStore {
 }
 
 class UserPreferencesStoreImpl: UserPreferencesStore {
-    let userPreferData = UserDefaults.standard
+    private let userPreferData = UserDefaults.standard
     
     var careLevel: UserPreferences.CareLevel?
     var leafStyle: UserPreferences.LeafStyle?

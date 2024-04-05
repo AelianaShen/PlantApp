@@ -16,10 +16,19 @@ protocol UserPreferencesStore {
     var colorScheme: UserPreferences.ColorScheme? { get set }
     var maintenanceLevel: UserPreferences.MaintenanceLevel? { get set }
     var productiveOrDecorative: UserPreferences.ProductiveOrDecorative? { get set }
+    
+    func setCareLevel(option: String?)
+    func setLeafStyle(option: String?)
+    func setLightLevel(option: Int?)
+    func setBoxLevel(option: Int?)
+    func setPetFriendly(option: String?)
+    func setColorScheme(option: String?)
+    func setMaintenanceLevel(option: String?)
+    func setProductiveOrDecorative(option: String?)
 }
 
 class UserPreferencesStoreImpl: UserPreferencesStore {
-    let userPreferData = UserDefaults.standard
+    private let userPreferData = UserDefaults.standard
     
     var careLevel: UserPreferences.CareLevel?
     var leafStyle: UserPreferences.LeafStyle?

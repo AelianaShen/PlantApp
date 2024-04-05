@@ -23,7 +23,7 @@ import Foundation
     }
     
     func initializeAnswers () {
-        var answer = Array.init(repeating: "", count: questionsIterator.count)
+        var answers = Array.init(repeating: "", count: questionsIterator.count)
         
         let careLevel = userPreferencesStore.careLevel
         let maintenanceLevel = userPreferencesStore.maintenanceLevel
@@ -32,14 +32,14 @@ import Foundation
         let leafStyle = userPreferencesStore.leafStyle
         let petFriendly = userPreferencesStore.petFriendly
         
-        if let careLevel { answer[0] = careLevel.rawValue }
-        if let maintenanceLevel { answer[1] = maintenanceLevel.rawValue }
-        if let colorScheme { answer[2] = colorScheme.rawValue }
-        if let productiveOrDecorative { answer[3] = productiveOrDecorative.rawValue }
-        if let leafStyle { answer[4] = leafStyle.rawValue }
-        if let petFriendly { answer[5] = petFriendly.rawValue }
+        if let careLevel { answers[0] = careLevel.rawValue }
+        if let maintenanceLevel { answers[1] = maintenanceLevel.rawValue }
+        if let colorScheme { answers[2] = colorScheme.rawValue }
+        if let productiveOrDecorative { answers[3] = productiveOrDecorative.rawValue }
+        if let leafStyle { answers[4] = leafStyle.rawValue }
+        if let petFriendly { answers[5] = petFriendly.rawValue }
         
-        answerChoices = answer
+        answerChoices = answers
     }
     
     func select(answer: String) {

@@ -14,17 +14,11 @@ protocol PlantService {
 
 class PlantServiceImpl: PlantService {
     private let networkManager = NetworkManager()
-    private var getPlantsEndpoint: String
+    private let getPlantsEndpoint: String
     
     init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()) {
-        let careLevel = userPreferences.careLevel
-        let leafStyle = userPreferences.leafStyle
-        let lightLevel = userPreferences.lightLevel
-        let boxLevel = userPreferences.boxLevel
-        let petFriendly = userPreferences.petFriendly
-        let productiveOrDecorative = userPreferences.productiveOrDecorative
-        
-        getPlantsEndpoint = "products?default_product=false\(careLevel == nil ? "": "&care_level=\(careLevel?.rawValue ?? "")")\(leafStyle == nil ? "": "&leaf_style=\(leafStyle?.rawValue ?? "")")\(lightLevel?.rawValue == 0 ? "": "&light_level=\(lightLevel?.rawValue ?? 2)")\(boxLevel?.rawValue == 0 ? "": "&light_level=\(boxLevel?.rawValue ?? 2)")\(petFriendly?.rawValue == "yes" ? "&pet_friendly=true": "")\(productiveOrDecorative == nil ? "": "&productive_or_decorative=\(productiveOrDecorative?.rawValue ?? "")")"
+        let queryParams = Self.queryParams(userPreferences)
+        getPlantsEndpoint = "products?\(queryParams)"
     }
     
     func getPlants() async -> [Plant] {
@@ -33,5 +27,37 @@ class PlantServiceImpl: PlantService {
     
     func getPlant(withId plantId: String) async -> Plant? {
         await networkManager.get(endpoint: "product?productId=\(plantId)")
+    }
+    
+    private static func queryParams(_ userPreferences: UserPreferencesStore) -> String {
+        var queryItems: [String] = []
+        queryItems.append("default_product=false")
+        
+        if let careLevel = userPreferences.careLevel?.rawValue {
+            queryItems.append("care_level=\(careLevel)")
+        }
+        
+        if let leafStyle = userPreferences.leafStyle?.rawValue {
+            queryItems.append("leaf_style=\(leafStyle)")
+        }
+        
+        if let lightLevel = userPreferences.lightLevel?.rawValue, lightLevel > 0 {
+            queryItems.append("light_level=\(lightLevel)")
+        }
+        
+        if let boxLevel = userPreferences.boxLevel?.rawValue, boxLevel > 0 {
+            queryItems.append("box_level=\(boxLevel)")
+        }
+        
+        if let petFriendly = userPreferences.petFriendly?.rawValue, petFriendly == "yes" {
+            queryItems.append("pet_friendly=\(petFriendly)")
+        }
+        
+        if let productiveOrDecorative = userPreferences.productiveOrDecorative?.rawValue {
+            queryItems.append("productive_or_decorative=\(productiveOrDecorative)")
+        }
+        
+        let getPlantsEndpoint = queryItems.joined(separator: "&")
+        return getPlantsEndpoint
     }
 }

@@ -9,15 +9,37 @@ import Foundation
 
 @Observable class QuestionManager: QuestionManaging {
     private(set) var index = 0
-    private(set) var answerChoices: [String]
+    private(set) var answerChoices: [String] = []
     private(set) var reachedEnd = false
     private(set) var reachedFront = true
     private(set) var question: Question?
-    let questionsIterator = Iterator(for: questions)
-
-    init() {
+    private let questionsIterator = Iterator(for: questions)
+    private let userPreferencesStore: UserPreferencesStore
+    
+    init(userPreferencesStore: UserPreferencesStore = UserPreferencesStoreImpl()) {
+        self.userPreferencesStore = userPreferencesStore
         self.question = questionsIterator.next()
-        self.answerChoices = Array.init(repeating: "", count: questionsIterator.count)
+        initializeAnswers()
+    }
+    
+    func initializeAnswers () {
+        var answer = Array.init(repeating: "", count: questionsIterator.count)
+        
+        let careLevel = userPreferencesStore.careLevel
+        let maintenanceLevel = userPreferencesStore.maintenanceLevel
+        let colorScheme = userPreferencesStore.colorScheme
+        let productiveOrDecorative = userPreferencesStore.productiveOrDecorative
+        let leafStyle = userPreferencesStore.leafStyle
+        let petFriendly = userPreferencesStore.petFriendly
+        
+        if let careLevel { answer[0] = careLevel.rawValue }
+        if let maintenanceLevel { answer[1] = maintenanceLevel.rawValue }
+        if let colorScheme { answer[2] = colorScheme.rawValue }
+        if let productiveOrDecorative { answer[3] = productiveOrDecorative.rawValue }
+        if let leafStyle { answer[4] = leafStyle.rawValue }
+        if let petFriendly { answer[5] = petFriendly.rawValue }
+        
+        answerChoices = answer
     }
     
     func select(answer: String) {
@@ -31,15 +53,15 @@ import Foundation
     }
     
     func goToNextQuestion() {
-        self.index = questionsIterator.currentIndex
         self.question = questionsIterator.next()
-        checkReachedFrontAndEnd()
+        self.index += 1
+        updateReachedFrontAndEnd()
     }
     
     func goToPreviousQuestion() {
         self.question = questionsIterator.previous()
-        self.index = questionsIterator.currentIndex
-        checkReachedFrontAndEnd()
+        self.index -= 1
+        updateReachedFrontAndEnd()
     }
     
     func skipQuestion() {
@@ -47,7 +69,7 @@ import Foundation
         goToNextQuestion()
     }
     
-    func checkReachedFrontAndEnd(){
+    func updateReachedFrontAndEnd(){
         self.reachedEnd = (questionsIterator.currentIndex == questionsIterator.count)
         self.reachedFront = (questionsIterator.currentIndex == 1)
     }

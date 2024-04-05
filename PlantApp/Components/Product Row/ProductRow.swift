@@ -29,7 +29,7 @@ struct ProductRow: View {
     }
     
     private var plantImage: some View {
-        AsyncImage(url: URL(string: viewModel.imageURL)) { image in
+        AsyncImage(url: viewModel.imageURL) { image in
             image.resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)

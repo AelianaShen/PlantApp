@@ -14,7 +14,7 @@ class QuestionManager: QuestionManaging {
    private(set) var reachedEnd = false
    private(set) var reachedFront = true
    private(set) var question: Question?
-   let questionsIterator = Iterator(for: questions)
+   private let questionsIterator = Iterator(for: questions)
 
    init() {
        self.question = questionsIterator.next()
@@ -32,15 +32,15 @@ class QuestionManager: QuestionManaging {
    }
    
    func goToNextQuestion() {
-       self.index = questionsIterator.currentIndex
        self.question = questionsIterator.next()
-       checkReachedFrontAndEnd()
+       self.index += 1
+       updateReachedFrontAndEnd()
    }
-   
+       
    func goToPreviousQuestion() {
        self.question = questionsIterator.previous()
-       self.index = questionsIterator.currentIndex
-       checkReachedFrontAndEnd()
+       self.index -= 1
+       updateReachedFrontAndEnd()
    }
    
    func skipQuestion() {
@@ -48,7 +48,7 @@ class QuestionManager: QuestionManaging {
        goToNextQuestion()
    }
    
-   func checkReachedFrontAndEnd(){
+   func updateReachedFrontAndEnd(){
        self.reachedEnd = (questionsIterator.currentIndex == questionsIterator.count)
        self.reachedFront = (questionsIterator.currentIndex == 1)
    }

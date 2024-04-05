@@ -26,7 +26,7 @@ class Iterator: IteratorProtocol {
     func previous() -> Question? {
         guard currentIndex > 0 else { return nil }
         currentIndex -= 1
-        let question = questions[currentIndex]
+        let question = questions[currentIndex-1]
         return question
     }
     

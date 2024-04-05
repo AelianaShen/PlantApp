@@ -34,7 +34,11 @@ struct PreferSetView: View {
     
     private var startQuestionsButton: some View {
         NavigationLink {
-            QuestionView(viewModel: QuestionViewModel(questionManager: questionManager))
+            QuestionView(
+                viewModel: QuestionViewModel(
+                    questionManager: questionManager
+                )
+            )
         } label: {
             PrimaryButton(text: viewModel.primaryButtonString)
         }

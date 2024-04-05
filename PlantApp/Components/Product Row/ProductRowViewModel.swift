@@ -8,15 +8,16 @@
 import Foundation
 import SwiftUI
 
-class ProductRowViewModel: ObservableObject {
-    @Published var plant: Plant
+final class ProductRowViewModel {
+    private let plant: Plant
     
     init(plant: Plant) {
         self.plant = plant
     }
     
-    var imageURL: String {
-        plant.imageURL
+    var imageURL: URL? {
+        guard let url = URL(string: plant.imageURL) else { return nil }
+        return url
     }
     
     var commonName: String {

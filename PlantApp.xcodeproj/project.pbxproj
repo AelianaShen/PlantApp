@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9971488D2BA503FD00282138 /* MockPlantService.swift */; };
+		B211F5B92BBF0A5700A9010D /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211F5B82BBF0A5700A9010D /* UserPreference.swift */; };
 		B23108BF2AFA051300D13F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23108BE2AFA051300D13F17 /* AppDelegate.swift */; };
 		B23108C12AFA051300D13F17 /* ContentARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23108C02AFA051300D13F17 /* ContentARView.swift */; };
 		B23108C82AFA051500D13F17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23108C72AFA051500D13F17 /* Preview Assets.xcassets */; };
@@ -61,7 +62,7 @@
 		B2B34BB62BAE9D4B0025D34B /* GetstartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BB52BAE9D4B0025D34B /* GetstartViewModel.swift */; };
 		B2B5EA052BA4D6430078D804 /* ScrollSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */; };
 		B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */; };
-		B2B5EA0C2BAA69880078D804 /* PlantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA0B2BAA69880078D804 /* PlantService.swift */; };
+		B2B5EA0C2BAA69880078D804 /* PlantServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5EA0B2BAA69880078D804 /* PlantServiceImpl.swift */; };
 		B2C632CB2BABBF2700A0BE62 /* AnswerRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C632CA2BABBF2700A0BE62 /* AnswerRowViewModel.swift */; };
 		B2C632CD2BABE6AB00A0BE62 /* CartButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C632CC2BABE6AB00A0BE62 /* CartButtonViewModel.swift */; };
 		B2C632CF2BAC04DC00A0BE62 /* PlantCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C632CE2BAC04DC00A0BE62 /* PlantCardViewModel.swift */; };
@@ -84,6 +85,8 @@
 		B2E5668A2BA116D50065B1C8 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E566892BA116D50065B1C8 /* CollectionResponse.swift */; };
 		B2E5668D2BA119F70065B1C8 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668C2BA119F70065B1C8 /* Plant.swift */; };
 		B2E566902BA16E900065B1C8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E5668F2BA16E900065B1C8 /* Response.swift */; };
+		B2E6FE2F2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift */; };
+		B2E6FE312BBD47A700FE8CE2 /* MockUserPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6FE302BBD47A700FE8CE2 /* MockUserPreferencesStore.swift */; };
 		B2FFEEF82B7D200500886F87 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF72B7D200500886F87 /* Coordinator.swift */; };
 		B2FFEEFA2B7EB6DA00886F87 /* LuxMeasureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */; };
 		B2FFEEFD2B80546800886F87 /* ARPlaceBoxViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */; };
@@ -109,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		9971488D2BA503FD00282138 /* MockPlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlantService.swift; sourceTree = "<group>"; };
+		B211F5B82BBF0A5700A9010D /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		B23108BB2AFA051300D13F17 /* PlantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23108BE2AFA051300D13F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23108C02AFA051300D13F17 /* ContentARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentARView.swift; sourceTree = "<group>"; };
@@ -166,7 +170,7 @@
 		B2B34BB52BAE9D4B0025D34B /* GetstartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetstartViewModel.swift; sourceTree = "<group>"; };
 		B2B5EA042BA4D6430078D804 /* ScrollSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModel.swift; sourceTree = "<group>"; };
 		B2B5EA082BA4F4E30078D804 /* ScrollSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSectionViewModelTests.swift; sourceTree = "<group>"; };
-		B2B5EA0B2BAA69880078D804 /* PlantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantService.swift; sourceTree = "<group>"; };
+		B2B5EA0B2BAA69880078D804 /* PlantServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantServiceImpl.swift; sourceTree = "<group>"; };
 		B2C632CA2BABBF2700A0BE62 /* AnswerRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRowViewModel.swift; sourceTree = "<group>"; };
 		B2C632CC2BABE6AB00A0BE62 /* CartButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButtonViewModel.swift; sourceTree = "<group>"; };
 		B2C632CE2BAC04DC00A0BE62 /* PlantCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		B2E566892BA116D50065B1C8 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
 		B2E5668C2BA119F70065B1C8 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		B2E5668F2BA16E900065B1C8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesStoreImpl.swift; sourceTree = "<group>"; };
+		B2E6FE302BBD47A700FE8CE2 /* MockUserPreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserPreferencesStore.swift; sourceTree = "<group>"; };
 		B2FFEEF72B7D200500886F87 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B2FFEEF92B7EB6DA00886F87 /* LuxMeasureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxMeasureCoordinator.swift; sourceTree = "<group>"; };
 		B2FFEEFC2B80546800886F87 /* ARPlaceBoxViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewContainer.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 				9971488D2BA503FD00282138 /* MockPlantService.swift */,
 				B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */,
 				B282F60D2BB9093A0089B9A2 /* MockQuestionManager.swift */,
+				B2E6FE302BBD47A700FE8CE2 /* MockUserPreferencesStore.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -612,7 +619,8 @@
 			children = (
 				B2E5668E2BA15A3F0065B1C8 /* Models */,
 				B2E566872BA10CCB0065B1C8 /* NetworkManager.swift */,
-				B2B5EA0B2BAA69880078D804 /* PlantService.swift */,
+				B2B5EA0B2BAA69880078D804 /* PlantServiceImpl.swift */,
+				B2E6FE2E2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -623,6 +631,7 @@
 				B2E5668C2BA119F70065B1C8 /* Plant.swift */,
 				B2E5668F2BA16E900065B1C8 /* Response.swift */,
 				B2E566892BA116D50065B1C8 /* CollectionResponse.swift */,
+				B211F5B82BBF0A5700A9010D /* UserPreference.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -800,6 +809,7 @@
 				B282F60C2BB8FCFF0089B9A2 /* QuestionManaging.swift in Sources */,
 				B2B34BA72BAE96130025D34B /* OnboardView.swift in Sources */,
 				B2C632CB2BABBF2700A0BE62 /* AnswerRowViewModel.swift in Sources */,
+				B211F5B92BBF0A5700A9010D /* UserPreference.swift in Sources */,
 				B2E566902BA16E900065B1C8 /* Response.swift in Sources */,
 				B26D33C52BAE29BE00789F6E /* PreferSetViewModel.swift in Sources */,
 				B23108F52AFA05D700D13F17 /* QuestionView.swift in Sources */,
@@ -809,7 +819,7 @@
 				B2FFEEFA2B7EB6DA00886F87 /* LuxMeasureCoordinator.swift in Sources */,
 				B23108F42AFA05D700D13F17 /* OnboardingView.swift in Sources */,
 				B23109082AFA07ED00D13F17 /* QuestionModel.swift in Sources */,
-				B2B5EA0C2BAA69880078D804 /* PlantService.swift in Sources */,
+				B2B5EA0C2BAA69880078D804 /* PlantServiceImpl.swift in Sources */,
 				B2B5EA052BA4D6430078D804 /* ScrollSectionViewModel.swift in Sources */,
 				B23109242AFA171F00D13F17 /* Iterator.swift in Sources */,
 				B231091C2AFA0E6100D13F17 /* ScrollSection.swift in Sources */,
@@ -847,6 +857,7 @@
 				B23108FA2AFA05D700D13F17 /* ProductDetailView.swift in Sources */,
 				B23109722B0DD91500D13F17 /* ARView+Extensions.swift in Sources */,
 				B2B34BAD2BAE97430025D34B /* GetstartView.swift in Sources */,
+				B2E6FE2F2BBB964800FE8CE2 /* UserPreferencesStoreImpl.swift in Sources */,
 				B26D33D12BAE697F00789F6E /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +868,7 @@
 			files = (
 				B282F60A2BB8FA6B0089B9A2 /* MockCartManager.swift in Sources */,
 				B282F60E2BB9093A0089B9A2 /* MockQuestionManager.swift in Sources */,
+				B2E6FE312BBD47A700FE8CE2 /* MockUserPreferencesStore.swift in Sources */,
 				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,
 				9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */,
 				B23108D22AFA051500D13F17 /* PlantAppTests.swift in Sources */,

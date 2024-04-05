@@ -35,12 +35,17 @@ struct ShopView: View {
     private var scrollProducts: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                ScrollSection(cartManager: cartManager)
+                ScrollSection(
+                    viewModel: ScrollSectionViewModel(
+                        plantServiceImp: PlantServiceImpl(),
+                        cartManager: cartManager
+                    )
+                )
             }
         }
     }
 }
 
 #Preview {
-    ShopView(cartManager: CartManager(), viewModel: ShopViewModel())
+    ShopView(cartManager: CartManager())
 }

@@ -8,7 +8,7 @@
 import Foundation
 @testable import PlantApp
 
-class MockSuccessPlantService: PlantServiceProtocol {
+class MockSuccessPlantService: PlantService {
     func getPlants() async -> [Plant] {
         return Plant.localPlantList
     }
@@ -18,7 +18,7 @@ class MockSuccessPlantService: PlantServiceProtocol {
     }
 }
 
-class MockBadUrlFailurePlantService: PlantServiceProtocol {
+class MockBadUrlFailurePlantService: PlantService {
     func getPlants() async -> [Plant] {
         return []
     }
@@ -28,7 +28,7 @@ class MockBadUrlFailurePlantService: PlantServiceProtocol {
     }
 }
 
-class MockBadServerResponseFailurePlantService: PlantServiceProtocol {
+class MockBadServerResponseFailurePlantService: PlantService {
     func getPlants() async -> [Plant] {
         return []
     }
@@ -38,7 +38,7 @@ class MockBadServerResponseFailurePlantService: PlantServiceProtocol {
     }
 }
 
-class MockCannotDecodeContentDataFailurePlantService: PlantServiceProtocol {
+class MockCannotDecodeContentDataFailurePlantService: PlantService {
     func getPlants() async -> [Plant] {
         return []
     }
@@ -48,7 +48,7 @@ class MockCannotDecodeContentDataFailurePlantService: PlantServiceProtocol {
     }
 }
 
-class MockGeneralFailurePlantService: PlantServiceProtocol {
+class MockGeneralFailurePlantService: PlantService {
     func getPlants() async -> [Plant] {
         return []
     }

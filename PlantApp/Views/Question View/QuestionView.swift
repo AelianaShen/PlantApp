@@ -14,8 +14,13 @@ struct QuestionView: View {
         VStack(spacing: 20) {
             questionDescription
             questionOptions
-            skipQuestionButton
-
+            HStack {
+                if !viewModel.reachedEnd {
+                    skipQuestionButton
+                }
+            }
+            .frame(height: 50)
+            
             HStack {
                 if !viewModel.reachedFront {
                     goToPreviousQuestionButton
@@ -46,8 +51,7 @@ struct QuestionView: View {
             AnswerRow(
                 viewModel: AnswerRowViewModel(
                     text: option,
-                    isSelected: option == viewModel.selectedOption,
-                    questionManager: viewModel.questionManager
+                    isSelected: option == viewModel.selectedOption
                 ), onSelect: {
                     viewModel.selectOption(option: option)
                 }

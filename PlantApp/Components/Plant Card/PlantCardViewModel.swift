@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class PlantCardViewModel {
+final class PlantCardViewModel {
     private let plant: Plant
     private let cartManager: CartManaging
     

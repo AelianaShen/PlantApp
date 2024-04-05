@@ -8,15 +8,21 @@
 import Foundation
 import SwiftUI
 
-@Observable class QuestionViewModel {
+class QuestionViewModel {
     let questionManager: QuestionManager
+    let userPreferences: UserPreferencesStoreImpl
     
-    init(questionManager: QuestionManager) {
+    init(questionManager: QuestionManager, userPreferences: UserPreferencesStoreImpl = UserPreferencesStoreImpl()) {
         self.questionManager = questionManager
+        self.userPreferences = userPreferences
+    }
+    
+    var index: Int {
+        questionManager.index + 1
     }
     
     var currentIndex: String {
-        return "\(questionManager.questionsIterator.currentIndex) / 6"
+        return "\(index) / 6"
     }
     
     var questionDescription: String {
@@ -55,8 +61,42 @@ import SwiftUI
         let isSelected = option == selectedOption
         if !isSelected {
             questionManager.select(answer: option)
+            userSetPreference(option: option)
         } else {
             questionManager.unselectAnswer()
+            userUnsetPreference()
+        }
+    }
+    
+    func userSetPreference(option: String) {
+        if index == 1 {
+            userPreferences.setCareLevel(option: option)
+        } else if index == 2 {
+            userPreferences.setMaintenanceLevel(option: option)
+        } else if index == 3 {
+            userPreferences.setColorScheme(option: option)
+        } else if index == 4 {
+            userPreferences.setProductiveOrDecorative(option: option)
+        } else if index == 5 {
+            userPreferences.setLeafStyle(option: option)
+        } else if index == 6 {
+            userPreferences.setPetFriendly(option: option)
+        }
+    }
+    
+    func userUnsetPreference() {
+        if index == 1 {
+            userPreferences.setCareLevel(option: nil)
+        } else if index == 2 {
+            userPreferences.setMaintenanceLevel(option: nil)
+        } else if index == 3 {
+            userPreferences.setColorScheme(option: nil)
+        } else if index == 4 {
+            userPreferences.setProductiveOrDecorative(option: nil)
+        } else if index == 5 {
+            userPreferences.setLeafStyle(option: nil)
+        } else if index == 6 {
+            userPreferences.setPetFriendly(option: nil)
         }
     }
 }

@@ -22,7 +22,7 @@ class ARPlaceBoxViewModel: ObservableObject {
     
     var useARKit = false
     
-    private let userPreferences: UserPreferencesStore
+    private var userPreferences: UserPreferencesStore
     
     init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()){
         self.userPreferences = userPreferences
@@ -38,11 +38,11 @@ class ARPlaceBoxViewModel: ObservableObject {
         } else {
             lightLevel = UserPreferences.LightLevel.none.rawValue
         }
-        userPreferences.setLightLevel(option: lightLevel)
+        userPreferences.lightLevel = UserPreferences.LightLevel(rawValue: lightLevel)
     }
     
     func clearLuxValue() {
-        userPreferences.setLightLevel(option: UserPreferences.LightLevel.none.rawValue)
+        userPreferences.lightLevel = UserPreferences.LightLevel(rawValue: 0)
     }
     
     func saveBoxSize() {
@@ -56,10 +56,10 @@ class ARPlaceBoxViewModel: ObservableObject {
         } else {
             boxLevel = UserPreferences.BoxLevel.none.rawValue
         }
-        userPreferences.setBoxLevel(option: boxLevel)
+        userPreferences.boxLevel = UserPreferences.BoxLevel(rawValue: boxLevel)
     }
     
     func clearBoxSize() {
-        userPreferences.setBoxLevel(option: UserPreferences.BoxLevel.none.rawValue)
+        userPreferences.boxLevel = UserPreferences.BoxLevel(rawValue: 0)
     }
 }

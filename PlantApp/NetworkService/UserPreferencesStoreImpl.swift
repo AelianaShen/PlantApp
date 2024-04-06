@@ -16,94 +16,106 @@ protocol UserPreferencesStore {
     var colorScheme: UserPreferences.ColorScheme? { get set }
     var maintenanceLevel: UserPreferences.MaintenanceLevel? { get set }
     var productiveOrDecorative: UserPreferences.ProductiveOrDecorative? { get set }
-    
-    func setCareLevel(option: String?)
-    func setLeafStyle(option: String?)
-    func setLightLevel(option: Int?)
-    func setBoxLevel(option: Int?)
-    func setPetFriendly(option: String?)
-    func setColorScheme(option: String?)
-    func setMaintenanceLevel(option: String?)
-    func setProductiveOrDecorative(option: String?)
 }
 
 class UserPreferencesStoreImpl: UserPreferencesStore {
     private let userPreferData = UserDefaults.standard
     
-    var careLevel: UserPreferences.CareLevel?
-    var leafStyle: UserPreferences.LeafStyle?
-    var lightLevel: UserPreferences.LightLevel?
-    var boxLevel: UserPreferences.BoxLevel?
-    var petFriendly: UserPreferences.PetFriendly?
-    var colorScheme: UserPreferences.ColorScheme?
-    var maintenanceLevel: UserPreferences.MaintenanceLevel?
-    var productiveOrDecorative: UserPreferences.ProductiveOrDecorative?
-    
-    init() {
-        let careLevelString = userPreferData.string(forKey: "careLevel")
-        if let careLevelString {
-            careLevel = UserPreferences.CareLevel(rawValue: careLevelString)
+    var careLevel: UserPreferences.CareLevel? {
+        get {
+            let careLevelString = userPreferData.string(forKey: "careLevel")
+            if let careLevelString {
+                return UserPreferences.CareLevel(rawValue: careLevelString)
+            }
+            return nil
         }
-        let leafStyleString = userPreferData.string(forKey: "leafStyle")
-        if let leafStyleString {
-            leafStyle = UserPreferences.LeafStyle(rawValue: leafStyleString)
-        }
-        let lightLevelInt = userPreferData.integer(forKey: "lightLevel")
-        lightLevel = UserPreferences.LightLevel(rawValue: lightLevelInt)
-        
-        let boxLevelInt = userPreferData.integer(forKey: "boxLevel")
-        boxLevel = UserPreferences.BoxLevel(rawValue: boxLevelInt)
-        
-        let petFriendlyString = userPreferData.string(forKey: "petFriendly")
-        if let petFriendlyString {
-            petFriendly = UserPreferences.PetFriendly(rawValue: petFriendlyString)
-        }
-        
-        let colorSchemeString = userPreferData.string(forKey: "colorScheme")
-        if let colorSchemeString {
-            colorScheme = UserPreferences.ColorScheme(rawValue: colorSchemeString)
-        }
-        
-        let maintenanceLevelString = userPreferData.string(forKey: "maintenanceLevel")
-        if let maintenanceLevelString {
-            maintenanceLevel = UserPreferences.MaintenanceLevel(rawValue: maintenanceLevelString)
-        }
-        
-        let productiveOrDecorativeString = userPreferData.string(forKey: "productiveOrDecorative")
-        if let productiveOrDecorativeString {
-            productiveOrDecorative = UserPreferences.ProductiveOrDecorative(rawValue: productiveOrDecorativeString)
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "careLevel")
         }
     }
     
-    func setCareLevel(option: String?) {
-        userPreferData.set(option, forKey: "careLevel")
+    var leafStyle: UserPreferences.LeafStyle? {
+        get {
+            let leafStyleString = userPreferData.string(forKey: "leafStyle")
+            if let leafStyleString {
+                return UserPreferences.LeafStyle(rawValue: leafStyleString)
+            }
+            return nil
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "leafStyle")
+        }
     }
     
-    func setLeafStyle(option: String?) {
-        userPreferData.set(option, forKey: "leafStyle")
+    var lightLevel: UserPreferences.LightLevel? {
+        get {
+            let lightLevelInt = userPreferData.integer(forKey: "lightLevel")
+            return UserPreferences.LightLevel(rawValue: lightLevelInt)
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "lightLevel")
+        }
     }
     
-    func setLightLevel(option: Int?) {
-        userPreferData.set(option, forKey: "lightLevel")
+    var boxLevel: UserPreferences.BoxLevel? {
+        get {
+            let boxLevelInt = userPreferData.integer(forKey: "boxLevel")
+            return UserPreferences.BoxLevel(rawValue: boxLevelInt)
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "boxLevel")
+        }
     }
     
-    func setBoxLevel(option: Int?) {
-        userPreferData.set(option, forKey: "boxLevel")
+    var petFriendly: UserPreferences.PetFriendly? {
+        get {
+            let petFriendlyString = userPreferData.string(forKey: "petFriendly")
+            if let petFriendlyString {
+                return UserPreferences.PetFriendly(rawValue: petFriendlyString)
+            }
+            return nil
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "petFriendly")
+        }
     }
     
-    func setPetFriendly(option: String?) {
-        userPreferData.set(option, forKey: "petFriendly")
+    var colorScheme: UserPreferences.ColorScheme? {
+        get {
+            let colorSchemeString = userPreferData.string(forKey: "colorScheme")
+            if let colorSchemeString {
+                return UserPreferences.ColorScheme(rawValue: colorSchemeString)
+            }
+            return nil
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "colorScheme")
+        }
     }
     
-    func setColorScheme(option: String?) {
-        userPreferData.set(option, forKey: "colorScheme")
+    var maintenanceLevel: UserPreferences.MaintenanceLevel? {
+        get {
+            let maintenanceLevelString = userPreferData.string(forKey: "maintenanceLevel")
+            if let maintenanceLevelString {
+                return UserPreferences.MaintenanceLevel(rawValue: maintenanceLevelString)
+            }
+            return nil
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "maintenanceLevel")
+        }
     }
     
-    func setMaintenanceLevel(option: String?) {
-        userPreferData.set(option, forKey: "maintenanceLevel")
-    }
-    
-    func setProductiveOrDecorative(option: String?) {
-        userPreferData.set(option, forKey: "productiveOrDecorative")
+    var productiveOrDecorative: UserPreferences.ProductiveOrDecorative? {
+        get {
+            let productiveOrDecorativeString = userPreferData.string(forKey: "productiveOrDecorative")
+            if let productiveOrDecorativeString {
+                return UserPreferences.ProductiveOrDecorative(rawValue: productiveOrDecorativeString)
+            }
+            return nil
+        }
+        set {
+            userPreferData.set(newValue?.rawValue, forKey: "productiveOrDecorative")
+        }
     }
 }

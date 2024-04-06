@@ -17,13 +17,4 @@ class MockUserPreferencesStore: UserPreferencesStore {
     var colorScheme: UserPreferences.ColorScheme? = nil
     var maintenanceLevel: UserPreferences.MaintenanceLevel? = nil
     var productiveOrDecorative: UserPreferences.ProductiveOrDecorative? = nil
-    
-    func setCareLevel(option: String?) {}
-    func setLeafStyle(option: String?) {}
-    func setLightLevel(option: Int?) {}
-    func setBoxLevel(option: Int?) {}
-    func setPetFriendly(option: String?) {}
-    func setColorScheme(option: String?) {}
-    func setMaintenanceLevel(option: String?) {}
-    func setProductiveOrDecorative(option: String?) {}
 }

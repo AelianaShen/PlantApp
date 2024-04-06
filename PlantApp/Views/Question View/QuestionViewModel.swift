@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class QuestionViewModel {
-    let questionManager: QuestionManager
-    let userPreferencesStore: UserPreferencesStore
+    private let questionManager: QuestionManager
+    private var userPreferencesStore: UserPreferencesStore
     
     init(questionManager: QuestionManager, userPreferencesStore: UserPreferencesStore = UserPreferencesStoreImpl()) {
         self.questionManager = questionManager
@@ -70,33 +70,33 @@ class QuestionViewModel {
     
     func userSetPreference(option: String) {
         if index == 1 {
-            userPreferencesStore.setCareLevel(option: option)
+            userPreferencesStore.careLevel = UserPreferences.CareLevel(rawValue: option)
         } else if index == 2 {
-            userPreferencesStore.setMaintenanceLevel(option: option)
+            userPreferencesStore.maintenanceLevel = UserPreferences.MaintenanceLevel(rawValue: option)
         } else if index == 3 {
-            userPreferencesStore.setColorScheme(option: option)
+            userPreferencesStore.colorScheme = UserPreferences.ColorScheme(rawValue: option)
         } else if index == 4 {
-            userPreferencesStore.setProductiveOrDecorative(option: option)
+            userPreferencesStore.productiveOrDecorative = UserPreferences.ProductiveOrDecorative(rawValue: option)
         } else if index == 5 {
-            userPreferencesStore.setLeafStyle(option: option)
+            userPreferencesStore.leafStyle = UserPreferences.LeafStyle(rawValue: option)
         } else if index == 6 {
-            userPreferencesStore.setPetFriendly(option: option)
+            userPreferencesStore.petFriendly = UserPreferences.PetFriendly(rawValue: option)
         }
     }
     
     func userUnsetPreference() {
         if index == 1 {
-            userPreferencesStore.setCareLevel(option: nil)
+            userPreferencesStore.careLevel = nil
         } else if index == 2 {
-            userPreferencesStore.setMaintenanceLevel(option: nil)
+            userPreferencesStore.maintenanceLevel = nil
         } else if index == 3 {
-            userPreferencesStore.setColorScheme(option: nil)
+            userPreferencesStore.colorScheme = nil
         } else if index == 4 {
-            userPreferencesStore.setProductiveOrDecorative(option: nil)
+            userPreferencesStore.productiveOrDecorative = nil
         } else if index == 5 {
-            userPreferencesStore.setLeafStyle(option: nil)
+            userPreferencesStore.leafStyle = nil
         } else if index == 6 {
-            userPreferencesStore.setPetFriendly(option: nil)
+            userPreferencesStore.petFriendly = nil
         }
     }
 }

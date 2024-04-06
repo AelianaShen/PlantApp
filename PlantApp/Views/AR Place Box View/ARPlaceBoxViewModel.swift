@@ -11,16 +11,22 @@ import RealityKit
 
 class ARPlaceBoxViewModel: ObservableObject {
     @Published var showConfirmMsg: Bool = false
+    
     @Published var luxValue: CGFloat = 0
-    @Published var confirmLuxValue: CGFloat = 0
-    @Published var lightLevel: Int = UserPreferences.LightLevel.none.rawValue
+    var lightLevel: Int = UserPreferences.LightLevel.none.rawValue
+    var confirmLuxValue: CGFloat = 0
     
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
-    @Published var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
-    @Published var useARKit = false
-    @Published var boxLevel: Int = UserPreferences.BoxLevel.none.rawValue
+    var boxLevel: Int = UserPreferences.BoxLevel.none.rawValue
+    var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
     
-    let userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()
+    var useARKit = false
+    
+    private let userPreferences: UserPreferencesStore
+    
+    init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()){
+        self.userPreferences = userPreferences
+    }
     
     func saveLuxValue() {
         if confirmLuxValue > 25, confirmLuxValue <= 75 {

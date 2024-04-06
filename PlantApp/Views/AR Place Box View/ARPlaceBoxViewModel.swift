@@ -20,7 +20,7 @@ class ARPlaceBoxViewModel: ObservableObject {
     @Published var useARKit = false
     @Published var boxLevel: Int = UserPreferences.BoxLevel.none.rawValue
     
-    let userPreferences: UserPreferencesStoreImpl = UserPreferencesStoreImpl()
+    let userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()
     
     func saveLuxValue() {
         if confirmLuxValue > 25, confirmLuxValue <= 75 {

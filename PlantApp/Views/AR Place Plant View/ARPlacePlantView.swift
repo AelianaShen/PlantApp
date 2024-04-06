@@ -18,6 +18,9 @@ struct ARPlacePlantView : View {
             .overlay(alignment: .top){
                 guideline
             }
+            .task {
+                await viewModel.downloadPlantModel()
+            }
     }
     
     private var guideline: some View {

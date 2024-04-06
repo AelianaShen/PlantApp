@@ -15,4 +15,17 @@ class ARPlacePlantViewModel: ObservableObject {
     init(plant: String) {
         self.plant = plant
     }
+    
+    func downloadPlantModel() async {
+        let downloadManager = DownloadManager()
+        let downloadURL = URL(string: "https://osu-software-innovation-plants-3d-model.s3.us-west-2.amazonaws.com/\(plant).usdz")!
+
+        do {
+            try await downloadManager.startDownload(url: downloadURL, plant: plant) { progress in
+                print("Download progress: \(progress)")
+            }
+        } catch {
+            print("Download interrupted")
+        }
+    }
 }

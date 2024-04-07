@@ -43,7 +43,7 @@ class PlantServiceImpl: PlantService {
             queryItems.append("leaf_style=\(leafStyle)")
         }
         
-        if let lightLevel = userPreferences.lightLevel?.rawValue, lightLevel > 0 {
+        if let lightLevel = userPreferences.lightLevel?.rawValue {
             queryItems.append("light_level=\(lightLevel)")
         }
         

@@ -14,7 +14,7 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
         // Given
         let mockUserPreferencesStore = MockUserPreferencesStore()
         let viewModel = ARPlaceBoxViewModel(userPreferences: mockUserPreferencesStore)
-        viewModel.confirmLuxValue = 75
+        viewModel.luxValue = 25
         
         // When
         viewModel.saveLuxValue()
@@ -26,7 +26,7 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
     func testSaveLuxValueMedium() {
         // Given
         let viewModel = ARPlaceBoxViewModel()
-        viewModel.confirmLuxValue = 200
+        viewModel.luxValue = 75
         
         // When
         viewModel.saveLuxValue()
@@ -38,7 +38,7 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
     func testSaveLuxValueHigh() {
         // Given
         let viewModel = ARPlaceBoxViewModel()
-        viewModel.confirmLuxValue = 201
+        viewModel.luxValue = 200
         
         // When
         viewModel.saveLuxValue()
@@ -50,12 +50,12 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
     func testSaveLuxValueTooLow() {
         // Given
         let viewModel = ARPlaceBoxViewModel()
-        viewModel.confirmLuxValue = 25
+        viewModel.luxValue = 24
         
         // When
         viewModel.saveLuxValue()
         
         // Then
-        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.none)
+        XCTAssertEqual(viewModel.lightLevel, nil)
     }
 }

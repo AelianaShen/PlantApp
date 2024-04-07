@@ -11,10 +11,10 @@ import RealityKit
 
 class ARPlaceBoxViewModel: ObservableObject {
     @Published var showConfirmMsg: Bool = false
+    var luxConfirmMsgString: String = "Your indoor light Value is around %.2f ft-c (footcandle)."
     
     @Published var luxValue: CGFloat = 0
-    var lightLevel: UserPreferences.LightLevel = UserPreferences.LightLevel.none
-    var confirmLuxValue: CGFloat = 0
+    var lightLevel: UserPreferences.LightLevel? = nil
     
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
     var boxLevel: UserPreferences.BoxLevel = UserPreferences.BoxLevel.none
@@ -29,20 +29,27 @@ class ARPlaceBoxViewModel: ObservableObject {
     }
     
     func saveLuxValue() {
-        if confirmLuxValue > 25, confirmLuxValue <= 75 {
+        if luxValue >= 25, luxValue < 75 {
             lightLevel = UserPreferences.LightLevel.low
-        } else if confirmLuxValue > 75, confirmLuxValue <= 200 {
+        } else if luxValue >= 75, luxValue < 200 {
             lightLevel = UserPreferences.LightLevel.medium
-        } else if confirmLuxValue > 200 {
+        } else if luxValue >= 200 {
             lightLevel = UserPreferences.LightLevel.high
-        } else {
-            lightLevel = UserPreferences.LightLevel.none
         }
         userPreferences.lightLevel = lightLevel
     }
     
     func clearLuxValue() {
-        userPreferences.lightLevel = UserPreferences.LightLevel.none
+        lightLevel = nil
+        userPreferences.lightLevel = lightLevel
+    }
+    
+    func updateConfirmMsg() {
+        if luxValue < 25 {
+            self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). It is too low for the indoor plant. \n\n - OK to disable filter\n - Cancel to measure again"
+        } else {
+            self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to disable filter"
+        }
     }
     
     func saveBoxSize() {

@@ -46,6 +46,8 @@ struct ARPlaceBoxView : View {
     private var captureButton: some View {
         Button {
             viewModel.showConfirmMsg = true
+            viewModel.updateConfirmMsg()
+            viewModel.saveLuxValue()
         } label: {
             Image(systemName: "camera.metering.partial")
                 .frame(width: 60, height: 60)
@@ -54,13 +56,14 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to disable filter", viewModel.luxValue), isPresented: $viewModel.showConfirmMsg){
-            Button("OK") {
-                viewModel.saveLuxValue()
-            }.task {
-                viewModel.confirmLuxValue = viewModel.luxValue
+        .alert(
+            String(format: viewModel.luxConfirmMsgString, viewModel.luxValue),
+            isPresented: $viewModel.showConfirmMsg
+        ){
+            Button("OK") {}
+            Button("Cancel") {
+                viewModel.clearLuxValue()
             }
-            Button("Cancel", role: .cancel) {
                 viewModel.clearLuxValue()
             }
         }

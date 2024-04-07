@@ -20,7 +20,7 @@ enum UserPreferences {
     }
     
     enum LightLevel: Int {
-        case none = 0, low, medium, high, sunny
+        case low = 1, medium, high, sunny
     }
     
     enum BoxLevel: Int {

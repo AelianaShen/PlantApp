@@ -6,47 +6,45 @@
 //
 
 import Foundation
-class DownloadManager {
+
+class DownloadManager: NSObject, URLSessionDownloadDelegate {
     private var downloadProgress: Progress?
+    private var progressHandler: ((Double) -> Void)?
+    private var plant: String?
     
-    func downloadFileAsync(url: URL, destinationURL: URL) async throws -> URL {
-        let (tempLocalURL, _) = try await URLSession.shared.download(from: url)
+    func downloadFileAsync(url: URL, plant: String, progressHandler: @escaping (Double) -> Void) async throws {
+        let downloadProgress = Progress(totalUnitCount: 100)
+        self.downloadProgress = downloadProgress
+        self.progressHandler = progressHandler
+        self.plant = plant
         
-        try FileManager.default.moveItem(at: tempLocalURL, to: destinationURL)
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         
-        return tempLocalURL
+        let downloadTask = session.downloadTask(with: url)
+        downloadTask.resume()
     }
     
-    func startDownload(url: URL, plant: String, progressHandler: @escaping (Double) -> Void) async throws {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        guard let destinationURL = getPathForFile(name: plant!) else {
+            print("Error: Unable to get destination URL")
+            return
+        }
+        
         do {
-            guard let destinationURL = getPathForFile(name: plant) else {
-                throw NSError(domain: "Unable to get directory", code: 0)
-            }
-            
-            if FileManager.default.fileExists(atPath: destinationURL.path) {
-                throw NSError(domain: "File already exists", code: 1)
-            }
-            
-            let task = Task { () -> URL in
-                self.downloadProgress = Progress(totalUnitCount: 100)
-                return try await self.downloadFileAsync(url: url, destinationURL: destinationURL)
-            }
-            
-            Task {
-                while let progress = self.downloadProgress, !task.isCancelled && !progress.isFinished {
-                    try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
-                    progressHandler(progress.fractionCompleted)
-                }
-                
-                if let progress = self.downloadProgress, progress.isFinished {
-                    progressHandler(1.0)
-                }
-            }
-            
-            let downloadedURL = try await task.value
-            print("Download finished: \(downloadedURL)")
+            try FileManager.default.moveItem(at: location, to: destinationURL)
+            print("File moved to: \(destinationURL)")
         } catch {
-            print("Download failed: \(error)")
+            print("Error moving file: \(error)")
+        }
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        let fractionCompleted = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
+        downloadProgress?.completedUnitCount = Int64(fractionCompleted * 100)
+        
+        DispatchQueue.main.async {
+            self.progressHandler?(fractionCompleted)
         }
     }
     
@@ -58,4 +56,3 @@ class DownloadManager {
         return path
     }
 }
-

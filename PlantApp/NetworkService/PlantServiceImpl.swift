@@ -20,6 +20,7 @@ class PlantServiceImpl: PlantService {
         self.networkManager = networkManager
         let queryParams = Self.queryParams(userPreferences)
         getPlantsEndpoint = "products?\(queryParams)"
+        print(getPlantsEndpoint)
     }
     
     func getPlants() async -> [Plant] {

@@ -92,7 +92,7 @@ struct ProductDetailView: View {
                 .foregroundColor(Color.gray)
                 .padding()
         }
-        .frame(height: 280)
+        .frame(height: 270)
     }
     
     private var arSimulateButton: some View {

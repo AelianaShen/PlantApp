@@ -10,6 +10,7 @@ import RealityKit
 import ARKit
 
 struct ARPlaceBoxView : View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = ARPlaceBoxViewModel()
     
     var body: some View {
@@ -64,7 +65,9 @@ struct ARPlaceBoxView : View {
             Button("Cancel") {
                 viewModel.clearLuxValue()
             }
+            Button("skip light measurement") {
                 viewModel.clearLuxValue()
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
     }

@@ -27,11 +27,10 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var careLevel: UserPreferences.CareLevel? {
         get {
-            let careLevelString = userDefaults.string(forKey: "careLevel")
-            if let careLevelString {
-                return UserPreferences.CareLevel(rawValue: careLevelString)
+            guard let careLevelString = userDefaults.string(forKey: "careLevel") else {
+               return nil
             }
-            return nil
+            return UserPreferences.CareLevel(rawValue: careLevelString)
         }
         set {
             userDefaults.set(newValue?.rawValue, forKey: "careLevel")
@@ -40,11 +39,10 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var leafStyle: UserPreferences.LeafStyle? {
         get {
-            let leafStyleString = userDefaults.string(forKey: "leafStyle")
-            if let leafStyleString {
-                return UserPreferences.LeafStyle(rawValue: leafStyleString)
+            guard let leafStyleString = userDefaults.string(forKey: "leafStyle") else {
+               return nil
             }
-            return nil
+            return UserPreferences.LeafStyle(rawValue: leafStyleString)
         }
         set {
             userDefaults.set(newValue?.rawValue, forKey: "leafStyle")
@@ -73,11 +71,10 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var petFriendly: UserPreferences.PetFriendly? {
         get {
-            let petFriendlyString = userDefaults.string(forKey: "petFriendly")
-            if let petFriendlyString {
-                return UserPreferences.PetFriendly(rawValue: petFriendlyString)
+            guard let petFriendlyString = userDefaults.string(forKey: "petFriendly") else {
+               return nil
             }
-            return nil
+            return UserPreferences.PetFriendly(rawValue: petFriendlyString)
         }
         set {
             userDefaults.set(newValue?.rawValue, forKey: "petFriendly")
@@ -86,11 +83,10 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var colorScheme: UserPreferences.ColorScheme? {
         get {
-            let colorSchemeString = userDefaults.string(forKey: "colorScheme")
-            if let colorSchemeString {
-                return UserPreferences.ColorScheme(rawValue: colorSchemeString)
+            guard let colorSchemeString = userDefaults.string(forKey: "colorScheme") else {
+               return nil
             }
-            return nil
+            return UserPreferences.ColorScheme(rawValue: colorSchemeString)
         }
         set {
             userDefaults.set(newValue?.rawValue, forKey: "colorScheme")
@@ -99,11 +95,10 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var maintenanceLevel: UserPreferences.MaintenanceLevel? {
         get {
-            let maintenanceLevelString = userDefaults.string(forKey: "maintenanceLevel")
-            if let maintenanceLevelString {
-                return UserPreferences.MaintenanceLevel(rawValue: maintenanceLevelString)
+            guard let maintenanceLevelString = userDefaults.string(forKey: "maintenanceLevel") else {
+               return nil
             }
-            return nil
+            return UserPreferences.MaintenanceLevel(rawValue: maintenanceLevelString)
         }
         set {
             userDefaults.set(newValue?.rawValue, forKey: "maintenanceLevel")
@@ -112,11 +107,10 @@ class UserPreferencesStoreImpl: UserPreferencesStore {
     
     var productiveOrDecorative: UserPreferences.ProductiveOrDecorative? {
         get {
-            let productiveOrDecorativeString = userDefaults.string(forKey: "productiveOrDecorative")
-            if let productiveOrDecorativeString {
-                return UserPreferences.ProductiveOrDecorative(rawValue: productiveOrDecorativeString)
+            guard let productiveOrDecorativeString = userDefaults.string(forKey: "productiveOrDecorative") else {
+               return nil
             }
-            return nil
+            return UserPreferences.ProductiveOrDecorative(rawValue: productiveOrDecorativeString)
         }
         set {
             userDefaults.set(newValue?.rawValue, forKey: "productiveOrDecorative")

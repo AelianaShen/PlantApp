@@ -44,11 +44,13 @@ class ARPlaceBoxViewModel: ObservableObject {
         userPreferences.lightLevel = lightLevel
     }
     
-    func updateConfirmMsg() {
+    func updateLuxConfirmMsg() {
         if luxValue < 25 {
             self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). It is too low for the indoor plant. \n\n - OK to disable filter\n - Cancel to measure again"
         } else {
-            self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to disable filter"
+            self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to measure again"
+        }
+    }
         }
     }
     

@@ -47,7 +47,7 @@ struct ARPlaceBoxView : View {
     private var captureButton: some View {
         Button {
             viewModel.showConfirmMsg = true
-            viewModel.updateConfirmMsg()
+            viewModel.updateLuxConfirmMsg()
             viewModel.saveLuxValue()
         } label: {
             Image(systemName: "camera.metering.partial")

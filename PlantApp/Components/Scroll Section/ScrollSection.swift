@@ -53,6 +53,7 @@ struct ScrollSection: View {
             ProgressView()
             Spacer()
         }
+        .frame(height: 260)
     }
     
     private var emptyListLabel: some View {

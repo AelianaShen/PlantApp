@@ -20,7 +20,7 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
         viewModel.saveLuxValue()
         
         // Then
-        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.low.rawValue)
+        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.low)
     }
     
     func testSaveLuxValueMedium() {
@@ -32,7 +32,7 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
         viewModel.saveLuxValue()
         
         // Then
-        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.medium.rawValue)
+        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.medium)
     }
     
     func testSaveLuxValueHigh() {
@@ -44,7 +44,7 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
         viewModel.saveLuxValue()
         
         // Then
-        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.high.rawValue)
+        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.high)
     }
     
     func testSaveLuxValueTooLow() {
@@ -56,6 +56,6 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
         viewModel.saveLuxValue()
         
         // Then
-        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.none.rawValue)
+        XCTAssertEqual(viewModel.lightLevel, UserPreferences.LightLevel.none)
     }
 }

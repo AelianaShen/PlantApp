@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import RealityKit
 @testable import PlantApp
 
 final class ARPlaceBoxViewModelTests: XCTestCase {
@@ -57,5 +58,54 @@ final class ARPlaceBoxViewModelTests: XCTestCase {
         
         // Then
         XCTAssertEqual(viewModel.lightLevel, nil)
+    }
+    
+    func testSaveBoxSizeSmall() {
+        // Given
+        let mockUserPreferencesStore = MockUserPreferencesStore()
+        let viewModel = ARPlaceBoxViewModel(userPreferences: mockUserPreferencesStore)
+        viewModel.boxSize = simd_float3(0.1, 0.1, 0.1)
+        
+        // When
+        viewModel.saveBoxSize()
+        
+        // Then
+        XCTAssertEqual(viewModel.boxLevel, UserPreferences.BoxLevel.small)
+    }
+    
+    func testSaveBoxSizeMedium() {
+        // Given
+        let viewModel = ARPlaceBoxViewModel()
+        viewModel.boxSize = simd_float3(0.32, 0.32, 0.32)
+        
+        // When
+        viewModel.saveBoxSize()
+        
+        // Then
+        XCTAssertEqual(viewModel.boxLevel, UserPreferences.BoxLevel.medium)
+    }
+    
+    func testSaveBoxSizeLarge() {
+        // Given
+        let viewModel = ARPlaceBoxViewModel()
+        viewModel.boxSize = simd_float3(0.5, 0.5, 0.5)
+        
+        // When
+        viewModel.saveBoxSize()
+        
+        // Then
+        XCTAssertEqual(viewModel.boxLevel, UserPreferences.BoxLevel.large)
+    }
+    
+    func testSaveBoxSizeTooSmall() {
+        // Given
+        let viewModel = ARPlaceBoxViewModel()
+        viewModel.boxSize = simd_float3(0.09, 0.09, 0.09)
+        
+        // When
+        viewModel.saveBoxSize()
+        
+        // Then
+        XCTAssertEqual(viewModel.boxLevel, nil)
     }
 }

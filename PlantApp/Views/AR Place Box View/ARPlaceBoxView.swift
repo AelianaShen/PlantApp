@@ -20,7 +20,7 @@ struct ARPlaceBoxView : View {
                 .overlay(alignment: .bottom) {
                     VStack {
                         luxGuideline
-                        captureButton
+                        captureLuxLevelButton
                         luxValueLabel
                     }
                 }
@@ -30,7 +30,7 @@ struct ARPlaceBoxView : View {
                 .overlay(alignment: .bottom) {
                     VStack {
                         placeBoxGuideline
-                        confirmPlacingButton
+                        captureBoxLevelButton
                         boxsizeLabel
                     }
                 }
@@ -44,7 +44,7 @@ struct ARPlaceBoxView : View {
             .padding(20)
     }
     
-    private var captureButton: some View {
+    private var captureLuxLevelButton: some View {
         Button {
             viewModel.showConfirmMsg = true
             viewModel.updateLuxConfirmMsg()
@@ -84,7 +84,7 @@ struct ARPlaceBoxView : View {
             .padding(20)
     }
     
-    private var confirmPlacingButton: some View {
+    private var captureBoxLevelButton: some View {
         Button {
             viewModel.showConfirmMsg = true
             viewModel.updateBoxConfirmMsg()

@@ -24,7 +24,7 @@ enum UserPreferences {
     }
     
     enum BoxLevel: Int {
-        case none = 0, small, medium, large
+        case small = 1, medium, large
     }
     
     enum PetFriendly: String, CaseIterable  {

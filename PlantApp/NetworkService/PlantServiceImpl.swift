@@ -47,7 +47,7 @@ class PlantServiceImpl: PlantService {
             queryItems.append("light_level=\(lightLevel)")
         }
         
-        if let boxLevel = userPreferences.boxLevel?.rawValue, boxLevel > 0 {
+        if let boxLevel = userPreferences.boxLevel?.rawValue {
             queryItems.append("box_level=\(boxLevel)")
         }
         

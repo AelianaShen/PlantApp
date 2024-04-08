@@ -12,13 +12,13 @@ import RealityKit
 class ARPlaceBoxViewModel: ObservableObject {
     @Published var showConfirmMsg: Bool = false
     var luxConfirmMsgString: String = "Your indoor light Value is around %.2f ft-c (footcandle)."
+    var boxConfirmMsgString: String = "Your potential plant size is around %.2f %.2f %.2f meters."
     
     @Published var luxValue: CGFloat = 0
     var lightLevel: UserPreferences.LightLevel? = nil
     
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
-    var boxLevel: UserPreferences.BoxLevel = UserPreferences.BoxLevel.none
-    var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
+    var boxLevel: UserPreferences.BoxLevel? = nil
     
     var useARKit = false
     
@@ -51,24 +51,30 @@ class ARPlaceBoxViewModel: ObservableObject {
             self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to measure again"
         }
     }
-        }
-    }
     
     func saveBoxSize() {
-        let plantPotDiameter = confirmBoxSize.x
-        if plantPotDiameter <= 0.2 {
+        let potDiameter = boxSize.x
+        
+        if potDiameter >= 0.1, potDiameter <= 0.2 {
             boxLevel = UserPreferences.BoxLevel.small
-        } else if plantPotDiameter > 0.2, plantPotDiameter <= 0.32 {
+        } else if potDiameter > 0.2, potDiameter <= 0.32 {
             boxLevel = UserPreferences.BoxLevel.medium
-        } else if plantPotDiameter > 0.32 {
+        } else if potDiameter > 0.32, potDiameter <= 0.5 {
             boxLevel = UserPreferences.BoxLevel.large
-        } else {
-            boxLevel = UserPreferences.BoxLevel.none
         }
         userPreferences.boxLevel = boxLevel
     }
     
     func clearBoxSize() {
-        userPreferences.boxLevel = UserPreferences.BoxLevel.none
+        userPreferences.boxLevel = nil
+    }
+    
+    func updateBoxConfirmMsg() {
+        let potDiameter = boxSize.x
+        if potDiameter < 0.1 || potDiameter > 0.5 {
+            boxConfirmMsgString = "Your potential plant size is around %.2f %.2f %.2f meters. Sorry we don't have any pot suit this size. \n\n - OK to disable filter\n - Cancel to measure again"
+        } else {
+            boxConfirmMsgString = "Your potential plant size is around %.2f %.2f %.2f meters. \n\n - OK to apply filter\n - Cancel to measure again"
+        }
     }
 }

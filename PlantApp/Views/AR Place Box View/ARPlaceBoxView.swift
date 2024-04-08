@@ -87,6 +87,8 @@ struct ARPlaceBoxView : View {
     private var confirmPlacingButton: some View {
         Button {
             viewModel.showConfirmMsg = true
+            viewModel.updateBoxConfirmMsg()
+            viewModel.saveBoxSize()
         } label: {
             Image(systemName: "checkmark")
                 .frame(width: 60, height: 60)
@@ -95,12 +97,12 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your potential plant size is around %.2f %.2f %.2f meters. \n\n - OK to apply filter\n - Cancel to measure again", viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z), isPresented: $viewModel.showConfirmMsg){
+        .alert(
+            String(format: viewModel.boxConfirmMsgString, viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z),
+            isPresented: $viewModel.showConfirmMsg
+        ){
             Button("OK") {
-                viewModel.saveBoxSize()
                 viewModel.useARKit = true
-            }.task {
-                viewModel.confirmBoxSize = viewModel.boxSize
             }
             Button("Cancel") {
                 viewModel.clearBoxSize()

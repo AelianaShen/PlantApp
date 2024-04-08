@@ -20,7 +20,7 @@ class ARPlaceBoxViewModel: ObservableObject {
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
     var boxLevel: UserPreferences.BoxLevel? = nil
     
-    var useARKit = false
+    var isGoToLuxMeasurement = false
     
     private var userPreferences: UserPreferencesStore
     

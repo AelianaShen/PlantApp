@@ -14,7 +14,7 @@ struct ARPlaceBoxView : View {
     @StateObject var viewModel = ARPlaceBoxViewModel()
     
     var body: some View {
-        if viewModel.useARKit {
+        if viewModel.isGoToLuxMeasurement {
             ARLuxMeasureViewContainer(luxValue: $viewModel.luxValue)
                 .edgesIgnoringSafeArea(.all)
                 .overlay(alignment: .bottom) {
@@ -102,14 +102,14 @@ struct ARPlaceBoxView : View {
             isPresented: $viewModel.showConfirmMsg
         ){
             Button("OK") {
-                viewModel.useARKit = true
+                viewModel.isGoToLuxMeasurement = true
             }
             Button("Cancel") {
                 viewModel.clearBoxSize()
             }
             Button("skip size measurement") {
                 viewModel.clearBoxSize()
-                viewModel.useARKit = true
+                viewModel.isGoToLuxMeasurement = true
             }
         }
     }

@@ -26,11 +26,13 @@ class ARPlacePlantViewModel: ObservableObject {
         
         do {
             try await downloadManager.downloadFileAsync(url: downloadURL, plant: plant) { progress in
-                self.progressNumber = progress
-                print(progress)
-            }
-            DispatchQueue.main.async {
-                self.isLoadingPlantModel = false
+                DispatchQueue.main.async {
+                    self.progressNumber = progress
+                    print(progress)
+                    if progress >= 1.0 {
+                        self.isLoadingPlantModel = false
+                    }
+                }
             }
         } catch {
             print("Download interrupted")

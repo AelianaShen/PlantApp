@@ -14,16 +14,6 @@ struct ARPlacePlantView : View {
     
     var body: some View {
         VStack {
-            if viewModel.isLoadingPlantModel {
-                ProgressView(value: viewModel.progressNumber, total: 1.0) {
-                    Text("3D Model downloading \(Int(viewModel.progressNumber * 100))%")
-                }
-                .progressViewStyle(.linear)
-                .frame(width: 300, height: 680, alignment: .center)
-                .padding(20)
-                .background(.thinMaterial)
-                .cornerRadius(20)
-            } else {
                 ARPlacePlantViewContainer(plant: viewModel.plant)
                     .edgesIgnoringSafeArea(.all)
                     .overlay(alignment: .top){
@@ -32,7 +22,18 @@ struct ARPlacePlantView : View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                             .padding(20)
                     }
-            }
+                    .overlay(alignment: .center, content: {
+                        if viewModel.isLoadingPlantModel {
+                            ProgressView(value: viewModel.progressNumber, total: 1.0) {
+                                Text("3D Model downloading \(Int(viewModel.progressNumber * 100))%")
+                            }
+                            .progressViewStyle(.linear)
+                            .frame(width: 300, height: 680, alignment: .center)
+                            .padding(20)
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(20)
+                        }
+                    })
         }
         .task {
             await viewModel.downloadPlantModel()

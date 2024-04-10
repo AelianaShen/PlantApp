@@ -28,7 +28,6 @@ class ARPlacePlantViewModel: ObservableObject {
             try await downloadManager.downloadFileAsync(url: downloadURL, plant: plant) { progress in
                 DispatchQueue.main.async {
                     self.progressNumber = progress
-                    print(progress)
                     if progress >= 1.0 {
                         self.isLoadingPlantModel = false
                     }

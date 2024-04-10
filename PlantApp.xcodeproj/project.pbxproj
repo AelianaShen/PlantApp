@@ -50,6 +50,8 @@
 		B26D33CB2BAE5C6000789F6E /* ARPlacePlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */; };
 		B26D33CE2BAE605200789F6E /* ARPlaceBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33CD2BAE605200789F6E /* ARPlaceBoxViewModel.swift */; };
 		B26D33D12BAE697F00789F6E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D33D02BAE697F00789F6E /* ContentViewModel.swift */; };
+		B27D950A2BC745160088AE6E /* PrimaryButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D95092BC745160088AE6E /* PrimaryButtonTests.swift */; };
+		B27D95102BC74BF60088AE6E /* ProductRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D950F2BC74BF60088AE6E /* ProductRowTests.swift */; };
 		B282F6082BB8EA3C0089B9A2 /* CartManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */; };
 		B282F60A2BB8FA6B0089B9A2 /* MockCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */; };
 		B282F60C2BB8FCFF0089B9A2 /* QuestionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */; };
@@ -160,6 +162,8 @@
 		B26D33CA2BAE5C6000789F6E /* ARPlacePlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacePlantViewModel.swift; sourceTree = "<group>"; };
 		B26D33CD2BAE605200789F6E /* ARPlaceBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewModel.swift; sourceTree = "<group>"; };
 		B26D33D02BAE697F00789F6E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		B27D95092BC745160088AE6E /* PrimaryButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonTests.swift; sourceTree = "<group>"; };
+		B27D950F2BC74BF60088AE6E /* ProductRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowTests.swift; sourceTree = "<group>"; };
 		B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManaging.swift; sourceTree = "<group>"; };
 		B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartManager.swift; sourceTree = "<group>"; };
 		B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManaging.swift; sourceTree = "<group>"; };
@@ -471,6 +475,22 @@
 			path = "Content View";
 			sourceTree = "<group>";
 		};
+		B27D95082BC744CE0088AE6E /* Primary Button */ = {
+			isa = PBXGroup;
+			children = (
+				B27D95092BC745160088AE6E /* PrimaryButtonTests.swift */,
+			);
+			path = "Primary Button";
+			sourceTree = "<group>";
+		};
+		B27D950E2BC74BD80088AE6E /* Product Row */ = {
+			isa = PBXGroup;
+			children = (
+				B27D950F2BC74BF60088AE6E /* ProductRowTests.swift */,
+			);
+			path = "Product Row";
+			sourceTree = "<group>";
+		};
 		B2B34BA12BAE944D0025D34B /* Onboarding View */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +541,8 @@
 		B2B5EA062BA4F4AA0078D804 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B27D950E2BC74BD80088AE6E /* Product Row */,
+				B27D95082BC744CE0088AE6E /* Primary Button */,
 				B2B5EA072BA4F4BC0078D804 /* Scroll Section */,
 			);
 			path = Components;
@@ -880,6 +902,8 @@
 				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,
 				9971488E2BA503FD00282138 /* MockPlantService.swift in Sources */,
 				B23108D22AFA051500D13F17 /* PlantAppTests.swift in Sources */,
+				B27D95102BC74BF60088AE6E /* ProductRowTests.swift in Sources */,
+				B27D950A2BC745160088AE6E /* PrimaryButtonTests.swift in Sources */,
 				B23109272AFA42F000D13F17 /* IteratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,9 +23,9 @@ class PlacePlantCoordinator: NSObject, UIGestureRecognizerDelegate {
         guard let arView = arView else { return }
         let tappedLocation = reconizer.location(in: arView)
         
-        let modelName = plant //"golden_pothos"
-        guard let modelEntity = try? Entity.loadModel(named: modelName + ".usdz") else {
-            print("Failed to load model: \(modelName)")
+        guard let contentsPath = getPathForFile(name: plant) else { return }
+        guard let modelEntity = try? Entity.loadModel(contentsOf: contentsPath) else {
+            print("Failed to load model: \(plant)")
             return
         }
         
@@ -36,5 +36,13 @@ class PlacePlantCoordinator: NSObject, UIGestureRecognizerDelegate {
             anchor.addChild(modelEntity)
             arView.scene.addAnchor(anchor)
         }
+    }
+    
+    func getPathForFile(name: String) -> URL? {
+        guard let path = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("\(name).usdz") else {
+            print("Error getting path.")
+            return nil
+        }
+        return path
     }
 }

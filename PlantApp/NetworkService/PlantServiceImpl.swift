@@ -20,6 +20,7 @@ class PlantServiceImpl: PlantService {
         self.networkManager = networkManager
         let queryParams = Self.queryParams(userPreferences)
         getPlantsEndpoint = "products?\(queryParams)"
+        print(getPlantsEndpoint)
     }
     
     func getPlants() async -> [Plant] {
@@ -42,11 +43,11 @@ class PlantServiceImpl: PlantService {
             queryItems.append("leaf_style=\(leafStyle)")
         }
         
-        if let lightLevel = userPreferences.lightLevel?.rawValue, lightLevel > 0 {
+        if let lightLevel = userPreferences.lightLevel?.rawValue {
             queryItems.append("light_level=\(lightLevel)")
         }
         
-        if let boxLevel = userPreferences.boxLevel?.rawValue, boxLevel > 0 {
+        if let boxLevel = userPreferences.boxLevel?.rawValue {
             queryItems.append("box_level=\(boxLevel)")
         }
         

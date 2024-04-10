@@ -20,11 +20,11 @@ enum UserPreferences {
     }
     
     enum LightLevel: Int {
-        case none = 0, low, medium, high, sunny
+        case low = 1, medium, high, sunny
     }
     
     enum BoxLevel: Int {
-        case none = 0, small, medium, large
+        case small = 1, medium, large
     }
     
     enum PetFriendly: String, CaseIterable  {

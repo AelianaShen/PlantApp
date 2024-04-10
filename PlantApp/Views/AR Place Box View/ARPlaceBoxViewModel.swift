@@ -11,49 +11,70 @@ import RealityKit
 
 class ARPlaceBoxViewModel: ObservableObject {
     @Published var showConfirmMsg: Bool = false
+    var luxConfirmMsgString: String = "Your indoor light Value is around %.2f ft-c (footcandle)."
+    var boxConfirmMsgString: String = "Your potential plant size is around %.2f %.2f %.2f meters."
+    
     @Published var luxValue: CGFloat = 0
-    @Published var confirmLuxValue: CGFloat = 0
-    @Published var lightLevel: Int = UserPreferences.LightLevel.none.rawValue
+    var lightLevel: UserPreferences.LightLevel? = nil
     
     @Published var boxSize: SIMD3<Float> = simd_float3(0, 0, 0)
-    @Published var confirmBoxSize: SIMD3<Float>  = simd_float3(0, 0, 0)
-    @Published var useARKit = false
-    @Published var boxLevel: Int = UserPreferences.BoxLevel.none.rawValue
+    var boxLevel: UserPreferences.BoxLevel? = nil
     
-    let userPreferences: UserPreferencesStoreImpl = UserPreferencesStoreImpl()
+    var isGoToLuxMeasurement = false
+    
+    private var userPreferences: UserPreferencesStore
+    
+    init(userPreferences: UserPreferencesStore = UserPreferencesStoreImpl()){
+        self.userPreferences = userPreferences
+    }
     
     func saveLuxValue() {
-        if confirmLuxValue > 25, confirmLuxValue <= 75 {
-            lightLevel = UserPreferences.LightLevel.low.rawValue
-        } else if confirmLuxValue > 75, confirmLuxValue <= 200 {
-            lightLevel = UserPreferences.LightLevel.medium.rawValue
-        } else if confirmLuxValue > 200 {
-            lightLevel = UserPreferences.LightLevel.high.rawValue
-        } else {
-            lightLevel = UserPreferences.LightLevel.none.rawValue
+        if luxValue >= 25, luxValue < 75 {
+            lightLevel = UserPreferences.LightLevel.low
+        } else if luxValue >= 75, luxValue < 200 {
+            lightLevel = UserPreferences.LightLevel.medium
+        } else if luxValue >= 200 {
+            lightLevel = UserPreferences.LightLevel.high
         }
-        userPreferences.setLightLevel(option: lightLevel)
+        userPreferences.lightLevel = lightLevel
     }
     
     func clearLuxValue() {
-        userPreferences.setLightLevel(option: UserPreferences.LightLevel.none.rawValue)
+        lightLevel = nil
+        userPreferences.lightLevel = lightLevel
+    }
+    
+    func updateLuxConfirmMsg() {
+        if luxValue < 25 {
+            self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). It is too low for the indoor plant. \n\n - OK to disable filter\n - Cancel to measure again"
+        } else {
+            self.luxConfirmMsgString = "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to measure again"
+        }
     }
     
     func saveBoxSize() {
-        let plantPotDiameter = confirmBoxSize.x
-        if plantPotDiameter <= 0.2 {
-            boxLevel = UserPreferences.BoxLevel.small.rawValue
-        } else if plantPotDiameter > 0.2, plantPotDiameter <= 0.32 {
-            boxLevel = UserPreferences.BoxLevel.medium.rawValue
-        } else if plantPotDiameter > 0.32 {
-            boxLevel = UserPreferences.BoxLevel.large.rawValue
-        } else {
-            boxLevel = UserPreferences.BoxLevel.none.rawValue
+        let potDiameter = boxSize.x
+        
+        if potDiameter >= 0.1, potDiameter <= 0.2 {
+            boxLevel = UserPreferences.BoxLevel.small
+        } else if potDiameter > 0.2, potDiameter <= 0.32 {
+            boxLevel = UserPreferences.BoxLevel.medium
+        } else if potDiameter > 0.32, potDiameter <= 0.5 {
+            boxLevel = UserPreferences.BoxLevel.large
         }
-        userPreferences.setBoxLevel(option: boxLevel)
+        userPreferences.boxLevel = boxLevel
     }
     
     func clearBoxSize() {
-        userPreferences.setBoxLevel(option: UserPreferences.BoxLevel.none.rawValue)
+        userPreferences.boxLevel = nil
+    }
+    
+    func updateBoxConfirmMsg() {
+        let potDiameter = boxSize.x
+        if potDiameter < 0.1 || potDiameter > 0.5 {
+            boxConfirmMsgString = "Your potential plant size is around %.2f %.2f %.2f meters. Sorry we don't have any pot suit this size. \n\n - OK to disable filter\n - Cancel to measure again"
+        } else {
+            boxConfirmMsgString = "Your potential plant size is around %.2f %.2f %.2f meters. \n\n - OK to apply filter\n - Cancel to measure again"
+        }
     }
 }

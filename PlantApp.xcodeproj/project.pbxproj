@@ -54,6 +54,8 @@
 		B282F60A2BB8FA6B0089B9A2 /* MockCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */; };
 		B282F60C2BB8FCFF0089B9A2 /* QuestionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */; };
 		B282F60E2BB9093A0089B9A2 /* MockQuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F60D2BB9093A0089B9A2 /* MockQuestionManager.swift */; };
+		B2B24C592BC0A8AD0080E06B /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B24C582BC0A8AD0080E06B /* DownloadManager.swift */; };
+		B2B24C5C2BC1D1B00080E06B /* ARPlaceBoxViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B24C5B2BC1D1B00080E06B /* ARPlaceBoxViewModelTests.swift */; };
 		B2B34BA72BAE96130025D34B /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BA62BAE96130025D34B /* OnboardView.swift */; };
 		B2B34BA92BAE96500025D34B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BA82BAE96500025D34B /* WelcomeView.swift */; };
 		B2B34BAD2BAE97430025D34B /* GetstartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B34BAC2BAE97430025D34B /* GetstartView.swift */; };
@@ -162,6 +164,8 @@
 		B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartManager.swift; sourceTree = "<group>"; };
 		B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManaging.swift; sourceTree = "<group>"; };
 		B282F60D2BB9093A0089B9A2 /* MockQuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockQuestionManager.swift; sourceTree = "<group>"; };
+		B2B24C582BC0A8AD0080E06B /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		B2B24C5B2BC1D1B00080E06B /* ARPlaceBoxViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceBoxViewModelTests.swift; sourceTree = "<group>"; };
 		B2B34BA62BAE96130025D34B /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		B2B34BA82BAE96500025D34B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B2B34BAC2BAE97430025D34B /* GetstartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetstartView.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				B2B5EA062BA4F4AA0078D804 /* Components */,
 				B23109262AFA42F000D13F17 /* IteratorTests.swift */,
 				B23108D12AFA051500D13F17 /* PlantAppTests.swift */,
+				B2B24C5B2BC1D1B00080E06B /* ARPlaceBoxViewModelTests.swift */,
 			);
 			path = PlantAppTests;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				B23108FF2AFA077300D13F17 /* QuestionManager.swift */,
 				B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */,
 				B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */,
+				B2B24C582BC0A8AD0080E06B /* DownloadManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				B26D33BF2BAD6BBE00789F6E /* ARDetectViewModel.swift in Sources */,
 				B23109172AFA0E6100D13F17 /* AnswerRow.swift in Sources */,
 				B23109192AFA0E6100D13F17 /* ProductRow.swift in Sources */,
+				B2B24C592BC0A8AD0080E06B /* DownloadManager.swift in Sources */,
 				B23108F82AFA05D700D13F17 /* ShopView.swift in Sources */,
 				B2E5668D2BA119F70065B1C8 /* Plant.swift in Sources */,
 				B26D33C82BAE370000789F6E /* QuestionViewModel.swift in Sources */,
@@ -867,6 +874,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B282F60A2BB8FA6B0089B9A2 /* MockCartManager.swift in Sources */,
+				B2B24C5C2BC1D1B00080E06B /* ARPlaceBoxViewModelTests.swift in Sources */,
 				B282F60E2BB9093A0089B9A2 /* MockQuestionManager.swift in Sources */,
 				B2E6FE312BBD47A700FE8CE2 /* MockUserPreferencesStore.swift in Sources */,
 				B2B5EA092BA4F4E30078D804 /* ScrollSectionViewModelTests.swift in Sources */,

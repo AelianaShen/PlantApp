@@ -10,16 +10,17 @@ import RealityKit
 import ARKit
 
 struct ARPlaceBoxView : View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = ARPlaceBoxViewModel()
     
     var body: some View {
-        if viewModel.useARKit {
+        if viewModel.isGoToLuxMeasurement {
             ARLuxMeasureViewContainer(luxValue: $viewModel.luxValue)
                 .edgesIgnoringSafeArea(.all)
                 .overlay(alignment: .bottom) {
                     VStack {
                         luxGuideline
-                        captureButton
+                        captureLuxLevelButton
                         luxValueLabel
                     }
                 }
@@ -29,7 +30,7 @@ struct ARPlaceBoxView : View {
                 .overlay(alignment: .bottom) {
                     VStack {
                         placeBoxGuideline
-                        confirmPlacingButton
+                        captureBoxLevelButton
                         boxsizeLabel
                     }
                 }
@@ -43,9 +44,11 @@ struct ARPlaceBoxView : View {
             .padding(20)
     }
     
-    private var captureButton: some View {
+    private var captureLuxLevelButton: some View {
         Button {
             viewModel.showConfirmMsg = true
+            viewModel.updateLuxConfirmMsg()
+            viewModel.saveLuxValue()
         } label: {
             Image(systemName: "camera.metering.partial")
                 .frame(width: 60, height: 60)
@@ -54,14 +57,17 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your indoor light Value is around %.2f ft-c (footcandle). \n\n - OK to apply filter\n - Cancel to disable filter", viewModel.luxValue), isPresented: $viewModel.showConfirmMsg){
-            Button("OK") {
-                viewModel.saveLuxValue()
-            }.task {
-                viewModel.confirmLuxValue = viewModel.luxValue
-            }
-            Button("Cancel", role: .cancel) {
+        .alert(
+            String(format: viewModel.luxConfirmMsgString, viewModel.luxValue),
+            isPresented: $viewModel.showConfirmMsg
+        ){
+            Button("OK") {}
+            Button("Cancel") {
                 viewModel.clearLuxValue()
+            }
+            Button("skip light measurement") {
+                viewModel.clearLuxValue()
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
     }
@@ -78,9 +84,11 @@ struct ARPlaceBoxView : View {
             .padding(20)
     }
     
-    private var confirmPlacingButton: some View {
+    private var captureBoxLevelButton: some View {
         Button {
             viewModel.showConfirmMsg = true
+            viewModel.updateBoxConfirmMsg()
+            viewModel.saveBoxSize()
         } label: {
             Image(systemName: "checkmark")
                 .frame(width: 60, height: 60)
@@ -89,15 +97,19 @@ struct ARPlaceBoxView : View {
                 .cornerRadius(30)
                 .padding(10)
         }
-        .alert(String(format: "Your potential plant size is around %.2f %.2f %.2f meters. \n\n - OK to apply filter\n - Cancel to disable filter", viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z), isPresented: $viewModel.showConfirmMsg){
+        .alert(
+            String(format: viewModel.boxConfirmMsgString, viewModel.boxSize.x, viewModel.boxSize.y, viewModel.boxSize.z),
+            isPresented: $viewModel.showConfirmMsg
+        ){
             Button("OK") {
-                viewModel.saveBoxSize()
-                viewModel.useARKit = true
-            }.task {
-                viewModel.confirmBoxSize = viewModel.boxSize
+                viewModel.isGoToLuxMeasurement = true
             }
-            Button("Cancel", role: .cancel) {
+            Button("Cancel") {
                 viewModel.clearBoxSize()
+            }
+            Button("skip size measurement") {
+                viewModel.clearBoxSize()
+                viewModel.isGoToLuxMeasurement = true
             }
         }
     }

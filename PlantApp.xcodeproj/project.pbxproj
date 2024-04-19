@@ -53,6 +53,7 @@
 		B27D950A2BC745160088AE6E /* PrimaryButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D95092BC745160088AE6E /* PrimaryButtonTests.swift */; };
 		B27D95102BC74BF60088AE6E /* ProductRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D950F2BC74BF60088AE6E /* ProductRowTests.swift */; };
 		B27D95122BD2624B0088AE6E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B27D95112BD2624B0088AE6E /* README.md */; };
+		B27D95142BD26B9C0088AE6E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B27D95132BD26B9C0088AE6E /* LICENSE */; };
 		B282F6082BB8EA3C0089B9A2 /* CartManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */; };
 		B282F60A2BB8FA6B0089B9A2 /* MockCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */; };
 		B282F60C2BB8FCFF0089B9A2 /* QuestionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */; };
@@ -166,6 +167,7 @@
 		B27D95092BC745160088AE6E /* PrimaryButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonTests.swift; sourceTree = "<group>"; };
 		B27D950F2BC74BF60088AE6E /* ProductRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowTests.swift; sourceTree = "<group>"; };
 		B27D95112BD2624B0088AE6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B27D95132BD26B9C0088AE6E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B282F6072BB8EA3C0089B9A2 /* CartManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManaging.swift; sourceTree = "<group>"; };
 		B282F6092BB8FA6B0089B9A2 /* MockCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartManager.swift; sourceTree = "<group>"; };
 		B282F60B2BB8FCFF0089B9A2 /* QuestionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManaging.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		B23108B22AFA051300D13F17 = {
 			isa = PBXGroup;
 			children = (
+				B27D95132BD26B9C0088AE6E /* LICENSE */,
 				B23109282AFA43AD00D13F17 /* PlantApp.xctestplan */,
 				B23108BD2AFA051300D13F17 /* PlantApp */,
 				B23108D02AFA051500D13F17 /* PlantAppTests */,
@@ -801,6 +804,7 @@
 				B2DFADAC2B881DA400FB0B0A /* peruvian_apple_cactusz.usdz in Resources */,
 				B2DFAD9E2B87FFEB00FB0B0A /* golden_pothos.usdz in Resources */,
 				B2DFADA02B8809CB00FB0B0A /* dwarf_fiddle_leaf_fig.usdz in Resources */,
+				B27D95142BD26B9C0088AE6E /* LICENSE in Resources */,
 				B2DFADB02B8822CF00FB0B0A /* peacock_plant.usdz in Resources */,
 				B2DFADAE2B88200600FB0B0A /* marginata.usdz in Resources */,
 				B2DFADA62B88139800FB0B0A /* christmas_cactus.usdz in Resources */,

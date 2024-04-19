@@ -254,6 +254,7 @@
 				B23108BD2AFA051300D13F17 /* PlantApp */,
 				B23108D02AFA051500D13F17 /* PlantAppTests */,
 				B23108DA2AFA051500D13F17 /* PlantAppUITests */,
+				B27D95112BD2624B0088AE6E /* README.md */,
 				B23108BC2AFA051300D13F17 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -284,7 +285,6 @@
 				B23108BE2AFA051300D13F17 /* AppDelegate.swift */,
 				B23108C02AFA051300D13F17 /* ContentARView.swift */,
 				B23108C62AFA051500D13F17 /* Preview Content */,
-				B27D95112BD2624B0088AE6E /* README.md */,
 			);
 			path = PlantApp;
 			sourceTree = "<group>";

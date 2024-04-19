@@ -39,3 +39,6 @@ To get started with Plants for Urbanites, follow these steps:
 I welcome feedback and contributions from users and developers alike. If you encounter any issues, have suggestions for improvements, or wish to contribute to the project, please reach out to me via [shenpo@oregonstate.edu].
 
 Thank you for checking out Plants for Urbanites! I hope it brings greenery and joy into your urban living space.
+
+## License
+[MIT License](LICENSE)
